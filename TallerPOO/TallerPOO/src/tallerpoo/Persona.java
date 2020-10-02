@@ -118,11 +118,11 @@ public class Persona {
 
     public Date realizarActividad(Edad ed) {
         if (ed == NIÑOS) { //si es niño
-            actividad.getHoraEscuela(); //cambiar por irEscuela()
+            actividad.irEscuela();
         } else if (ed == ADULTOS) { //si es adulto
-            actividad.getHoraTrabajo(); //cambiar por irTrabajo()
+            actividad.irTrabajo();
         } else { //si es adulto mayor
-            actividad.getHoraPaseo(); //cambiar por irPaseo()
+            actividad.irPaseo();
         }
 
         return null;

@@ -33,44 +33,56 @@ public class Actividad {
 
     /*
     * return @horaPaseo
-    */
+     */
     public int getHoraPaseo() {
         return horaPaseo;
     }
 
     /*
     * set @horaPaseo
-    */
+     */
     public void setHoraPaseo(int horaPaseo) {
         this.horaPaseo = horaPaseo;
     }
 
     /*
     * return @horaEscuela
-    */
+     */
     public int getHoraEscuela() {
         return horaEscuela;
     }
-    
+
     /*
     * set @horaEscuela
-    */
+     */
     public void setHoraEscuela(int horaEscuela) {
         this.horaEscuela = horaEscuela;
     }
 
     /*
     * return @horaTrabajo
-    */
+     */
     public int getHoraTrabajo() {
         return horaTrabajo;
     }
 
     /*
     * set @horaTrabajo
-    */
+     */
     public void setHoraTrabajo(int horaTrabajo) {
         this.horaTrabajo = horaTrabajo;
+    }
+
+    public void irPaseo() {
+
+    }
+
+    public void irEscuela() {
+
+    }
+
+    public void irTrabajo() {
+
     }
 
     /*  
