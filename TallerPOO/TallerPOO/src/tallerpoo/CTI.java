@@ -9,12 +9,13 @@ package TallerPoo;
  *
  * @author Joaquin
  */
-public class CTI extends Cuidado{
+public class CTI extends Cuidado {
+
     private Hospital cti;
 
     public CTI(Hospital cti) {
         super();
-        this.cti= cti;
+        this.cti = cti;
     }
-    
+
 }

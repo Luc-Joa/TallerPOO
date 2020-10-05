@@ -26,28 +26,28 @@ public class Cuidado {
 
     /*
     * return @duracion
-    */
+     */
     public int getDuracion() {
         return duracion;
     }
 
     /*
     * set @duracion
-    */
+     */
     public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
 
     /*
     * return @paciente
-    */
+     */
     public Persona getPaciente() {
         return paciente;
     }
 
     /*
     * set @paciente
-    */
+     */
     public void setPaciente(Persona paciente) {
         this.paciente = paciente;
     }

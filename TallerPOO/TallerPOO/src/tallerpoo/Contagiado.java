@@ -15,15 +15,16 @@ import java.util.List;
 public class Contagiado {
 
     private List<Persona> perCont, perSana;
-    private List<Persona> personas;
-    private Hospital hospital;
+    private Persona personas;
+    Hospital hospital;
 
     public Contagiado() {
-        this.personas = new ArrayList<>();
+        this.perSana = new ArrayList<>();
+        this.perCont = new ArrayList<>();
     }
 
     public Contagiado(Persona personas, Hospital hospital) {
-        this.personas.add(personas);
+        this.personas = personas;
         this.hospital = hospital;
     }
 
@@ -59,27 +60,24 @@ public class Contagiado {
     * y la agrega a la lista de personas correspondiente 
      */
     public void consulta() {
-        for (int i = 0; i < this.personas.size(); i++) {
-            if (this.personas.get(i).getContagio()) {
-                this.perCont.add(this.personas.get(i));
-            } else {
-                this.perSana.add(this.personas.get(i));
-            }
+        if (this.personas.getContagio()) {
+            this.perCont.add(this.personas);
+        } else {
+            this.perSana.add(this.personas);
         }
-
     }
 
     /* 
     * muestra una lista de contagiados 
      */
-    public List mostrarContagiados() {
+    public List<Persona> mostrarContagiados() {
         return this.perCont;
     }
 
     /* 
     * muestra una lista de sanos
      */
-    public List mostrarSanos() {
+    public List<Persona> mostrarSanos() {
         return this.perSana;
     }
 

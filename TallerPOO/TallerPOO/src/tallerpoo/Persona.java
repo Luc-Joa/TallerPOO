@@ -5,31 +5,28 @@
  */
 package TallerPoo;
 
-import static TallerPoo.Edad.ADULTOS;
-import static TallerPoo.Edad.NIÑOS;
-import java.util.Date;
-
 /**
  *
  * @author Joaquin
  */
-public class Persona {
+public class Persona extends Thread {
 
     private Edad edad;
     private Boolean contagio, sintoma;
     private Color color;
     private TipoCuidado cuidado;
     private Comorbilidad comorbilidad;
-    private Contagiado contagiado;
+    private Hospital hospital;
     private Actividad actividad;
 
-    public Persona(Edad edad, Boolean contagio, Boolean sintoma, Color color, TipoCuidado cuidado, Comorbilidad comorbilidad) {
+    public Persona(Edad edad, Boolean contagio, Boolean sintoma, TipoCuidado cuidado, Comorbilidad comorbilidad, Actividad actividad) {
         this.edad = edad;
         this.contagio = contagio;
         this.sintoma = sintoma;
-        this.color = color;
+        this.color = cuidado.tipoCuidado();
         this.cuidado = cuidado;
         this.comorbilidad = comorbilidad;
+        this.actividad = actividad;
     }
 
     /*
@@ -116,22 +113,15 @@ public class Persona {
         this.cuidado = cuidado;
     }
 
-    public Date realizarActividad(Edad ed) {
-        if (ed == NIÑOS) { //si es niño
-            actividad.irEscuela();
-        } else if (ed == ADULTOS) { //si es adulto
-            actividad.irTrabajo();
-        } else { //si es adulto mayor
-            actividad.irPaseo();
-        }
+    public void actividad() {
+        actividad.agregarPersona(this);
+    }
 
-        return null;
+    public void realizar() {
+        actividad.realizarActividad();
     }
 
     public void mostrarCuidado(TipoCuidado tp) {
-        System.out.println("Cuidado: \n" + "¿Desinfecta?" + tp.getDesinfectar()
-                + "¿Toma distanciamiento?" + tp.getDistanciamiento()
-                + "¿Evita contacto?" + tp.getEvitarcontacto()
-                + "¿Utiliza tapabocas?" + tp.getTapabocas());
+
     }
 }

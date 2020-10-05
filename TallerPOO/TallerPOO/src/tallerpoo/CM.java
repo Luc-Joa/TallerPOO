@@ -9,12 +9,14 @@ package TallerPoo;
  *
  * @author Joaquin
  */
-public class CM extends Cuidado{
+public class CM extends Cuidado {
+
     private Hospital cm;
+    private Persona persona;
 
     public CM(Hospital cm) {
         super();
         this.cm = cm;
     }
-    
+
 }

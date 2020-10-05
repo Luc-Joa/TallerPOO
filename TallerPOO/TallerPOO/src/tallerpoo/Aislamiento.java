@@ -9,6 +9,12 @@ package TallerPoo;
  *
  * @author ACU
  */
-public class Aislamiento extends Cuidado{
+public class Aislamiento extends Cuidado {
+
     private Hospital pacientesAislamiento;
+
+    public Aislamiento() {
+        super(4, null);
+    }
+
 }

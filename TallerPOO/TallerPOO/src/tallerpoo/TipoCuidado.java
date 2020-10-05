@@ -5,12 +5,12 @@ package TallerPoo;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Joaquin
  */
 public class TipoCuidado {
+
     private Boolean tapabocas, distanciamiento, desinfectar, evitarcontacto;
 
     public TipoCuidado(Boolean tapabocas, Boolean distanciamiento, Boolean desinfectar, Boolean evitarcontacto) {
@@ -51,13 +51,13 @@ public class TipoCuidado {
     public void setEvitarcontacto(Boolean evitarcontacto) {
         this.evitarcontacto = evitarcontacto;
     }
-    
-    public Color tipoCuidado(){
+
+    public Color tipoCuidado() {
         if (tapabocas && distanciamiento && desinfectar && evitarcontacto) {
             return Color.VERDE;
-        }else if(tapabocas){
+        } else if (tapabocas) {
             return Color.AMARILLO;
-        }else if(!(tapabocas && distanciamiento && desinfectar && evitarcontacto)){
+        } else if (!(tapabocas && distanciamiento && desinfectar && evitarcontacto)) {
             return Color.ANARANJADO;
         }
         return Color.ANARANJADO;

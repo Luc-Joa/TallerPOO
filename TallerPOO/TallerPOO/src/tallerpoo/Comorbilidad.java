@@ -5,12 +5,12 @@ package TallerPoo;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Joaquin
  */
 public class Comorbilidad {
+
     private Boolean diabetes, hipertencionArterial, obesidad, enfCard, enfPul;
 
     public Comorbilidad(Boolean diabetes, Boolean hipertencionArterial, Boolean obesidad, Boolean enfCard, Boolean enfPul) {

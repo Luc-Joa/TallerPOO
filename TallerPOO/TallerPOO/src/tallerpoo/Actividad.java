@@ -5,6 +5,7 @@
  */
 package TallerPoo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,19 +17,31 @@ public class Actividad {
     private List<Persona> ninos;
     private List<Persona> adultos;
     private List<Persona> adultosMayores;
-    private Contagiado contagiado;
-    private int horaPaseo, horaEscuela, horaTrabajo;
+    final int horaPaseo, horaEscuela, horaTrabajo;
 
     public Actividad() {
-        horaPaseo = 0;
-        horaEscuela = 0;
-        horaTrabajo = 0;
+        ninos = new ArrayList<>();
+        adultos = new ArrayList<>();
+        adultosMayores = new ArrayList<>();
+        horaPaseo = 1;
+        horaEscuela = 4;
+        horaTrabajo = 8;
     }
 
-    public Actividad(int horaPaseo, int horaEscuela, int horaTrabajo) {
-        this.horaPaseo = horaPaseo;
-        this.horaEscuela = horaEscuela;
-        this.horaTrabajo = horaTrabajo;
+    public void agregarPersona(Persona a) {
+        if (a.getEdad() == Edad.NIÑOS) {
+            ninos.add(a);
+        }
+        if (a.getEdad() == Edad.ADULTOS) {
+            adultos.add(a);
+        }
+        if (a.getEdad() == Edad.ADULTOS_MAYORES) {
+            adultosMayores.add(a);
+        }
+    }
+
+    public int cant() {
+        return ninos.size();
     }
 
     /*
@@ -39,24 +52,10 @@ public class Actividad {
     }
 
     /*
-    * set @horaPaseo
-     */
-    public void setHoraPaseo(int horaPaseo) {
-        this.horaPaseo = horaPaseo;
-    }
-
-    /*
     * return @horaEscuela
      */
     public int getHoraEscuela() {
         return horaEscuela;
-    }
-
-    /*
-    * set @horaEscuela
-     */
-    public void setHoraEscuela(int horaEscuela) {
-        this.horaEscuela = horaEscuela;
     }
 
     /*
@@ -66,29 +65,83 @@ public class Actividad {
         return horaTrabajo;
     }
 
-    /*
-    * set @horaTrabajo
-     */
-    public void setHoraTrabajo(int horaTrabajo) {
-        this.horaTrabajo = horaTrabajo;
+    public void realizarActividad() {
+        int c = 0;
+        for (int i = 0; i < ninos.size(); i++) {
+            if (ninos.get(i).getContagio()) {
+                escuela(ninos.get(i), i);
+            }
+        }
+        c = ninos.stream().filter((nino) -> (nino.getContagio())).map((_item) -> 1).reduce(c, Integer::sum);
+        System.out.println("Cantidad de contagiados :" + c);
+        for (int i = 0; i < adultos.size(); i++) {
+            if (adultos.get(i).getContagio()) {
+                escuela(adultos.get(i), i);
+                break;
+            }
+        }
+        for (int i = 0; i < adultosMayores.size(); i++) {
+            if (adultosMayores.get(i).getContagio()) {
+                escuela(adultosMayores.get(i), i);
+                break;
+            }
+        }
+
     }
 
-    public void irPaseo() {
-
+    public void escuela(Persona a, int c) {
+        for (int i = c + 1; i < ninos.size(); i++) {
+            if (Math.random()<0.1) {
+              if (!ninos.get(i).getContagio()) {
+                if (Math.random() * 100 < interactuar(a, ninos.get(i))) {
+                    System.out.println(i + "Se contagio");
+                    ninos.get(i).setContagio(true);
+                }
+            }  
+            }
+            
+        }
     }
 
-    public void irEscuela() {
-
+    public void trabajo(Persona a, int c) {
+        for (int i = c + 1; i < adultos.size(); i++) {
+            if (!adultos.get(i).getContagio()) {
+                if (Math.random() * 100 < interactuar(a, adultos.get(i))) {
+                    System.out.println(i + "Se contagio");
+                    adultos.get(i).setContagio(true);
+                }
+            }
+        }
     }
 
-    public void irTrabajo() {
-
+    public void paseo(Persona a, int c) {
+         for (int i = c + 1; i < adultosMayores.size(); i++) {
+            if (!adultosMayores.get(i).getContagio()) {
+                if (Math.random() * 100 < interactuar(a, adultosMayores.get(i))) {
+                    System.out.println(i + "Se contagio");
+                    adultosMayores.get(i).setContagio(true);
+                }
+            }
+        }
     }
+
 
     /*  
     * devuelve la posibilidad de contagio entre dos personas que interactúan entre sí 
      */
     public double interactuar(Persona a, Persona b) {
+        if (a.getCuidado().getTapabocas() && b.getCuidado().getTapabocas()) {
+            return 1.5;
+        }
+        if (a.getCuidado().getTapabocas() && !b.getCuidado().getTapabocas()) {
+            return 5;
+        }
+        if (!a.getCuidado().getTapabocas() && b.getCuidado().getTapabocas()) {
+            return 75;
+        }
+        if (!a.getCuidado().getTapabocas() && !b.getCuidado().getTapabocas()) {
+            return 90;
+        }
         return 0;
     }
 }
