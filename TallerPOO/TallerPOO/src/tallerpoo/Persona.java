@@ -124,4 +124,10 @@ public class Persona extends Thread {
     public TipoCuidado mostrarCuidado() {
         return cuidado;
     }
+    /**
+     * Consulta
+     */
+    public void consulta(){
+        hospital.consulta();
+    }
 }
