@@ -121,7 +121,7 @@ public class Persona extends Thread {
         actividad.realizarActividad();
     }
 
-    public void mostrarCuidado(TipoCuidado tp) {
-
+    public TipoCuidado mostrarCuidado() {
+        return cuidado;
     }
 }
