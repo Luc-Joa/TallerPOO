@@ -40,20 +40,19 @@ public class Contagiado {
 //    public void setPersona(Persona persona) {
 //        this.persona = persona;
 //    }
-
-    /*
-    * return @hospital
-     */
-    public Hospital getHospital() {
-        return hospital;
-    }
-
-    /* creo que no va
-    * set @hospital
-     */
-    public void settHospital(Hospital hospital) {
-        this.hospital = hospital;
-    }
+//    /*
+//    * return @hospital
+//     */
+//    public Hospital getHospital() {
+//        return hospital;
+//    }
+//
+//    /* creo que no va
+//    * set @hospital
+//     */
+//    public void setHospital(Hospital hospital) {
+//        this.hospital = hospital;
+//    }
 
     /*  
     * si una persona está contagiada o no 
