@@ -16,7 +16,7 @@ public class Persona extends Thread {
     private Color color;
     private TipoCuidado cuidado;
     private Comorbilidad comorbilidad;
-    private Hospital hospital;
+    private Contagiado hospital;
     private Actividad actividad;
 
     public Persona(Edad edad, Boolean contagio, Boolean sintoma, TipoCuidado cuidado, Comorbilidad comorbilidad, Actividad actividad) {
