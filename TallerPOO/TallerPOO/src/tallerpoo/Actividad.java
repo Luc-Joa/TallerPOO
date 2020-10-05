@@ -14,9 +14,9 @@ import java.util.List;
  */
 public class Actividad {
 
-    private List<Persona> ninos; //maxi gay
-    private List<Persona> adultos; //maxi lindo
-    private List<Persona> adultosMayores; //tur bu len cia
+    private List<Persona> ninos;
+    private List<Persona> adultos;
+    private List<Persona> adultosMayores;
     final int horaPaseo, horaEscuela, horaTrabajo;
 
     public Actividad() {
