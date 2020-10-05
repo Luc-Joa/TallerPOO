@@ -56,6 +56,13 @@ public class Cuidado {
     * devuelve true si una persona es curada 
      */
     public boolean curado() {
+        int d = duracion;
+        for (int i = 0; i < duracion; i++) {
+            d--;
+            if (d == 0) {
+                return true;
+            }
+        }
         return false;
     }
 }
