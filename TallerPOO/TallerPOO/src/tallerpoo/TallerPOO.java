@@ -12,6 +12,12 @@ package TallerPoo;
 public class TallerPOO {
 
     public static void main(String[] args) throws InterruptedException {
+
+        //para comenzar con los threads/hilos
+        Persona p1 = new Persona();
+
+        p1.start();
+
 //        //Boolean tapabocas, Boolean distanciamiento, Boolean desinfectar, Boolean evitarcontacto 
 //        //Boolean diabetes, Boolean hipertencionArterial, Boolean obesidad, Boolean enfCard, Boolean enfPul
         Comorbilidad co = new Comorbilidad(false, true, true, false, false);
