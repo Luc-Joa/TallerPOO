@@ -15,7 +15,7 @@ import java.util.List;
 public class Contagiado {
 
     private List<Persona> perCont, perSana;
-    private Persona personas;
+    private Persona persona;
     Hospital hospital;
 
     public Contagiado() {
@@ -23,8 +23,8 @@ public class Contagiado {
         this.perCont = new ArrayList<>();
     }
 
-    public Contagiado(Persona personas, Hospital hospital) {
-        this.personas = personas;
+    public Contagiado(Persona persona, Hospital hospital) {
+        this.persona = persona;
         this.hospital = hospital;
     }
 
@@ -55,17 +55,23 @@ public class Contagiado {
 //    }
 
     /*  
-    * si una persona está contagiada o no 
-    * y la agrega a la lista de personas correspondiente 
+    * si una persona está contagiada o no
+    * y la agrega a la lista de persona correspondiente 
      */
-    public void consulta() {
-        if (this.personas.getContagio()) {
-            this.perCont.add(this.personas);
-        } else {
-            this.perSana.add(this.personas);
-        }
+    public Boolean consulta() {
+        if (this.persona.getContagio()) {
+            agregarContagiado(persona);
+        } 
+        return persona.getContagio();
     }
-
+    
+    public void agregarContagiado(Persona p){
+        this.perCont.add(p);
+        hospital.derivarPersona(p);
+    }
+    
+    
+       
     /* 
     * muestra una lista de contagiados 
      */
