@@ -52,8 +52,10 @@ public class Cuidado {
         this.paciente = paciente;
     }
 
-    /* 
-    * devuelve true si una persona es curada 
+    /**
+     * devuelve true si una persona es curada
+     *
+     * @return boolean curado
      */
     public boolean curado() {
         int d = duracion;

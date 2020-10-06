@@ -27,6 +27,11 @@ public class Hospital {
         this.aislamiento = new Aislamiento();
     }
 
+    /**
+     * deriva a la persona contagiada determinando su gravedad y comorbilidades
+     *
+     * @param p
+     */
     public void derivarPersona(Persona p) {
         if (p.getComorbilidad().getEnfCard() || p.getComorbilidad().getEnfPul()) {
             if (!(contcti >= cti.length)) {
@@ -44,14 +49,29 @@ public class Hospital {
         }
     }
 
+    /**
+     * muestra una lista de pacientes en CTI
+     *
+     * @return cti
+     */
     public CTI[] mostrarPacientesCTI() {
         return cti;
     }
 
+    /**
+     * muestra una lista de pacientes en CM
+     *
+     * @return cm
+     */
     public CM[] mostrarPacientesCM() {
         return cm;
     }
 
+    /**
+     * muestra una lista de pacientes en Aislamiento
+     *
+     * @return aislamiento
+     */
     public Aislamiento mostrarPacientesAislamiento() {
         return aislamiento;
     }

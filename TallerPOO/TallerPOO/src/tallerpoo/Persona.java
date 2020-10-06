@@ -70,7 +70,7 @@ public class Persona extends Thread {
     public void setContagio(Boolean contagio) {
         this.contagio = contagio;
     }
-    
+
     /*
     * return @sintoma
      */
@@ -113,21 +113,34 @@ public class Persona extends Thread {
         this.cuidado = cuidado;
     }
 
+    /**
+     * agrega una persona a la actividad según su edad
+     */
     public void actividad() {
         actividad.agregarPersona(this);
     }
 
+    /**
+     * realiza una actividad según su edad
+     */
     public void realizar() {
         actividad.realizarActividad();
     }
 
+    /**
+     * muestra el cuidado de cada persona
+     *
+     * @return cuidado
+     */
     public TipoCuidado mostrarCuidado() {
         return cuidado;
     }
+
     /**
-     * Consulta
+     * devuelve si una persona está contagiada o no, si está contagiada la
+     * agrega a la lista de persona correspondiente
      */
-    public void consulta(){
+    public void consulta() {
         this.hospital.consulta();
     }
 }
