@@ -70,7 +70,7 @@ public class Persona extends Thread {
     public void setContagio(Boolean contagio) {
         this.contagio = contagio;
     }
-
+    
     /*
     * return @sintoma
      */
@@ -128,6 +128,6 @@ public class Persona extends Thread {
      * Consulta
      */
     public void consulta(){
-        hospital.consulta();
+        this.hospital.consulta();
     }
 }
