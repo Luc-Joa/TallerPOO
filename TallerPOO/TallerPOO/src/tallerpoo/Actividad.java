@@ -14,15 +14,15 @@ import java.util.List;
  */
 public class Actividad {
 
-    private List<Persona> ninos;
-    private List<Persona> adultos;
-    private List<Persona> adultosMayores;
+    private List<Persona> nino;
+    private List<Persona> adulto;
+    private List<Persona> adultoMayore;
     final int horaPaseo, horaEscuela, horaTrabajo;
 
     public Actividad() {
-        ninos = new ArrayList<>();
-        adultos = new ArrayList<>();
-        adultosMayores = new ArrayList<>();
+        nino = new ArrayList<>();
+        adulto = new ArrayList<>();
+        adultoMayore = new ArrayList<>();
         horaPaseo = 1;
         horaEscuela = 4;
         horaTrabajo = 8;
@@ -30,18 +30,18 @@ public class Actividad {
 
     public void agregarPersona(Persona a) {
         if (a.getEdad() == Edad.NIÑOS) {
-            ninos.add(a);
+            nino.add(a);
         }
         if (a.getEdad() == Edad.ADULTOS) {
-            adultos.add(a);
+            adulto.add(a);
         }
         if (a.getEdad() == Edad.ADULTOS_MAYORES) {
-            adultosMayores.add(a);
+            adultoMayore.add(a);
         }
     }
 
     public int cant() {
-        return ninos.size();
+        return nino.size();
     }
 
     /*
@@ -67,22 +67,22 @@ public class Actividad {
 
     public void realizarActividad() {
         int c = 0;
-        for (int i = 0; i < ninos.size(); i++) {
-            if (ninos.get(i).getContagio()) {
-                escuela(ninos.get(i), i);
+        for (int i = 0; i < nino.size(); i++) {
+            if (nino.get(i).getContagio()) {
+                escuela(nino.get(i), i);
             }
         }
-        c = ninos.stream().filter((nino) -> (nino.getContagio())).map((_item) -> 1).reduce(c, Integer::sum);
+        c = nino.stream().filter((nino) -> (nino.getContagio())).map((_item) -> 1).reduce(c, Integer::sum);
         System.out.println("Cantidad de contagiados :" + c);
-        for (int i = 0; i < adultos.size(); i++) {
-            if (adultos.get(i).getContagio()) {
-                escuela(adultos.get(i), i);
+        for (int i = 0; i < adulto.size(); i++) {
+            if (adulto.get(i).getContagio()) {
+                escuela(adulto.get(i), i);
                 break;
             }
         }
-        for (int i = 0; i < adultosMayores.size(); i++) {
-            if (adultosMayores.get(i).getContagio()) {
-                escuela(adultosMayores.get(i), i);
+        for (int i = 0; i < adultoMayore.size(); i++) {
+            if (adultoMayore.get(i).getContagio()) {
+                escuela(adultoMayore.get(i), i);
                 break;
             }
         }
@@ -90,12 +90,12 @@ public class Actividad {
     }
 
     public void escuela(Persona a, int c) {
-        for (int i = c + 1; i < ninos.size(); i++) {
+        for (int i = c + 1; i < nino.size(); i++) {
             if (Math.random()<0.1) {
-              if (!ninos.get(i).getContagio()) {
-                if (Math.random() * 100 < interactuar(a, ninos.get(i))) {
+              if (!nino.get(i).getContagio()) {
+                if (Math.random() * 100 < interactuar(a, nino.get(i))) {
                     System.out.println(i + "Se contagio");
-                    ninos.get(i).setContagio(true);
+                    nino.get(i).setContagio(true);
                 }
             }  
             }
@@ -104,22 +104,22 @@ public class Actividad {
     }
 
     public void trabajo(Persona a, int c) {
-        for (int i = c + 1; i < adultos.size(); i++) {
-            if (!adultos.get(i).getContagio()) {
-                if (Math.random() * 100 < interactuar(a, adultos.get(i))) {
+        for (int i = c + 1; i < adulto.size(); i++) {
+            if (!adulto.get(i).getContagio()) {
+                if (Math.random() * 100 < interactuar(a, adulto.get(i))) {
                     System.out.println(i + "Se contagio");
-                    adultos.get(i).setContagio(true);
+                    adulto.get(i).setContagio(true);
                 }
             }
         }
     }
 
     public void paseo(Persona a, int c) {
-         for (int i = c + 1; i < adultosMayores.size(); i++) {
-            if (!adultosMayores.get(i).getContagio()) {
-                if (Math.random() * 100 < interactuar(a, adultosMayores.get(i))) {
+         for (int i = c + 1; i < adultoMayore.size(); i++) {
+            if (!adultoMayore.get(i).getContagio()) {
+                if (Math.random() * 100 < interactuar(a, adultoMayore.get(i))) {
                     System.out.println(i + "Se contagio");
-                    adultosMayores.get(i).setContagio(true);
+                    adultoMayore.get(i).setContagio(true);
                 }
             }
         }
