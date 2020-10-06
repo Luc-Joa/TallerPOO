@@ -5,6 +5,9 @@
  */
 package TallerPoo;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Joaquin
@@ -27,6 +30,18 @@ public class Persona extends Thread {
         this.cuidado = cuidado;
         this.comorbilidad = comorbilidad;
         this.actividad = actividad;
+    }
+
+    //para comenzar con los threads/hilos
+    //constructor por defecto
+    public Persona() {
+        edad = null;
+        contagio = false;
+        sintoma = null;
+        color = null;
+        cuidado = null;
+        comorbilidad = null;
+        actividad = null;
     }
 
     /*
@@ -142,5 +157,16 @@ public class Persona extends Thread {
      */
     public void consulta() {
         this.hospital.consulta();
+    }
+
+    //para comenzar con los threads/hilos
+    @Override
+    public void run() {
+        System.out.println(" hilo ejecutándose ");
+        try {
+            sleep(1000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
