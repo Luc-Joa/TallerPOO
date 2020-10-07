@@ -82,20 +82,20 @@ public class Actividad {
         int c = 0;
         for (int i = 0; i < nino.size(); i++) {
             if (nino.get(i).getContagio()) {
-                escuela(nino.get(i), i);
+                escuela(nino.get(i));
             }
         }
         c = nino.stream().filter((nino) -> (nino.getContagio())).map((_item) -> 1).reduce(c, Integer::sum);
         System.out.println("Cantidad de contagiados: " + c);
         for (int i = 0; i < adulto.size(); i++) {
             if (adulto.get(i).getContagio()) {
-                escuela(adulto.get(i), i);
+                escuela(adulto.get(i));
                 break;
             }
         }
         for (int i = 0; i < adultoMayore.size(); i++) {
             if (adultoMayore.get(i).getContagio()) {
-                escuela(adultoMayore.get(i), i);
+                escuela(adultoMayore.get(i));
                 break;
             }
         }
@@ -106,12 +106,11 @@ public class Actividad {
      * ninos van a la escuela e interactuán con otras personas
      *
      * @param a
-     * @param c
      */
-    public void escuela(Persona a, int c) {
-        for (int i = c + 1; i < nino.size(); i++) {
+    public void escuela(Persona a) {
+        for (int i = 0 + 1; i < nino.size(); i++) {
             if (Math.random() < 0.1) {
-                if (!nino.get(i).getContagio()) {
+                if (!a.equals(nino.get(i)) && !nino.get(i).getContagio()) {
                     if (Math.random() * 100 < interactuar(a, nino.get(i))) {
                         System.out.println(i + "Se contagio");
                         nino.get(i).setContagio(true);
