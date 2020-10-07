@@ -45,15 +45,6 @@ public class Actividad {
         }
     }
 
-    /**
-     * devuelve el tamanio de la lista nino
-     *
-     * @return tamanio nino list
-     */
-    public int cant() {
-        return nino.size();
-    }
-
     /*
     * return @horaPaseo
      */
@@ -81,23 +72,15 @@ public class Actividad {
     public void realizarActividad() {
         int c = 0;
         for (int i = 0; i < nino.size(); i++) {
-            if (nino.get(i).getContagio()) {
-                escuela(nino.get(i));
-            }
+            escuela(nino.get(i));
         }
         c = nino.stream().filter((nino) -> (nino.getContagio())).map((_item) -> 1).reduce(c, Integer::sum);
         System.out.println("Cantidad de contagiados: " + c);
         for (int i = 0; i < adulto.size(); i++) {
-            if (adulto.get(i).getContagio()) {
-                escuela(adulto.get(i));
-                break;
-            }
+            escuela(adulto.get(i));
         }
         for (int i = 0; i < adultoMayore.size(); i++) {
-            if (adultoMayore.get(i).getContagio()) {
-                escuela(adultoMayore.get(i));
-                break;
-            }
+            escuela(adultoMayore.get(i));
         }
 
     }
@@ -112,7 +95,7 @@ public class Actividad {
             if (Math.random() < 0.1) {
                 if (!a.equals(nino.get(i)) && !nino.get(i).getContagio()) {
                     if (Math.random() * 100 < interactuar(a, nino.get(i))) {
-                        System.out.println(i + "Se contagio");
+                        System.out.println(i + " se contagió. ");
                         nino.get(i).setContagio(true);
                     }
                 }
@@ -128,13 +111,16 @@ public class Actividad {
      * @param c
      */
     public void trabajo(Persona a, int c) {
-        for (int i = c + 1; i < adulto.size(); i++) {
-            if (!adulto.get(i).getContagio()) {
-                if (Math.random() * 100 < interactuar(a, adulto.get(i))) {
-                    System.out.println(i + " se contagió. ");
-                    adulto.get(i).setContagio(true);
+        for (int i = 0 + 1; i < adulto.size(); i++) {
+            if (Math.random() < 0.1) {
+                if (!a.equals(adulto.get(i)) && !adulto.get(i).getContagio()) {
+                    if (Math.random() * 100 < interactuar(a, adulto.get(i))) {
+                        System.out.println(i + " se contagió. ");
+                        adulto.get(i).setContagio(true);
+                    }
                 }
             }
+
         }
     }
 
@@ -145,13 +131,16 @@ public class Actividad {
      * @param c
      */
     public void paseo(Persona a, int c) {
-        for (int i = c + 1; i < adultoMayore.size(); i++) {
-            if (!adultoMayore.get(i).getContagio()) {
-                if (Math.random() * 100 < interactuar(a, adultoMayore.get(i))) {
-                    System.out.println(i + "Se contagio");
-                    adultoMayore.get(i).setContagio(true);
+        for (int i = 0 + 1; i < adultoMayore.size(); i++) {
+            if (Math.random() < 0.1) {
+                if (!a.equals(adultoMayore.get(i)) && !adultoMayore.get(i).getContagio()) {
+                    if (Math.random() * 100 < interactuar(a, adultoMayore.get(i))) {
+                        System.out.println(i + " se contagió. ");
+                        adultoMayore.get(i).setContagio(true);
+                    }
                 }
             }
+
         }
     }
 
