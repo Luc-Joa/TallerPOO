@@ -71,17 +71,25 @@ public class Actividad {
      */
     public void realizarActividad() {
         int c = 0;
+        int c2 = 0; //agregados comentados con .
+        int c3 = 0; //.
         for (int i = 0; i < nino.size(); i++) {
             escuela(nino.get(i));
         }
         c = nino.stream().filter((nino) -> (nino.getContagio())).map((_item) -> 1).reduce(c, Integer::sum);
-        System.out.println("Cantidad de contagiados: " + c);
+        System.out.println("Cantidad de niños contagiados: " + c);
+
         for (int i = 0; i < adulto.size(); i++) {
-            escuela(adulto.get(i));
+            trabajo(adulto.get(i)); //reemplaza escuela por trabajo
         }
+        c2 = adulto.stream().filter((adulto) -> (adulto.getContagio())).map((_item) -> 1).reduce(c, Integer::sum); //.
+        System.out.println("Cantidad de adultos contagiados: " + c);
+
         for (int i = 0; i < adultoMayore.size(); i++) {
-            escuela(adultoMayore.get(i));
+            paseo(adultoMayore.get(i)); //reemplaza escuela por paseo
         }
+        c3 = adultoMayore.stream().filter((adultoMayore) -> (adultoMayore.getContagio())).map((_item) -> 1).reduce(c, Integer::sum); //.
+        System.out.println("Cantidad de adultos mayores contagiados: " + c);
 
     }
 
@@ -110,7 +118,7 @@ public class Actividad {
      * @param a
      * @param c
      */
-    public void trabajo(Persona a, int c) {
+    public void trabajo(Persona a) {
         for (int i = 0 + 1; i < adulto.size(); i++) {
             if (Math.random() < 0.1) {
                 if (!a.equals(adulto.get(i)) && !adulto.get(i).getContagio()) {
@@ -130,7 +138,7 @@ public class Actividad {
      * @param a
      * @param c
      */
-    public void paseo(Persona a, int c) {
+    public void paseo(Persona a) {
         for (int i = 0 + 1; i < adultoMayore.size(); i++) {
             if (Math.random() < 0.1) {
                 if (!a.equals(adultoMayore.get(i)) && !adultoMayore.get(i).getContagio()) {
