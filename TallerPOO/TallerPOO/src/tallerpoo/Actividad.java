@@ -71,7 +71,7 @@ public class Actividad {
      */
     public void realizarActividad() {
         int c = 0;
-        int c2 = 0; //agregados comentados con .
+        int c2 = 0; //lo que agregué comentados con un punto (.)
         int c3 = 0; //.
         for (int i = 0; i < nino.size(); i++) {
             escuela(nino.get(i));
@@ -82,14 +82,14 @@ public class Actividad {
         for (int i = 0; i < adulto.size(); i++) {
             trabajo(adulto.get(i)); //reemplaza escuela por trabajo
         }
-        c2 = adulto.stream().filter((adulto) -> (adulto.getContagio())).map((_item) -> 1).reduce(c, Integer::sum); //.
-        System.out.println("Cantidad de adultos contagiados: " + c);
+        c2 = adulto.stream().filter((adulto) -> (adulto.getContagio())).map((_item) -> 1).reduce(c2, Integer::sum); //.
+        System.out.println("Cantidad de adultos contagiados: " + c2);
 
         for (int i = 0; i < adultoMayore.size(); i++) {
             paseo(adultoMayore.get(i)); //reemplaza escuela por paseo
         }
-        c3 = adultoMayore.stream().filter((adultoMayore) -> (adultoMayore.getContagio())).map((_item) -> 1).reduce(c, Integer::sum); //.
-        System.out.println("Cantidad de adultos mayores contagiados: " + c);
+        c3 = adultoMayore.stream().filter((adultoMayore) -> (adultoMayore.getContagio())).map((_item) -> 1).reduce(c3, Integer::sum); //.
+        System.out.println("Cantidad de adultos mayores contagiados: " + c3);
 
     }
 
@@ -116,7 +116,6 @@ public class Actividad {
      * adultos van al trabajo e interactuán con otras personas
      *
      * @param a
-     * @param c
      */
     public void trabajo(Persona a) {
         for (int i = 0 + 1; i < adulto.size(); i++) {
@@ -136,7 +135,6 @@ public class Actividad {
      * adultos mayores van de paseo e interactuán con otras personas
      *
      * @param a
-     * @param c
      */
     public void paseo(Persona a) {
         for (int i = 0 + 1; i < adultoMayore.size(); i++) {
