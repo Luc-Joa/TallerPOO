@@ -22,7 +22,8 @@ public class Persona extends Thread {
     private Contagiado hospital;
     private Actividad actividad;
     private int n;
-    public Persona(Edad edad, Boolean contagio, Boolean sintoma, TipoCuidado cuidado, Comorbilidad comorbilidad, Actividad actividad,int n) {
+
+    public Persona(Edad edad, Boolean contagio, Boolean sintoma, TipoCuidado cuidado, Comorbilidad comorbilidad, Actividad actividad, int n) {
         this.edad = edad;
         this.contagio = contagio;
         this.sintoma = sintoma;
@@ -30,7 +31,7 @@ public class Persona extends Thread {
         this.cuidado = cuidado;
         this.comorbilidad = comorbilidad;
         this.actividad = actividad;
-        this.n=n;
+        this.n = n;
     }
 
     //para comenzar con los threads/hilos
@@ -164,11 +165,11 @@ public class Persona extends Thread {
     @Override
     public void run() {
         actividad();
-        if (n==9) {
+        if (n == 9) {
             realizar();
         }
         try {
-          sleep((int) (Math.random() * 100));
+            sleep((int) (Math.random() * 100));
         } catch (InterruptedException ex) {
             Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
         }
