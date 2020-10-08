@@ -18,7 +18,7 @@ public class TallerPOO {
         Comorbilidad co3 = new Comorbilidad(false, true, false, true, true); //intentos
         TipoCuidado t1 = new TipoCuidado(true, true, true, true); //intentos
         TipoCuidado t2 = new TipoCuidado(false, false, true, true);
-        TipoCuidado t3 = new TipoCuidado(false, false, false, false); //intentos
+        TipoCuidado t3 = new TipoCuidado(true, true, false, false); //intentos
         Actividad act = new Actividad();
 
         //------------NIÑOS--------------//
@@ -31,7 +31,7 @@ public class TallerPOO {
 //        //------------------------------//
 //        
         for (int i = 2; i < 10; i++) {
-            ninos[i] = new Persona(Edad.NIÑOS, false, false, t2, co1, act, i);
+            ninos[i] = new Persona(Edad.NIÑOS, false, false, t1, co1, act, i);
             ninos[i].start();
         }
 
@@ -45,21 +45,21 @@ public class TallerPOO {
 //        //-------------------------------//
 //        
         for (int i = 2; i < 10; i++) {
-            adultos[i] = new Persona(Edad.ADULTOS, false, true, t1, co3, act, i);
+            adultos[i] = new Persona(Edad.ADULTOS, false, true, t3, co3, act, i);
             adultos[i].start();
         }
 
         //-----ADULTOS-------MAYORES------//
         Persona[] adultosMayores = new Persona[10];
         for (int i = 0; i < 2; i++) {
-            adultosMayores[i] = new Persona(Edad.ADULTOS_MAYORES, true, true, t3, co2, act, i);
+            adultosMayores[i] = new Persona(Edad.ADULTOS_MAYORES, true, false, t3, co2, act, i);
             adultosMayores[i].start();
         }
 //
 //        //-------------------------------//
 //        
         for (int i = 2; i < 10; i++) {
-            adultosMayores[i] = new Persona(Edad.ADULTOS_MAYORES, true, false, t3, co2, act, i);
+            adultosMayores[i] = new Persona(Edad.ADULTOS_MAYORES, false, false, t2, co2, act, i);
             adultosMayores[i].start();
         }
     }
