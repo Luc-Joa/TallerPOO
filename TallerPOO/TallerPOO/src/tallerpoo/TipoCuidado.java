@@ -1,5 +1,7 @@
 package TallerPoo;
 
+import java.awt.Color;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -79,16 +81,16 @@ public class TipoCuidado {
     /**
      * da el color a cada persona según el tipo de cuidado que esta tenga
      *
-     * @return Color
+     * @return Colore
      */
     public Color tipoCuidado() {
         if (tapabocas && distanciamiento && desinfectar && evitarcontacto) {
-            return Color.VERDE;
+            return Color.GREEN;
         } else if (tapabocas) {
-            return Color.AMARILLO;
+            return Color.YELLOW;
         } else if (!(tapabocas && distanciamiento && desinfectar && evitarcontacto)) {
-            return Color.ANARANJADO;
+            return Color.ORANGE;
         }
-        return Color.ANARANJADO;
+        return Color.ORANGE;
     }
 }
