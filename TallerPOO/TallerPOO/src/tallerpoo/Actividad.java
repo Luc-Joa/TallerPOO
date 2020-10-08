@@ -76,19 +76,32 @@ public class Actividad {
         for (int i = 0; i < nino.size(); i++) {
             escuela(nino.get(i));
         }
-        c = nino.stream().filter((nino) -> (nino.getContagio())).map((_item) -> 1).reduce(c, Integer::sum);
+        for (int i = 0; i < adulto.size(); i++) {
+            escuela(adulto.get(i));
+        }
+        for (int i = 0; i < adultoMayore.size(); i++) {
+            escuela(adultoMayore.get(i));
+        }
+        
+        for (int i = 0; i < nino.size(); i++) {
+            if (nino.get(i).getContagio()) {
+                c++;
+            }
+        }
+        for (int i = 0; i < adulto.size(); i++) {
+            if (adulto.get(i).getContagio()) {
+                c2++;
+            }
+        }
+        for (int i = 0; i < adultoMayore.size(); i++) {
+            if (adultoMayore.get(i).getContagio()) {
+                c3++;
+            }
+        }
         System.out.println("Cantidad de niños contagiados: " + c);
 
-        for (int i = 0; i < adulto.size(); i++) {
-            trabajo(adulto.get(i)); //reemplaza escuela por trabajo
-        }
-        c2 = adulto.stream().filter((adulto) -> (adulto.getContagio())).map((_item) -> 1).reduce(c2, Integer::sum); //.
         System.out.println("Cantidad de adultos contagiados: " + c2);
 
-        for (int i = 0; i < adultoMayore.size(); i++) {
-            paseo(adultoMayore.get(i)); //reemplaza escuela por paseo
-        }
-        c3 = adultoMayore.stream().filter((adultoMayore) -> (adultoMayore.getContagio())).map((_item) -> 1).reduce(c3, Integer::sum); //.
         System.out.println("Cantidad de adultos mayores contagiados: " + c3);
 
     }
@@ -98,12 +111,12 @@ public class Actividad {
      *
      * @param a
      */
-    public void escuela(Persona a) {
+        public void escuela(Persona a) {
         for (int i = 0 + 1; i < nino.size(); i++) {
             if (Math.random() < 0.1) {
                 if (!a.equals(nino.get(i)) && !nino.get(i).getContagio()) {
                     if (Math.random() * 100 < interactuar(a, nino.get(i))) {
-                        System.out.println(i + " se contagió. ");
+                        System.out.println(nino.get(i).getID() + " se contagió. ");
                         nino.get(i).setContagio(true);
                     }
                 }
@@ -122,7 +135,7 @@ public class Actividad {
             if (Math.random() < 0.1) {
                 if (!a.equals(adulto.get(i)) && !adulto.get(i).getContagio()) {
                     if (Math.random() * 100 < interactuar(a, adulto.get(i))) {
-                        System.out.println(i + " se contagió. ");
+                        System.out.println(adulto.get(i).getID() + " se contagió. ");
                         adulto.get(i).setContagio(true);
                     }
                 }
@@ -139,14 +152,11 @@ public class Actividad {
     public void paseo(Persona a) {
         for (int i = 0 + 1; i < adultoMayore.size(); i++) {
             if (Math.random() < 0.1) {
-                if (!a.equals(adultoMayore.get(i)) && !adultoMayore.get(i).getContagio()) {
-                    if (Math.random() * 100 < interactuar(a, adultoMayore.get(i))) {
-                        System.out.println(i + " se contagió. ");
-                        adultoMayore.get(i).setContagio(true);
-                    }
+                if (!a.equals(adultoMayore.get(i)) && !adultoMayore.get(i).getContagio() && Math.random() * 100 < interactuar(a, adultoMayore.get(i))) {
+                    System.out.println(adultoMayore.get(i).getID() + " se contagió. ");
+                    adultoMayore.get(i).setContagio(true);
                 }
             }
-
         }
     }
 

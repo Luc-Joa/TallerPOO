@@ -6,6 +6,7 @@
 package TallerPoo;
 
 import java.awt.Color;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -162,11 +163,62 @@ public class Persona extends Thread {
         this.hospital.consulta();
     }
 
+    public int getID() {
+        return n;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Persona other = (Persona) obj;
+        if (this.n != other.n) {
+            return false;
+        }
+        if (this.edad != other.edad) {
+            return false;
+        }
+        if (!Objects.equals(this.contagio, other.contagio)) {
+            return false;
+        }
+        if (!Objects.equals(this.sintoma, other.sintoma)) {
+            return false;
+        }
+        if (this.color != other.color) {
+            return false;
+        }
+        if (!Objects.equals(this.cuidado, other.cuidado)) {
+            return false;
+        }
+        if (!Objects.equals(this.comorbilidad, other.comorbilidad)) {
+            return false;
+        }
+        if (!Objects.equals(this.hospital, other.hospital)) {
+            return false;
+        }
+        if (!Objects.equals(this.actividad, other.actividad)) {
+            return false;
+        }
+        return true;
+    }
     //para comenzar con los threads/hilos
     @Override
     public void run() {
         actividad();
-        if (n == 9) {
+        if (n == 29) {
             realizar();
         }
         try {

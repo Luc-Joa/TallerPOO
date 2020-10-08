@@ -96,46 +96,45 @@ public class TallerPOO extends JPanel {
 //        TipoCuidado t3 = new TipoCuidado(true, true, false, false); //intentos
 //        Actividad act = new Actividad();
 //
-//        //------------NIÑOS--------------//
-//        Persona[] ninos = new Persona[10];
+        //------------NIÑOS--------------//
+//        Persona[] persona = new Persona[30];
 //        for (int i = 0; i < 2; i++) {
-//            ninos[i] = new Persona(Edad.NIÑOS, true, false, t2, co1, act, i);
-//            ninos[i].start();
+//            persona[i] = new Persona(Edad.NIÑOS, true, false, t2, co1, act, i);
+//            persona[i].start();
 //        }
 ////
 ////        //------------------------------//
 ////        
 //        for (int i = 2; i < 10; i++) {
-//            ninos[i] = new Persona(Edad.NIÑOS, false, false, t1, co1, act, i);
-//            ninos[i].start();
+//            persona[i] = new Persona(Edad.NIÑOS, false, false, t1, co1, act, i);
+//            persona[i].start();
 //        }
 //
 //        //------------ADULTOS-------------//
-//        Persona[] adultos = new Persona[10];
-//        for (int i = 0; i < 2; i++) {
-//            adultos[i] = new Persona(Edad.ADULTOS, true, false, t1, co3, act, i);
-//            adultos[i].start();
+//       
+//        for (int i = 10; i < 12; i++) {
+//            persona[i] = new Persona(Edad.ADULTOS, true, false, t1, co3, act, i);
+//            persona[i].start();
 //        }
-////
-////        //-------------------------------//
-////        
-//        for (int i = 2; i < 10; i++) {
-//            adultos[i] = new Persona(Edad.ADULTOS, false, true, t3, co3, act, i);
-//            adultos[i].start();
+//
+//        //-------------------------------//
+//        
+//        for (int i = 12; i < 20; i++) {
+//            persona[i] = new Persona(Edad.ADULTOS, false, true, t3, co3, act, i);
+//            persona[i].start();
 //        }
 //
 //        //-----ADULTOS-------MAYORES------//
-//        Persona[] adultosMayores = new Persona[10];
-//        for (int i = 0; i < 2; i++) {
-//            adultosMayores[i] = new Persona(Edad.ADULTOS_MAYORES, true, false, t3, co2, act, i);
-//            adultosMayores[i].start();
+//        for (int i = 20; i < 23; i++) {
+//            persona[i] = new Persona(Edad.ADULTOS_MAYORES, true, false, t3, co2, act, i);
+//            persona[i].start();
 //        }
 ////
 ////        //-------------------------------//
 ////        
-//        for (int i = 2; i < 10; i++) {
-//            adultosMayores[i] = new Persona(Edad.ADULTOS_MAYORES, false, false, t2, co2, act, i);
-//            adultosMayores[i].start();
+//        for (int i = 20; i < 30; i++) {
+//            persona[i] = new Persona(Edad.ADULTOS_MAYORES, false, false, t2, co2, act, i);
+//            persona[i].start();
 //        }
     }
 
