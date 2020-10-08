@@ -40,40 +40,43 @@ public class Actividad {
         if (a.getEdad() == Edad.NIÑOS) {
             nino.add(a);
         }
-        if (a.getEdad() == Edad.ADULTOS) {
+        if (a.getEdad().equals(Edad.ADULTOS)) {
             adulto.add(a);
         }
-        if (a.getEdad() == Edad.ADULTOS_MAYORES) {
+        if (a.getEdad().equals(Edad.ADULTOS_MAYORES)) {
             adultoMayor.add(a);
         }
     }
+
     /**
      * Elimina persona de Actividad
-     * @param a 
+     *
+     * @param a
      */
-    public void quitarPersona(Persona a){
-          if (a.getEdad() == Edad.NIÑOS) {
-              for (int i = 0; i < nino.size(); i++) {
-                  if (a.getID()==nino.get(i).getID()) {
-                      nino.remove(i);
-                  }
-              }
+    public void quitarPersona(Persona a) {
+        if (a.getEdad() == Edad.NIÑOS) {
+            for (int i = 0; i < nino.size(); i++) {
+                if (a.getID() == nino.get(i).getID()) {
+                    nino.remove(i);
+                }
+            }
         }
         if (a.getEdad() == Edad.ADULTOS) {
             for (int i = 0; i < adulto.size(); i++) {
-                  if (a.getID()==adulto.get(i).getID()) {
-                      adulto.remove(i);
-                  }
-              }
+                if (a.getID() == adulto.get(i).getID()) {
+                    adulto.remove(i);
+                }
+            }
         }
         if (a.getEdad() == Edad.ADULTOS_MAYORES) {
             for (int i = 0; i < adultoMayor.size(); i++) {
-                  if (a.getID()==adultoMayor.get(i).getID()) {
-                      adultoMayor.remove(i);
-                  }
-              }
+                if (a.getID() == adultoMayor.get(i).getID()) {
+                    adultoMayor.remove(i);
+                }
+            }
         }
     }
+
     /*
     * return @horaPaseo
      */
@@ -97,21 +100,22 @@ public class Actividad {
 
     /**
      * ninos, adultos y adultos mayores realizan sus respectivas actividades
+     * @param a
      */
-    public void realizarActividad() {
+    public void realizarActividad(Persona a) {
         int c = 0;
         int c2 = 0; //lo que agregué comentados con un punto (.)
         int c3 = 0; //.
-        for (int i = 0; i < nino.size(); i++) {
-            escuela(nino.get(i));
+        if (a.getEdad().equals(Edad.NIÑOS)) {
+            escuela(a);
         }
 
         System.out.println("Actividad Escuela Terminada");
-        for (int i = 0; i < adulto.size(); i++) {
-            escuela(adulto.get(i));
+        if (a.getEdad().equals(Edad.ADULTOS)) {
+            trabajo(a);
         }
-        for (int i = 0; i < adultoMayor.size(); i++) {
-            escuela(adultoMayor.get(i));
+        if (a.getEdad().equals(Edad.ADULTOS_MAYORES)) {
+            paseo(a);
         }
 
         for (int i = 0; i < nino.size(); i++) {
@@ -143,9 +147,9 @@ public class Actividad {
      * @param a
      */
     public void escuela(Persona a) {
-        for (int i = 0 + 1; i < nino.size(); i++) {
+        for (int i = 0; i < nino.size(); i++) {
             if (Math.random() < 0.1) {
-                if (!a.equals(nino.get(i)) && !nino.get(i).getContagio()) {
+                if (!a.equals(nino.get(i)) && nino.get(i).getContagio()) {
                     if (Math.random() * 100 < interactuar(a, nino.get(i))) {
                         System.out.println(nino.get(i).getID() + " se contagió. ");
                         nino.get(i).setContagio(true);
@@ -169,7 +173,7 @@ public class Actividad {
     public void trabajo(Persona a) {
         for (int i = 0 + 1; i < adulto.size(); i++) {
             if (Math.random() < 0.1) {
-                if (!a.equals(adulto.get(i)) && !adulto.get(i).getContagio()) {
+                if (!a.equals(adulto.get(i)) && adulto.get(i).getContagio()) {
                     if (Math.random() * 100 < interactuar(a, adulto.get(i))) {
                         System.out.println(adulto.get(i).getID() + " se contagió. ");
                         adulto.get(i).setContagio(true);
@@ -193,7 +197,7 @@ public class Actividad {
     public void paseo(Persona a) {
         for (int i = 0 + 1; i < adultoMayor.size(); i++) {
             if (Math.random() < 0.1) {
-                if (!a.equals(adultoMayor.get(i)) && !adultoMayor.get(i).getContagio() && Math.random() * 100 < interactuar(a, adultoMayor.get(i))) {
+                if (!a.equals(adultoMayor.get(i)) && adultoMayor.get(i).getContagio() && Math.random() * 100 < interactuar(a, adultoMayor.get(i))) {
                     System.out.println(adultoMayor.get(i).getID() + " se contagió. ");
                     adultoMayor.get(i).setContagio(true);
                 }
