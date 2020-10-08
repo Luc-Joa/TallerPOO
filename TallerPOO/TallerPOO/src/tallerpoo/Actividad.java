@@ -19,13 +19,13 @@ public class Actividad {
 
     private List<Persona> nino;
     private List<Persona> adulto;
-    private List<Persona> adultoMayore;
+    private List<Persona> adultoMayor;
     final int horaPaseo, horaEscuela, horaTrabajo;
 
     public Actividad() {
         nino = new ArrayList<>();
         adulto = new ArrayList<>();
-        adultoMayore = new ArrayList<>();
+        adultoMayor = new ArrayList<>();
         horaPaseo = 1;
         horaEscuela = 4;
         horaTrabajo = 8;
@@ -44,10 +44,36 @@ public class Actividad {
             adulto.add(a);
         }
         if (a.getEdad() == Edad.ADULTOS_MAYORES) {
-            adultoMayore.add(a);
+            adultoMayor.add(a);
         }
     }
-
+    /**
+     * Elimina persona de Actividad
+     * @param a 
+     */
+    public void quitarPersona(Persona a){
+          if (a.getEdad() == Edad.NIÑOS) {
+              for (int i = 0; i < nino.size(); i++) {
+                  if (a.getID()==nino.get(i).getID()) {
+                      nino.remove(i);
+                  }
+              }
+        }
+        if (a.getEdad() == Edad.ADULTOS) {
+            for (int i = 0; i < adulto.size(); i++) {
+                  if (a.getID()==adulto.get(i).getID()) {
+                      adulto.remove(i);
+                  }
+              }
+        }
+        if (a.getEdad() == Edad.ADULTOS_MAYORES) {
+            for (int i = 0; i < adultoMayor.size(); i++) {
+                  if (a.getID()==adultoMayor.get(i).getID()) {
+                      adultoMayor.remove(i);
+                  }
+              }
+        }
+    }
     /*
     * return @horaPaseo
      */
@@ -84,8 +110,8 @@ public class Actividad {
         for (int i = 0; i < adulto.size(); i++) {
             escuela(adulto.get(i));
         }
-        for (int i = 0; i < adultoMayore.size(); i++) {
-            escuela(adultoMayore.get(i));
+        for (int i = 0; i < adultoMayor.size(); i++) {
+            escuela(adultoMayor.get(i));
         }
 
         for (int i = 0; i < nino.size(); i++) {
@@ -98,8 +124,8 @@ public class Actividad {
                 c2++;
             }
         }
-        for (int i = 0; i < adultoMayore.size(); i++) {
-            if (adultoMayore.get(i).getContagio()) {
+        for (int i = 0; i < adultoMayor.size(); i++) {
+            if (adultoMayor.get(i).getContagio()) {
                 c3++;
             }
         }
@@ -165,16 +191,16 @@ public class Actividad {
      * @param a
      */
     public void paseo(Persona a) {
-        for (int i = 0 + 1; i < adultoMayore.size(); i++) {
+        for (int i = 0 + 1; i < adultoMayor.size(); i++) {
             if (Math.random() < 0.1) {
-                if (!a.equals(adultoMayore.get(i)) && !adultoMayore.get(i).getContagio() && Math.random() * 100 < interactuar(a, adultoMayore.get(i))) {
-                    System.out.println(adultoMayore.get(i).getID() + " se contagió. ");
-                    adultoMayore.get(i).setContagio(true);
+                if (!a.equals(adultoMayor.get(i)) && !adultoMayor.get(i).getContagio() && Math.random() * 100 < interactuar(a, adultoMayor.get(i))) {
+                    System.out.println(adultoMayor.get(i).getID() + " se contagió. ");
+                    adultoMayor.get(i).setContagio(true);
                 }
             }
         }
         try {
-            sleep((10000 * this.horaTrabajo) / adultoMayore.size());
+            sleep((10000 * this.horaTrabajo) / adultoMayor.size());
         } catch (InterruptedException ex) {
             Logger.getLogger(Actividad.class.getName()).log(Level.SEVERE, null, ex);
         }
