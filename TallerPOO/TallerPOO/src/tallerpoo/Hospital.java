@@ -37,6 +37,7 @@ public class Hospital {
             if (!(contcti >= cti.length)) {
                 cti[contcti].setPaciente(p);
                 contcti++;
+                System.out.println("Pacientes" + contcti);
             }
         }
         if (!(contcti >= cti.length)) {

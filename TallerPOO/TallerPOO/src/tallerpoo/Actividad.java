@@ -5,8 +5,11 @@
  */
 package TallerPoo;
 
+import static java.lang.Thread.sleep;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -76,13 +79,15 @@ public class Actividad {
         for (int i = 0; i < nino.size(); i++) {
             escuela(nino.get(i));
         }
+
+        System.out.println("Actividad Escuela Terminada");
         for (int i = 0; i < adulto.size(); i++) {
             escuela(adulto.get(i));
         }
         for (int i = 0; i < adultoMayore.size(); i++) {
             escuela(adultoMayore.get(i));
         }
-        
+
         for (int i = 0; i < nino.size(); i++) {
             if (nino.get(i).getContagio()) {
                 c++;
@@ -111,7 +116,7 @@ public class Actividad {
      *
      * @param a
      */
-        public void escuela(Persona a) {
+    public void escuela(Persona a) {
         for (int i = 0 + 1; i < nino.size(); i++) {
             if (Math.random() < 0.1) {
                 if (!a.equals(nino.get(i)) && !nino.get(i).getContagio()) {
@@ -121,8 +126,13 @@ public class Actividad {
                     }
                 }
             }
-
         }
+        try {
+            sleep((10000 * this.horaEscuela) / nino.size());
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Actividad.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(a.getID() + "termino la tarea");
     }
 
     /**
@@ -140,8 +150,13 @@ public class Actividad {
                     }
                 }
             }
-
         }
+        try {
+            sleep((10000 * this.horaTrabajo) / adulto.size());
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Actividad.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(a.getID() + "termino la tarea");
     }
 
     /**
@@ -158,6 +173,12 @@ public class Actividad {
                 }
             }
         }
+        try {
+            sleep((10000 * this.horaTrabajo) / adultoMayore.size());
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Actividad.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(a.getID() + "termino la tarea");
     }
 
     /**

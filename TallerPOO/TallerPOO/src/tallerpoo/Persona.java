@@ -23,9 +23,9 @@ public class Persona extends Thread {
     private Comorbilidad comorbilidad;
     private Contagiado hospital;
     private Actividad actividad;
-    private int n;
+    private int id;
 
-    public Persona(Edad edad, Boolean contagio, Boolean sintoma, TipoCuidado cuidado, Comorbilidad comorbilidad, Actividad actividad, int n) {
+    public Persona(Edad edad, Boolean contagio, Boolean sintoma, TipoCuidado cuidado, Comorbilidad comorbilidad, Actividad actividad, int id) {
         this.edad = edad;
         this.contagio = contagio;
         this.sintoma = sintoma;
@@ -33,7 +33,7 @@ public class Persona extends Thread {
         this.cuidado = cuidado;
         this.comorbilidad = comorbilidad;
         this.actividad = actividad;
-        this.n = n;
+        this.id = id;
     }
 
     //para comenzar con los threads/hilos
@@ -164,7 +164,7 @@ public class Persona extends Thread {
     }
 
     public int getID() {
-        return n;
+        return id;
     }
 
     @Override
@@ -185,7 +185,7 @@ public class Persona extends Thread {
             return false;
         }
         final Persona other = (Persona) obj;
-        if (this.n != other.n) {
+        if (this.id != other.id) {
             return false;
         }
         if (this.edad != other.edad) {
@@ -209,18 +209,19 @@ public class Persona extends Thread {
         if (!Objects.equals(this.hospital, other.hospital)) {
             return false;
         }
-        if (!Objects.equals(this.actividad, other.actividad)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.actividad, other.actividad);
     }
+
     //para comenzar con los threads/hilos
     @Override
     public void run() {
-        actividad();
-        if (n == 29) {
-            realizar();
-        }
+        
+            actividad();
+            if (id == 9) {
+                realizar();
+            }
+            
+
         try {
             sleep((int) (Math.random() * 100));
         } catch (InterruptedException ex) {
