@@ -80,7 +80,7 @@ public class TallerPOO {
 //        //-------------------------------//
 //        
         for (int i = 2; i < 10; i++) {
-            adultos[i] = new Persona(Edad.ADULTOS, false, true, t3, co3, act, i+10,h);
+            adultos[i] = new Persona(Edad.ADULTOS, false, false, t3, co3, act, i+10,h);
             adultos[i].actividad();
         }
 

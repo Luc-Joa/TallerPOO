@@ -213,20 +213,16 @@ public class Persona extends Thread {
         return Objects.equals(this.actividad, other.actividad);
     }
 
-    //para comenzar con los threads/hilos
+    //Mientras no tengan sintomas van a realizar la actividad
     @Override
     public void run() {
+        while (!this.getSintoma()) {
+            realizar();
 
-        realizar();
-
-        if (this.getSintoma() && hospital.consulta(this)) {
-            System.out.println(this.id + "En cuarentena");
-            actividad.quitarPersona(this);
-            hospital.agregarContagiado(this);
-            try {
-                sleep(6000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
+            if (this.getSintoma() && hospital.consulta(this)) {
+                System.out.println(this.id + ". En cuarentena");
+                actividad.quitarPersona(this);
+                hospital.agregarContagiado(this);
             }
         }
         try {
@@ -234,5 +230,6 @@ public class Persona extends Thread {
         } catch (InterruptedException ex) {
             Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 }
