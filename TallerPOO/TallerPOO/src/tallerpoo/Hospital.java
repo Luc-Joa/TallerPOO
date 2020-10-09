@@ -19,7 +19,7 @@ public class Hospital {
     private CTI[] cti = new CTI[2];
     private List<Aislamiento> aislamiento;
     private List<Persona> perCont;
-    private int contcm = 0, contcti = 0, cta=0;
+    private int contcm = 0, contcti = 0, cta = 0;
 
     public Hospital() {
         this.perCont = new ArrayList<>();
@@ -78,8 +78,10 @@ public class Hospital {
             } else {
                 this.aislamiento.add(new Aislamiento());
                 this.aislamiento.get(cta).setPaciente(persona);
-                System.out.println("Pacientes Aislamiento :"+ cta);
+
+                System.out.println("Pacientes Aislamiento :" + this.aislamiento.size());
                 cta++;
+
             }
         }
     }

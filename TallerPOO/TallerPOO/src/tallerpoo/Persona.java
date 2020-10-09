@@ -34,7 +34,7 @@ public class Persona extends Thread {
         this.comorbilidad = comorbilidad;
         this.actividad = actividad;
         this.id = id;
-        this.hospital=h;
+        this.hospital = h;
     }
 
     //para comenzar con los threads/hilos
@@ -217,10 +217,10 @@ public class Persona extends Thread {
     @Override
     public void run() {
 
-        if (!sintoma) {
-            realizar();
-        }
-        if (hospital.consulta(this)) {
+        realizar();
+
+        if (this.getSintoma() && hospital.consulta(this)) {
+            System.out.println(this.id + "En cuarentena");
             actividad.quitarPersona(this);
             hospital.agregarContagiado(this);
             try {
@@ -228,9 +228,7 @@ public class Persona extends Thread {
             } catch (InterruptedException ex) {
                 Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
             }
-            System.out.println("termino ciclo");
         }
-
         try {
             sleep((int) (Math.random() * 100));
         } catch (InterruptedException ex) {

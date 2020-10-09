@@ -126,7 +126,7 @@ public class Actividad {
                 if (!a.equals(nino.get(i)) && !a.getContagio() && nino.get(i).getContagio()) {
                     if (Math.random() * 100 < interactuar(a, nino.get(i))) {
                         a.setContagio(true);
-                        if (Math.random() < 0.25) {
+                        if (Math.random() < 0.5) {
                             a.setSintoma(true);
                         }
                     }
@@ -138,7 +138,6 @@ public class Actividad {
         } catch (InterruptedException ex) {
             Logger.getLogger(Actividad.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(a.getID() + "termino la tarea");
     }
 
     /**
@@ -152,9 +151,9 @@ public class Actividad {
                 if (!a.equals(adulto.get(i)) && !a.getContagio() && adulto.get(i).getContagio()) {
                     if (Math.random() * 100 < interactuar(a, adulto.get(i))) {
                         a.setContagio(true);
-                        if (Math.random() < 0.25) {
+//                        if (Math.random() < 0.5) {
                             a.setSintoma(true);
-                        }
+//                        }
                     }
                 }
             }
@@ -177,9 +176,9 @@ public class Actividad {
                 if (!a.equals(adultoMayor.get(i)) && !a.getContagio() && adultoMayor.get(i).getContagio()) {
                     if (Math.random() * 100 < interactuar(a, adultoMayor.get(i))) {
                         a.setContagio(true);
-                        if (Math.random() < 0.25) {
+//                        if (Math.random() < 0.5) {
                             a.setSintoma(true);
-                        }
+//                        }
                     }
                 }
             }
