@@ -5,8 +5,8 @@
  */
 package TallerPoo;
 
-import tallerpoo.VentanaIngreso;
-import tallerpoo.VentanaSimulacion;
+import tallerpoo.ventanas.VentanaIngreso;
+import tallerpoo.ventanas.VentanaSimulacion;
 
 /**
  *
