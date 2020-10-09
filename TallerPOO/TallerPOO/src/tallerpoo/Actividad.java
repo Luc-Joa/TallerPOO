@@ -37,7 +37,7 @@ public class Actividad {
      * @param a
      */
     public void agregarPersona(Persona a) {
-        if (a.getEdad() == Edad.NIÑOS) {
+        if (a.getEdad().equals(Edad.NIÑOS)) {
             nino.add(a);
         }
         if (a.getEdad().equals(Edad.ADULTOS)) {
@@ -103,42 +103,15 @@ public class Actividad {
      * @param a
      */
     public void realizarActividad(Persona a) {
-        int c = 0;
-        int c2 = 0; //lo que agregué comentados con un punto (.)
-        int c3 = 0; //.
         if (a.getEdad().equals(Edad.NIÑOS)) {
             escuela(a);
         }
-
-        System.out.println("Actividad Escuela Terminada");
         if (a.getEdad().equals(Edad.ADULTOS)) {
             trabajo(a);
         }
         if (a.getEdad().equals(Edad.ADULTOS_MAYORES)) {
             paseo(a);
         }
-
-        for (int i = 0; i < nino.size(); i++) {
-            if (nino.get(i).getContagio()) {
-                c++;
-            }
-        }
-        for (int i = 0; i < adulto.size(); i++) {
-            if (adulto.get(i).getContagio()) {
-                c2++;
-            }
-        }
-        for (int i = 0; i < adultoMayor.size(); i++) {
-            if (adultoMayor.get(i).getContagio()) {
-                c3++;
-            }
-        }
-        System.out.println("Cantidad de niños contagiados: " + c);
-
-        System.out.println("Cantidad de adultos contagiados: " + c2);
-
-        System.out.println("Cantidad de adultos mayores contagiados: " + c3);
-
     }
 
     /**
@@ -149,10 +122,9 @@ public class Actividad {
     public void escuela(Persona a) {
         for (int i = 0; i < nino.size(); i++) {
             if (Math.random() < 0.1) {
-                if (!a.equals(nino.get(i)) && nino.get(i).getContagio()) {
+                if (!a.equals(nino.get(i))) {
                     if (Math.random() * 100 < interactuar(a, nino.get(i))) {
-                        System.out.println(nino.get(i).getID() + " se contagió. ");
-                        nino.get(i).setContagio(true);
+                        a.setContagio(true);
                     }
                 }
             }
@@ -173,10 +145,9 @@ public class Actividad {
     public void trabajo(Persona a) {
         for (int i = 0 + 1; i < adulto.size(); i++) {
             if (Math.random() < 0.1) {
-                if (!a.equals(adulto.get(i)) && adulto.get(i).getContagio()) {
+                if (!a.equals(adulto.get(i))) {
                     if (Math.random() * 100 < interactuar(a, adulto.get(i))) {
-                        System.out.println(adulto.get(i).getID() + " se contagió. ");
-                        adulto.get(i).setContagio(true);
+                        a.setContagio(true);
                     }
                 }
             }
@@ -186,7 +157,6 @@ public class Actividad {
         } catch (InterruptedException ex) {
             Logger.getLogger(Actividad.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(a.getID() + "termino la tarea");
     }
 
     /**
@@ -197,9 +167,8 @@ public class Actividad {
     public void paseo(Persona a) {
         for (int i = 0 + 1; i < adultoMayor.size(); i++) {
             if (Math.random() < 0.1) {
-                if (!a.equals(adultoMayor.get(i)) && adultoMayor.get(i).getContagio() && Math.random() * 100 < interactuar(a, adultoMayor.get(i))) {
-                    System.out.println(adultoMayor.get(i).getID() + " se contagió. ");
-                    adultoMayor.get(i).setContagio(true);
+                if (!a.equals(adultoMayor.get(i))&& Math.random() * 100 < interactuar(a, adultoMayor.get(i))) {
+                         adultoMayor.get(i).setContagio(true);
                 }
             }
         }
@@ -208,7 +177,6 @@ public class Actividad {
         } catch (InterruptedException ex) {
             Logger.getLogger(Actividad.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(a.getID() + "termino la tarea");
     }
 
     /**
