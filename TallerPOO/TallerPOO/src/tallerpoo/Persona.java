@@ -143,7 +143,7 @@ public class Persona extends Thread {
      * realiza una actividad según su edad
      */
     public void realizar() {
-        actividad.realizarActividad();
+        actividad.realizarActividad(this);
     }
 
     /**
@@ -215,12 +215,11 @@ public class Persona extends Thread {
     //para comenzar con los threads/hilos
     @Override
     public void run() {
-        
-            actividad();
-            if (id == 9) {
-                realizar();
-            }
-            
+
+        actividad();
+        if (id == 9) {
+            realizar();
+        }
 
         try {
             sleep((int) (Math.random() * 100));
