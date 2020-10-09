@@ -16,5 +16,6 @@ public class Aislamiento extends Cuidado {
     public Aislamiento() {
         super(4, null);
     }
+    
 
 }

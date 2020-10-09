@@ -21,11 +21,11 @@ public class Persona extends Thread {
     private Color color;
     private TipoCuidado cuidado;
     private Comorbilidad comorbilidad;
-    private Contagiado hospital;
+    private Hospital hospital;
     private Actividad actividad;
     private int id;
 
-    public Persona(Edad edad, Boolean contagio, Boolean sintoma, TipoCuidado cuidado, Comorbilidad comorbilidad, Actividad actividad, int id) {
+    public Persona(Edad edad, Boolean contagio, Boolean sintoma, TipoCuidado cuidado, Comorbilidad comorbilidad, Actividad actividad, int id, Hospital h) {
         this.edad = edad;
         this.contagio = contagio;
         this.sintoma = sintoma;
@@ -34,6 +34,7 @@ public class Persona extends Thread {
         this.comorbilidad = comorbilidad;
         this.actividad = actividad;
         this.id = id;
+        this.hospital=h;
     }
 
     //para comenzar con los threads/hilos
@@ -160,7 +161,7 @@ public class Persona extends Thread {
      * agrega a la lista de persona correspondiente
      */
     public void consulta() {
-        this.hospital.consulta();
+        this.hospital.consulta(this);
     }
 
     public int getID() {
@@ -216,9 +217,18 @@ public class Persona extends Thread {
     @Override
     public void run() {
 
-        actividad();
-        if (id == 9) {
+        if (!sintoma) {
             realizar();
+        }
+        if (hospital.consulta(this)) {
+            actividad.quitarPersona(this);
+            hospital.agregarContagiado(this);
+            try {
+                sleep(6000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println("termino ciclo");
         }
 
         try {

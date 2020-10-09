@@ -100,6 +100,7 @@ public class Actividad {
 
     /**
      * ninos, adultos y adultos mayores realizan sus respectivas actividades
+     *
      * @param a
      */
     public void realizarActividad(Persona a) {
@@ -122,9 +123,12 @@ public class Actividad {
     public void escuela(Persona a) {
         for (int i = 0; i < nino.size(); i++) {
             if (Math.random() < 0.1) {
-                if (!a.equals(nino.get(i))) {
+                if (!a.equals(nino.get(i)) && !a.getContagio() && nino.get(i).getContagio()) {
                     if (Math.random() * 100 < interactuar(a, nino.get(i))) {
                         a.setContagio(true);
+                        if (Math.random() < 0.25) {
+                            a.setSintoma(true);
+                        }
                     }
                 }
             }
@@ -145,9 +149,12 @@ public class Actividad {
     public void trabajo(Persona a) {
         for (int i = 0 + 1; i < adulto.size(); i++) {
             if (Math.random() < 0.1) {
-                if (!a.equals(adulto.get(i))) {
+                if (!a.equals(adulto.get(i)) && !a.getContagio() && adulto.get(i).getContagio()) {
                     if (Math.random() * 100 < interactuar(a, adulto.get(i))) {
                         a.setContagio(true);
+                        if (Math.random() < 0.25) {
+                            a.setSintoma(true);
+                        }
                     }
                 }
             }
@@ -167,8 +174,13 @@ public class Actividad {
     public void paseo(Persona a) {
         for (int i = 0 + 1; i < adultoMayor.size(); i++) {
             if (Math.random() < 0.1) {
-                if (!a.equals(adultoMayor.get(i))&& Math.random() * 100 < interactuar(a, adultoMayor.get(i))) {
-                         adultoMayor.get(i).setContagio(true);
+                if (!a.equals(adultoMayor.get(i)) && !a.getContagio() && adultoMayor.get(i).getContagio()) {
+                    if (Math.random() * 100 < interactuar(a, adultoMayor.get(i))) {
+                        a.setContagio(true);
+                        if (Math.random() < 0.25) {
+                            a.setSintoma(true);
+                        }
+                    }
                 }
             }
         }

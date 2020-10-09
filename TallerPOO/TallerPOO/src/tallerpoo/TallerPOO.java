@@ -16,17 +16,17 @@ public class TallerPOO {
 
     public static void main(String[] args) throws InterruptedException {
 
-        VentanaIngreso vIng = new VentanaIngreso();
-        VentanaSimulacion vSim = new VentanaSimulacion();
-
-//        int x = 0;
-//        int y = 0;
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                vIng.setVisible(true);
-            }
-        });
+//        VentanaIngreso vIng = new VentanaIngreso();
+//        VentanaSimulacion vSim = new VentanaSimulacion();
+//
+////        int x = 0;
+////        int y = 0;
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            @Override
+//            public void run() {
+//                vIng.setVisible(true);
+//            }
+//        });
 
 //        while (x < 100 && y
 //                < 100) {
@@ -47,55 +47,62 @@ public class TallerPOO {
 //                y--;
 //            }
 //        }
-//        Comorbilidad co1 = new Comorbilidad(false, true, true, false, false);
-//        Comorbilidad co2 = new Comorbilidad(true, false, true, false, false); //intentos
-//        Comorbilidad co3 = new Comorbilidad(false, true, false, true, true); //intentos
-//        TipoCuidado t1 = new TipoCuidado(true, true, true, true); //intentos
-//        TipoCuidado t2 = new TipoCuidado(false, false, true, true);
-//        TipoCuidado t3 = new TipoCuidado(true, true, false, false); //intentos
-//        Actividad act = new Actividad();
+        Comorbilidad co1 = new Comorbilidad(false, true, true, false, false);
+        Comorbilidad co2 = new Comorbilidad(true, false, true, false, false); //intentos
+        Comorbilidad co3 = new Comorbilidad(false, true, false, true, true); //intentos
+        TipoCuidado t1 = new TipoCuidado(true, true, true, true); //intentos
+        TipoCuidado t2 = new TipoCuidado(false, false, true, true);
+        TipoCuidado t3 = new TipoCuidado(true, true, false, false); //intentos
+        Actividad act = new Actividad();
+        Hospital h= new Hospital();
+
+        //------------NIÑOS--------------//
+        Persona[] ninos = new Persona[10];
+        for (int i = 0; i < 2; i++) {
+            ninos[i] = new Persona(Edad.NIÑOS, true, false, t2, co1, act, i,h);
+            ninos[i].actividad();
+        }
 //
-//        //------------NIÑOS--------------//
-//        Persona[] ninos = new Persona[10];
-//        for (int i = 0; i < 2; i++) {
-//            ninos[i] = new Persona(Edad.NIÑOS, true, false, t2, co1, act, i);
-//            ninos[i].start();
-//        }
-////
-////        //------------------------------//
-////        
-//        for (int i = 2; i < 10; i++) {
-//            ninos[i] = new Persona(Edad.NIÑOS, false, false, t1, co1, act, i);
-//            ninos[i].start();
-//        }
+//        //------------------------------//
+//        
+        for (int i = 2; i < 10; i++) {
+            ninos[i] = new Persona(Edad.NIÑOS, false, false, t1, co1, act, i,h);
+            ninos[i].actividad();
+        }
+
+        //------------ADULTOS-------------//
+        Persona[] adultos = new Persona[10];
+        for (int i = 0; i < 2; i++) {
+            adultos[i] = new Persona(Edad.ADULTOS, true, false, t1, co3, act, i+10,h);
+            adultos[i].actividad();
+        }
 //
-//        //------------ADULTOS-------------//
-//        Persona[] adultos = new Persona[10];
-//        for (int i = 0; i < 2; i++) {
-//            adultos[i] = new Persona(Edad.ADULTOS, true, false, t1, co3, act, i);
-//            adultos[i].start();
-//        }
-////
-////        //-------------------------------//
-////        
-//        for (int i = 2; i < 10; i++) {
-//            adultos[i] = new Persona(Edad.ADULTOS, false, true, t3, co3, act, i);
-//            adultos[i].start();
-//        }
+//        //-------------------------------//
+//        
+        for (int i = 2; i < 10; i++) {
+            adultos[i] = new Persona(Edad.ADULTOS, false, true, t3, co3, act, i+10,h);
+            adultos[i].actividad();
+        }
+
+        //-----ADULTOS-------MAYORES------//
+        Persona[] adultosMayores = new Persona[10];
+        for (int i = 0; i < 2; i++) {
+            adultosMayores[i] = new Persona(Edad.ADULTOS_MAYORES, true, false, t3, co2, act, i+20,h);
+            adultosMayores[i].actividad();
+        }
 //
-//        //-----ADULTOS-------MAYORES------//
-//        Persona[] adultosMayores = new Persona[10];
-//        for (int i = 0; i < 2; i++) {
-//            adultosMayores[i] = new Persona(Edad.ADULTOS_MAYORES, true, false, t3, co2, act, i);
-//            adultosMayores[i].start();
-//        }
-////
-////        //-------------------------------//
-////        
-//        for (int i = 2; i < 10; i++) {
-//            adultosMayores[i] = new Persona(Edad.ADULTOS_MAYORES, false, false, t2, co2, act, i);
-//            adultosMayores[i].start();
-//        }
+//        //-------------------------------//
+//        
+        for (int i = 2; i < 10; i++) {
+            adultosMayores[i] = new Persona(Edad.ADULTOS_MAYORES, false, false, t2, co2, act, i+20,h);
+            adultosMayores[i].actividad();
+        }
+        
+        for (int i = 0; i < adultosMayores.length; i++) {
+            adultos[i].start();
+            adultosMayores[i].start();
+            ninos[i].start();
+        }
     }
 
 }

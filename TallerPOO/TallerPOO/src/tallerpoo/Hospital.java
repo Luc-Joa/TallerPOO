@@ -17,9 +17,9 @@ public class Hospital {
     private Persona persona;
     private CM[] cm = new CM[5];
     private CTI[] cti = new CTI[2];
-    private Aislamiento aislamiento;
+    private List<Aislamiento> aislamiento;
     private List<Persona> perCont;
-    private int contcm = 0, contcti = 0;
+    private int contcm = 0, contcti = 0, cta=0;
 
     public Hospital() {
         this.perCont = new ArrayList<>();
@@ -29,7 +29,7 @@ public class Hospital {
         for (int i = 0; i < cti.length; i++) {
             cti[i] = new CTI(this);
         }
-        this.aislamiento = new Aislamiento();
+        this.aislamiento = new ArrayList();
     }
 
     /**
@@ -38,7 +38,7 @@ public class Hospital {
      *
      * @return contagio
      */
-    public Boolean consulta() {
+    public Boolean consulta(Persona persona) {
         return persona.getContagio();
     }
 
@@ -67,15 +67,19 @@ public class Hospital {
             if (!(contcti >= cti.length)) {
                 cti[contcti].setPaciente(p);
                 contcti++;
-                System.out.println("Pacientes" + contcti);
+                System.out.println("Pacientes CTI :" + contcti);
             }
         }
         if (!(contcti >= cti.length)) {
             if (contcm >= cm.length && (p.getComorbilidad().getDiabetes() || p.getComorbilidad().getHipertencionArterial() || p.getComorbilidad().getObesidad())) {
                 cm[contcm].setPaciente(p);
                 contcm++;
+                System.out.println("Pacientes Moderados :" + contcm);
             } else {
-                this.aislamiento.setPaciente(p);
+                this.aislamiento.add(new Aislamiento());
+                this.aislamiento.get(cta).setPaciente(persona);
+                System.out.println("Pacientes Aislamiento :"+ cta);
+                cta++;
             }
         }
     }
@@ -103,7 +107,7 @@ public class Hospital {
      *
      * @return aislamiento
      */
-    public Aislamiento mostrarPacientesAislamiento() {
+    public List<Aislamiento> mostrarPacientesAislamiento() {
         return aislamiento;
     }
 }
