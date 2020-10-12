@@ -16,8 +16,8 @@ public class TallerPOO {
 
     public static void main(String[] args) throws InterruptedException {
 
-        VentanaIngreso vIng = new VentanaIngreso();
-        vIng.setVisible(true);
+//        VentanaIngreso vIng = new VentanaIngreso();
+//        vIng.setVisible(true);
 //
 //        VentanaSimulacion vSim = new VentanaSimulacion();
 //        vSim.setVisible(true);
