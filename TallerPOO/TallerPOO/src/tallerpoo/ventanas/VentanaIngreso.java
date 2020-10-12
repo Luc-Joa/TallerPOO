@@ -72,8 +72,8 @@ public class VentanaIngreso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        VentanaSimulacion vSim = new VentanaSimulacion();
-        vSim.setVisible(true);
+//        VentanaSimulacion vSim = new VentanaSimulacion();
+//        vSim.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
