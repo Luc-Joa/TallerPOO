@@ -6,11 +6,13 @@
 package tallerpoo.ventanas;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
+//import java.awt.Image;
 import java.awt.RenderingHints;
-import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+//import java.awt.Toolkit;
 
 /**
  *
@@ -26,6 +28,28 @@ public class VentanaSimulacion extends javax.swing.JPanel {
      */
     public VentanaSimulacion() {
         initComponents();
+    }
+
+    public class Imagen extends javax.swing.JPanel {
+
+        public Imagen() {
+            this.setSize(720, 480);
+        }
+
+//Se crea un método cuyo parámetro debe ser un objeto Graphics
+        @Override
+        public void paint(Graphics grafico) {
+            Dimension height = getSize();
+
+//Se selecciona la imagen que tenemos en el paquete de la //ruta del programa
+            ImageIcon Img = new ImageIcon(getClass().getResource("/Images/Diagrama.png"));
+
+//se dibuja la imagen que tenemos en el paquete Images //dentro de un panel
+            grafico.drawImage(Img.getImage(), 0, 0, height.width, height.height, null);
+
+            setOpaque(false);
+            super.paintComponent(grafico);
+        }
     }
 
     /**
@@ -65,18 +89,18 @@ public class VentanaSimulacion extends javax.swing.JPanel {
                 RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.fillOval(x, y, 30, 30);
 
-        Toolkit t = Toolkit.getDefaultToolkit();
-        Image school = t.getImage("school.png");
-        g.drawImage(school, 300, 100, this);
-
-        Image work = t.getImage("bank.png");
-        g.drawImage(work, 100, 300, this);
-
-        Image park = t.getImage("park.png");
-        g.drawImage(park, 100, 100, this);
-
-        Image hospital = t.getImage("hospital.png");
-        g.drawImage(hospital, 300, 300, this);
+//        Toolkit t = Toolkit.getDefaultToolkit();
+//        Image school = t.getImage("school.png");
+//        g.drawImage(school, 300, 100, this);
+//
+//        Image work = t.getImage("bank.png");
+//        g.drawImage(work, 100, 300, this);
+//
+//        Image park = t.getImage("park.png");
+//        g.drawImage(park, 100, 100, this);
+//
+//        Image hospital = t.getImage("hospital.png");
+//        g.drawImage(hospital, 300, 300, this);
     }
     //falta while ubicados en main
 
