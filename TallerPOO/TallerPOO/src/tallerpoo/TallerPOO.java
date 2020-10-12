@@ -6,7 +6,6 @@
 package TallerPoo;
 
 import tallerpoo.ventanas.VentanaIngreso;
-import tallerpoo.ventanas.VentanaSimulacion;
 
 /**
  *
@@ -19,18 +18,6 @@ public class TallerPOO {
         VentanaIngreso vIng = new VentanaIngreso();
         vIng.setVisible(true);
 //
-//        VentanaSimulacion vSim = new VentanaSimulacion();
-//        vSim.setVisible(true);
-//
-////        int x = 0;
-////        int y = 0;
-//
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                vIng.setVisible(true);
-//            }
-//        });
 //
 //        while (x < 100 && y
 //                < 100) {
