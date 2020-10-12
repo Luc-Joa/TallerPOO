@@ -42,7 +42,7 @@ public class VentanaSimulacion extends javax.swing.JPanel {
             Dimension height = getSize();
 
 //Se selecciona la imagen que tenemos en el paquete de la //ruta del programa
-            ImageIcon Img = new ImageIcon(getClass().getResource("/Images/Diagrama.png"));
+            ImageIcon Img = new ImageIcon(getClass().getResource("/imagenes/school.png"));
 
 //se dibuja la imagen que tenemos en el paquete Images //dentro de un panel
             grafico.drawImage(Img.getImage(), 0, 0, height.width, height.height, null);

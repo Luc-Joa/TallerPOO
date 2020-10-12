@@ -17,6 +17,11 @@ public class VentanaIngreso extends javax.swing.JPanel {
     public VentanaIngreso() {
         initComponents();
     }
+    
+    public static void main(String[] args) {
+        VentanaIngreso vIng = new VentanaIngreso();
+        vIng.setVisible(true);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
