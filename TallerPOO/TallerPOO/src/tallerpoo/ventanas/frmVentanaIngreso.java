@@ -402,23 +402,23 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
     }//GEN-LAST:event_lComorbilidadAdultosMComponentAdded
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void CuidadoAdultosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuidadoAdultosActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_CuidadoAdultosActionPerformed
 
     private void lComorbilidadNinoComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_lComorbilidadNinoComponentAdded
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_lComorbilidadNinoComponentAdded
 
     private void CuidadoAdultosMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuidadoAdultosMActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_CuidadoAdultosMActionPerformed
 
     private void lComorbilidadAdultoComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_lComorbilidadAdultoComponentAdded
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_lComorbilidadAdultoComponentAdded
 
     private void CantidadNinoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CantidadNinoStateChanged
@@ -437,7 +437,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
     }//GEN-LAST:event_agregarComorbilidadAdultoActionPerformed
 
     private void cbxComorbilidadAdultoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxComorbilidadAdultoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_cbxComorbilidadAdultoActionPerformed
 
     private void eliminarComorbilidadAdultoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarComorbilidadAdultoActionPerformed
@@ -445,7 +445,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
     }//GEN-LAST:event_eliminarComorbilidadAdultoActionPerformed
 
     private void cbxComorbilidadNinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxComorbilidadNinoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_cbxComorbilidadNinoActionPerformed
 
     private void btnagregarComorbilidadNinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarComorbilidadNinoActionPerformed
@@ -460,7 +460,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
     }//GEN-LAST:event_btneliminarComorbilidadNinoActionPerformed
 
     private void cbxComorbilidadAdultoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxComorbilidadAdultoMActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_cbxComorbilidadAdultoMActionPerformed
 
     private void agregarComorbilidadAdultoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarComorbilidadAdultoMActionPerformed
