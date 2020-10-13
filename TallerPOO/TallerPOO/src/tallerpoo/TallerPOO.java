@@ -12,6 +12,10 @@ import tallerpoo.ventanas.VentanaIngreso;
  * @author ACU
  */
 public class TallerPOO {
+    private static int cont=0;
+    private static Persona[] persona = new Persona[100];
+    private static Actividad act = new Actividad();
+    private static Hospital h = new Hospital();
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -48,7 +52,7 @@ public class TallerPOO {
 //        Hospital h = new Hospital();
 //
 //        //------------NIÑOS--------------//
-//        Persona[] ninos = new Persona[10];
+//        
 //        for (int i = 0; i < 2; i++) {
 //            ninos[i] = new Persona(Edad.NIÑOS, true, false, t2, co1, act, i, h);
 //            ninos[i].actividad();
@@ -94,6 +98,24 @@ public class TallerPOO {
 //            adultosMayores[i].start();
 //            ninos[i].start();
 //        }
+    }
+
+    public static void agregarPersona(Persona personas) {
+        persona[cont]= personas;
+        persona[cont].setId(cont);
+        cont++;
+    }
+
+    public static Persona[] getPersona() {
+        return persona;
+    }
+
+    public static Actividad getActividad() {
+        return act;
+    }
+
+    public static Hospital getHospital() {
+        return h;
     }
 
 }

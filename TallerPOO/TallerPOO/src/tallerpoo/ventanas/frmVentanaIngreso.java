@@ -417,9 +417,9 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
         comorbilidadNino.setEnfCard(modelon.contains("Enfermedades Cardiológicas"));
         comorbilidadNino.setEnfPul(modelon.contains("Enfermedades Pulmonares"));
 
-        pNinio = new Persona(Edad.NIÑOS, false, false, cuidadonino, comorbilidadNino, TallerPOO.getActivida(), 0, TallerPOO.getHospital());
+        pNinio = new Persona(Edad.NIÑOS, false, false, cuidadonino, comorbilidadNino, TallerPOO.getActividad(), 0, TallerPOO.getHospital());
         for (int i = 0; i < Integer.parseInt(this.CantidadNino.getValue().toString()); i++) {
-            TallerPOO.AgregarPersona(pNinio);
+            TallerPOO.agregarPersona(pNinio);
         }
 //-------------------Adulto-------------
         comorbilidadAdulto.setDiabetes(modelo.contains("Diabetes"));
@@ -427,9 +427,9 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
         comorbilidadAdulto.setEnfCard(modelo.contains("Enfermedades Cardiológicas"));
         comorbilidadAdulto.setEnfPul(modelo.contains("Enfermedades Pulmonares"));
 
-        pAdulto = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadAdulto, TallerPOO.getActivida(), 0, TallerPOO.getHospital());
+        pAdulto = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadAdulto, TallerPOO.getActividad(), 0, TallerPOO.getHospital());
         for (int i = 0; i < Integer.parseInt(this.CantidadAdulto.getValue().toString()); i++) {
-            TallerPOO.AgregarPersona(pAdulto);
+            TallerPOO.agregarPersona(pAdulto);
         }
 //---------------------------AdultoMayor----------
         comorbilidadAdultoM.setDiabetes(modelo.contains("Diabetes"));
@@ -437,9 +437,9 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
         comorbilidadAdultoM.setEnfCard(modelo.contains("Enfermedades Cardiológicas"));
         comorbilidadAdultoM.setEnfPul(modelo.contains("Enfermedades Pulmonares"));
 
-        pAdultoM = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdulto, comorbilidadAdultoM, TallerPOO.getActivida(), 0, TallerPOO.getHospital());
+        pAdultoM = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdulto, comorbilidadAdultoM, TallerPOO.getActividad(), 0, TallerPOO.getHospital());
         for (int i = 0; i < Integer.parseInt(this.CantidadAdultosMay.getValue().toString()); i++) {
-            TallerPOO.AgregarPersona(pAdultoM);
+            TallerPOO.agregarPersona(pAdultoM);
         }
         this.dispose();
     }//GEN-LAST:event_AgregarActionPerformed

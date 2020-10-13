@@ -49,6 +49,10 @@ public class Persona extends Thread {
         actividad = null;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     /*
     * return @comorbilidad
      */
