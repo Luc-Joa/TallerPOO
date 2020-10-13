@@ -5,11 +5,20 @@
  */
 package tallerpoo.ventanas;
 
+import TallerPoo.*;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author ACU
  */
 public class frmVentanaIngreso extends javax.swing.JFrame {
+
+    DefaultListModel modelo = new DefaultListModel();
+    DefaultListModel modelon = new DefaultListModel();
+    DefaultListModel modelom = new DefaultListModel();
+    TipoCuidado cuidadonino;
+    Persona persona = new Persona();
 
     /**
      * Creates new form frmVentanaIngreso
@@ -32,7 +41,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
         CuidadoNino = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        ComorbilidadAdultosM = new javax.swing.JList<>();
+        lComorbilidadAdultosM = new javax.swing.JList<>();
         jLabel4 = new javax.swing.JLabel();
         CantidadNino = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
@@ -42,7 +51,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        ComorbilidadNino = new javax.swing.JList<>();
+        lComorbilidadNino = new javax.swing.JList<>();
         jLabel9 = new javax.swing.JLabel();
         CantidadAdulto = new javax.swing.JSpinner();
         jLabel10 = new javax.swing.JLabel();
@@ -50,15 +59,23 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
         CuidadoAdultosM = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        ComorbilidadAdulto = new javax.swing.JList<>();
+        lComorbilidadAdulto = new javax.swing.JList<>();
         jLabel13 = new javax.swing.JLabel();
         CantidadAdultosMay = new javax.swing.JSpinner();
+        cbxComorbilidadAdulto = new javax.swing.JComboBox<>();
+        agregarComorbilidadAdulto = new javax.swing.JButton();
+        eliminarComorbilidadAdulto = new javax.swing.JButton();
+        cbxComorbilidadNino = new javax.swing.JComboBox<>();
+        btnagregarComorbilidadNino = new javax.swing.JButton();
+        btneliminarComorbilidadNino = new javax.swing.JButton();
+        cbxComorbilidadAdultoM = new javax.swing.JComboBox<>();
+        agregarComorbilidadAdultoM = new javax.swing.JButton();
+        eliminarComorbilidadAdultoM = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agregar Personas");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setEnabled(false);
-        setPreferredSize(new java.awt.Dimension(720, 720));
+        setPreferredSize(new java.awt.Dimension(800, 720));
         setSize(new java.awt.Dimension(0, 0));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -75,21 +92,22 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
 
         jLabel3.setText("Comorbolidad :");
 
-        ComorbilidadAdultosM.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Diabetes", "Hipertensión Arterial", "Obesidad", "Enfermedades Cardiológicas", "Enfermedades Pulmonares" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        ComorbilidadAdultosM.addContainerListener(new java.awt.event.ContainerAdapter() {
+        lComorbilidadAdultosM.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
-                ComorbilidadAdultosMComponentAdded(evt);
+                lComorbilidadAdultosMComponentAdded(evt);
             }
         });
-        jScrollPane1.setViewportView(ComorbilidadAdultosM);
+        jScrollPane1.setViewportView(lComorbilidadAdultosM);
 
         jLabel4.setText("Cantidad :");
 
         CantidadNino.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
+        CantidadNino.setToolTipText("");
+        CantidadNino.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                CantidadNinoStateChanged(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Agregar Personas");
@@ -116,21 +134,24 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
 
         jLabel8.setText("Comorbolidad :");
 
-        ComorbilidadNino.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Diabetes", "Hipertensión Arterial", "Obesidad", "Enfermedades Cardiológicas", "Enfermedades Pulmonares" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        ComorbilidadNino.addContainerListener(new java.awt.event.ContainerAdapter() {
+        lComorbilidadNino.setVisibleRowCount(5);
+        lComorbilidadNino.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
-                ComorbilidadNinoComponentAdded(evt);
+                lComorbilidadNinoComponentAdded(evt);
             }
         });
-        jScrollPane2.setViewportView(ComorbilidadNino);
+        jScrollPane2.setViewportView(lComorbilidadNino);
+        lComorbilidadNino.getAccessibleContext().setAccessibleName("");
 
         jLabel9.setText("Cantidad :");
 
         CantidadAdulto.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
+        CantidadAdulto.setToolTipText("");
+        CantidadAdulto.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                CantidadAdultoStateChanged(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel10.setText("Adultos Mayores");
@@ -146,21 +167,79 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
 
         jLabel12.setText("Comorbolidad :");
 
-        ComorbilidadAdulto.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Diabetes", "Hipertensión Arterial", "Obesidad", "Enfermedades Cardiológicas", "Enfermedades Pulmonares" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        ComorbilidadAdulto.addContainerListener(new java.awt.event.ContainerAdapter() {
+        lComorbilidadAdulto.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
-                ComorbilidadAdultoComponentAdded(evt);
+                lComorbilidadAdultoComponentAdded(evt);
             }
         });
-        jScrollPane3.setViewportView(ComorbilidadAdulto);
+        jScrollPane3.setViewportView(lComorbilidadAdulto);
 
         jLabel13.setText("Cantidad :");
 
         CantidadAdultosMay.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
+
+        cbxComorbilidadAdulto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diabetes", "Hipertensión Arterial", "Obesidad", "Enfermedades Cardiológicas", "Enfermedades Pulmonares" }));
+        cbxComorbilidadAdulto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxComorbilidadAdultoActionPerformed(evt);
+            }
+        });
+
+        agregarComorbilidadAdulto.setText("Agregar");
+        agregarComorbilidadAdulto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarComorbilidadAdultoActionPerformed(evt);
+            }
+        });
+
+        eliminarComorbilidadAdulto.setText("Eliminar");
+        eliminarComorbilidadAdulto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarComorbilidadAdultoActionPerformed(evt);
+            }
+        });
+
+        cbxComorbilidadNino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diabetes", "Hipertensión Arterial", "Obesidad", "Enfermedades Cardiológicas", "Enfermedades Pulmonares" }));
+        cbxComorbilidadNino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxComorbilidadNinoActionPerformed(evt);
+            }
+        });
+
+        btnagregarComorbilidadNino.setText("Agregar");
+        btnagregarComorbilidadNino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnagregarComorbilidadNinoActionPerformed(evt);
+            }
+        });
+
+        btneliminarComorbilidadNino.setText("Eliminar");
+        btneliminarComorbilidadNino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarComorbilidadNinoActionPerformed(evt);
+            }
+        });
+
+        cbxComorbilidadAdultoM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diabetes", "Hipertensión Arterial", "Obesidad", "Enfermedades Cardiológicas", "Enfermedades Pulmonares" }));
+        cbxComorbilidadAdultoM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxComorbilidadAdultoMActionPerformed(evt);
+            }
+        });
+
+        agregarComorbilidadAdultoM.setText("Agregar");
+        agregarComorbilidadAdultoM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarComorbilidadAdultoMActionPerformed(evt);
+            }
+        });
+
+        eliminarComorbilidadAdultoM.setText("Eliminar");
+        eliminarComorbilidadAdultoM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarComorbilidadAdultoMActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,46 +252,66 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CuidadoAdultosM, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CantidadAdultosMay, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel10)
                     .addComponent(jLabel6)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Ltipocuidado)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(Ltipocuidado)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(CuidadoNino, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel3)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(cbxComorbilidadNino, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(CuidadoAdultos, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel8)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cbxComorbilidadAdulto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(eliminarComorbilidadAdulto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(agregarComorbilidadAdulto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CuidadoAdultosM, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbxComorbilidadAdultoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(eliminarComorbilidadAdultoM, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(agregarComorbilidadAdultoM, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnagregarComorbilidadNino, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btneliminarComorbilidadNino, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CuidadoNino, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CantidadNino, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CuidadoAdultos, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CantidadAdulto, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(139, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CantidadAdultosMay, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CantidadAdulto, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CantidadNino, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(17, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Agregar)
@@ -227,10 +326,16 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Ltipocuidado)
-                        .addComponent(CuidadoNino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Ltipocuidado)
+                            .addComponent(CuidadoNino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(cbxComorbilidadNino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnagregarComorbilidadNino)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btneliminarComorbilidadNino))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(CantidadNino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel4))
@@ -239,10 +344,20 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
-                        .addComponent(CuidadoAdultos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(CuidadoAdultos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8))
+                                .addGap(11, 11, 11))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(cbxComorbilidadAdulto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(agregarComorbilidadAdulto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(eliminarComorbilidadAdulto))
                     .addComponent(jLabel9)
                     .addComponent(CantidadAdulto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -256,22 +371,37 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
                         .addComponent(CuidadoAdultosM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
-                    .addComponent(CantidadAdultosMay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CantidadAdultosMay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cbxComorbilidadAdultoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(agregarComorbilidadAdultoM)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(eliminarComorbilidadAdultoM)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(Agregar)
                 .addGap(30, 30, 30))
         );
 
-        setBounds(0, 0, 768, 710);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void CuidadoNinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuidadoNinoActionPerformed
-        // TODO add your handling code here:
+        System.out.println(CuidadoNino.getSelectedItem());
+        if (CuidadoNino.getSelectedItem() == "Bajo") {
+            cuidadonino = new TipoCuidado(false, false, false, false);
+        }
+        if (CuidadoNino.getSelectedItem() == "Medio") {
+            cuidadonino = new TipoCuidado(true, false, false, false);
+        }
+        if (CuidadoNino.getSelectedItem() == "Alto") {
+            cuidadonino = new TipoCuidado(true, true, true, true);
+        }
     }//GEN-LAST:event_CuidadoNinoActionPerformed
 
-    private void ComorbilidadAdultosMComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_ComorbilidadAdultosMComponentAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComorbilidadAdultosMComponentAdded
+    private void lComorbilidadAdultosMComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_lComorbilidadAdultosMComponentAdded
+
+    }//GEN-LAST:event_lComorbilidadAdultosMComponentAdded
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
         // TODO add your handling code here:
@@ -281,17 +411,70 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CuidadoAdultosActionPerformed
 
-    private void ComorbilidadNinoComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_ComorbilidadNinoComponentAdded
+    private void lComorbilidadNinoComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_lComorbilidadNinoComponentAdded
         // TODO add your handling code here:
-    }//GEN-LAST:event_ComorbilidadNinoComponentAdded
+    }//GEN-LAST:event_lComorbilidadNinoComponentAdded
 
     private void CuidadoAdultosMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuidadoAdultosMActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CuidadoAdultosMActionPerformed
 
-    private void ComorbilidadAdultoComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_ComorbilidadAdultoComponentAdded
+    private void lComorbilidadAdultoComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_lComorbilidadAdultoComponentAdded
         // TODO add your handling code here:
-    }//GEN-LAST:event_ComorbilidadAdultoComponentAdded
+    }//GEN-LAST:event_lComorbilidadAdultoComponentAdded
+
+    private void CantidadNinoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CantidadNinoStateChanged
+        this.CantidadAdulto.setModel(new javax.swing.SpinnerNumberModel(0, 0, (100 - Integer.parseInt(this.CantidadNino.getValue().toString())), 1));
+    }//GEN-LAST:event_CantidadNinoStateChanged
+
+    private void CantidadAdultoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CantidadAdultoStateChanged
+        this.CantidadAdultosMay.setModel(new javax.swing.SpinnerNumberModel(0, 0, (100 - Integer.parseInt(this.CantidadAdulto.getValue().toString()) - Integer.parseInt(this.CantidadNino.getValue().toString())), 1));
+    }//GEN-LAST:event_CantidadAdultoStateChanged
+
+    private void agregarComorbilidadAdultoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarComorbilidadAdultoActionPerformed
+        if (!modelo.contains(cbxComorbilidadAdulto.getSelectedItem())) {
+            modelo.addElement((String) cbxComorbilidadAdulto.getSelectedItem());
+            this.lComorbilidadAdulto.setModel(modelo);
+        }
+    }//GEN-LAST:event_agregarComorbilidadAdultoActionPerformed
+
+    private void cbxComorbilidadAdultoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxComorbilidadAdultoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxComorbilidadAdultoActionPerformed
+
+    private void eliminarComorbilidadAdultoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarComorbilidadAdultoActionPerformed
+        modelo.removeElement(lComorbilidadAdulto.getSelectedValue());
+    }//GEN-LAST:event_eliminarComorbilidadAdultoActionPerformed
+
+    private void cbxComorbilidadNinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxComorbilidadNinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxComorbilidadNinoActionPerformed
+
+    private void btnagregarComorbilidadNinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarComorbilidadNinoActionPerformed
+        if (!modelon.contains(cbxComorbilidadNino.getSelectedItem())) {
+            modelon.addElement((String) cbxComorbilidadNino.getSelectedItem());
+            this.lComorbilidadNino.setModel(modelon);
+        }
+    }//GEN-LAST:event_btnagregarComorbilidadNinoActionPerformed
+
+    private void btneliminarComorbilidadNinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarComorbilidadNinoActionPerformed
+        modelo.removeElement(lComorbilidadNino.getSelectedValue());
+    }//GEN-LAST:event_btneliminarComorbilidadNinoActionPerformed
+
+    private void cbxComorbilidadAdultoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxComorbilidadAdultoMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxComorbilidadAdultoMActionPerformed
+
+    private void agregarComorbilidadAdultoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarComorbilidadAdultoMActionPerformed
+        if (!modelom.contains(cbxComorbilidadAdultoM.getSelectedItem())) {
+            modelom.addElement((String) cbxComorbilidadAdultoM.getSelectedItem());
+            this.lComorbilidadAdultosM.setModel(modelom);
+        }
+    }//GEN-LAST:event_agregarComorbilidadAdultoMActionPerformed
+
+    private void eliminarComorbilidadAdultoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarComorbilidadAdultoMActionPerformed
+        modelom.removeElement(lComorbilidadAdultosM.getSelectedValue());
+    }//GEN-LAST:event_eliminarComorbilidadAdultoMActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,15 +492,11 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmVentanaIngreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmVentanaIngreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmVentanaIngreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frmVentanaIngreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        
         //</editor-fold>
 
         /* Create and display the form */
@@ -333,13 +512,19 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
     private javax.swing.JSpinner CantidadAdulto;
     private javax.swing.JSpinner CantidadAdultosMay;
     private javax.swing.JSpinner CantidadNino;
-    private javax.swing.JList<String> ComorbilidadAdulto;
-    private javax.swing.JList<String> ComorbilidadAdultosM;
-    private javax.swing.JList<String> ComorbilidadNino;
     private javax.swing.JComboBox<String> CuidadoAdultos;
     private javax.swing.JComboBox<String> CuidadoAdultosM;
     private javax.swing.JComboBox<String> CuidadoNino;
     private javax.swing.JLabel Ltipocuidado;
+    private javax.swing.JButton agregarComorbilidadAdulto;
+    private javax.swing.JButton agregarComorbilidadAdultoM;
+    private javax.swing.JButton btnagregarComorbilidadNino;
+    private javax.swing.JButton btneliminarComorbilidadNino;
+    private javax.swing.JComboBox<String> cbxComorbilidadAdulto;
+    private javax.swing.JComboBox<String> cbxComorbilidadAdultoM;
+    private javax.swing.JComboBox<String> cbxComorbilidadNino;
+    private javax.swing.JButton eliminarComorbilidadAdulto;
+    private javax.swing.JButton eliminarComorbilidadAdultoM;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -355,5 +540,8 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JList<String> lComorbilidadAdulto;
+    private javax.swing.JList<String> lComorbilidadAdultosM;
+    private javax.swing.JList<String> lComorbilidadNino;
     // End of variables declaration//GEN-END:variables
 }
