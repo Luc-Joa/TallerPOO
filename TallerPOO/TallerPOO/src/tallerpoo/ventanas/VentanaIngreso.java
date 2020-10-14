@@ -7,6 +7,7 @@ package tallerpoo.ventanas;
 
 import TallerPoo.Edad;
 import TallerPoo.TallerPOO;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -38,6 +39,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         btnActualizar = new javax.swing.JButton();
+        btnReiniciar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Simulación");
@@ -93,25 +95,32 @@ public class VentanaIngreso extends javax.swing.JFrame {
             }
         });
 
+        btnReiniciar.setText("Reiniciar");
+        btnReiniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReiniciarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnActualizar)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnReiniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -121,11 +130,13 @@ public class VentanaIngreso extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(btnActualizar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                        .addGap(14, 14, 14)
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -137,8 +148,13 @@ public class VentanaIngreso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        frmVentanaIngreso fVIng = new frmVentanaIngreso();
-        fVIng.setVisible(true);
+        if (TallerPOO.getPersona().size() != 100) {
+            frmVentanaIngreso fVIng = new frmVentanaIngreso();
+            fVIng.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "El limite de personas es 100");
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -148,29 +164,37 @@ public class VentanaIngreso extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        int cn=0,ca=0,cam=0;
-        DefaultTableModel tabla= (DefaultTableModel)jTable1.getModel();
+        int cn = 0, ca = 0, cam = 0;
+        DefaultTableModel tabla = (DefaultTableModel) jTable1.getModel();
         tabla.setNumRows(0);
         for (int i = 0; i < TallerPOO.getPersona().size(); i++) {
-            if (TallerPOO.getPersona().get(i).getEdad()==Edad.NIÑOS) {
+            if (TallerPOO.getPersona().get(i).getEdad() == Edad.NIÑOS) {
                 cn++;
             }
-            if (TallerPOO.getPersona().get(i).getEdad()==Edad.ADULTOS) {
+            if (TallerPOO.getPersona().get(i).getEdad() == Edad.ADULTOS) {
                 ca++;
             }
-            if (TallerPOO.getPersona().get(i).getEdad()==Edad.ADULTOS_MAYORES) {
+            if (TallerPOO.getPersona().get(i).getEdad() == Edad.ADULTOS_MAYORES) {
                 cam++;
             }
         }
-        Object[] row={"Niños",cn};
+        Object[] row = {"Niños", cn};
         tabla.addRow(row);
-        
-        Object[]row1={"Adultos",ca};
+
+        Object[] row1 = {"Adultos", ca};
         tabla.addRow(row1);
-        
-        Object[] row2={"Adultos Mayores",cam};
+
+        Object[] row2 = {"Adultos Mayores", cam};
         tabla.addRow(row2);
+        
+        Object[] row3 = {"Cantidad Total", cam+ca+cn};
+        tabla.addRow(row3);
     }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
+        TallerPOO.resetearPersona();
+        btnActualizarActionPerformed(evt);
+    }//GEN-LAST:event_btnReiniciarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,6 +234,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnReiniciar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;

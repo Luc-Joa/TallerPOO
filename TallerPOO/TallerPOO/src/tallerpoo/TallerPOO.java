@@ -5,6 +5,8 @@
  */
 package TallerPoo;
 
+import java.util.ArrayList;
+import java.util.List;
 import tallerpoo.ventanas.VentanaIngreso;
 
 /**
@@ -13,7 +15,7 @@ import tallerpoo.ventanas.VentanaIngreso;
  */
 public class TallerPOO {
     private static int cont=0;
-    private static Persona[] persona = new Persona[100];
+    private static List<Persona> persona = new ArrayList<>();
     private static Actividad act = new Actividad();
     private static Hospital h = new Hospital();
 
@@ -99,14 +101,22 @@ public class TallerPOO {
 //            ninos[i].start();
 //        }
     }
-
+    /**
+     * Agrega Persona a la lista
+     * @param personas 
+     */
     public static void agregarPersona(Persona personas) {
-        persona[cont]= personas;
-        persona[cont].setId(cont);
+        personas.setId(cont);
+        persona.add(personas);
         cont++;
     }
-
-    public static Persona[] getPersona() {
+    /**
+     * Elimina la Lista de personas
+     */
+    public static void resetearPersona(){
+        persona.clear();
+    }
+    public static List<Persona> getPersona() {
         return persona;
     }
 

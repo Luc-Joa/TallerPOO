@@ -7,6 +7,7 @@ package tallerpoo.ventanas;
 
 import TallerPoo.*;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,13 +34,6 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
     public frmVentanaIngreso() {
         initComponents();
     }
-
-
-    
-
-
-  
-        
 
 //-------------------------------------------------------
     @SuppressWarnings("unchecked")
@@ -411,37 +405,41 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
     }//GEN-LAST:event_lComorbilidadAdultosMComponentAdded
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        //Boolean diabetes, Boolean hipertencionArterial, Boolean obesidad, Boolean enfCard, Boolean enfPul
-        comorbilidadNino.setDiabetes(modelon.contains("Diabetes"));
-        comorbilidadNino.setHipertencionArterial(modelon.contains("Hipertensión Arterial"));
-        comorbilidadNino.setEnfCard(modelon.contains("Enfermedades Cardiológicas"));
-        comorbilidadNino.setEnfPul(modelon.contains("Enfermedades Pulmonares"));
+        int total=Integer.parseInt(this.CantidadNino.getValue().toString())+Integer.parseInt(this.CantidadAdulto.getValue().toString())+Integer.parseInt(this.CantidadAdulto.getValue().toString());
+        if ((TallerPOO.getPersona().size()+total) <= 100) {
+            comorbilidadNino.setDiabetes(modelon.contains("Diabetes"));
+            comorbilidadNino.setHipertencionArterial(modelon.contains("Hipertensión Arterial"));
+            comorbilidadNino.setEnfCard(modelon.contains("Enfermedades Cardiológicas"));
+            comorbilidadNino.setEnfPul(modelon.contains("Enfermedades Pulmonares"));
 
-        pNinio = new Persona(Edad.NIÑOS, false, false, cuidadonino, comorbilidadNino, TallerPOO.getActividad(), 0, TallerPOO.getHospital());
-        for (int i = 0; i < Integer.parseInt(this.CantidadNino.getValue().toString()); i++) {
-            TallerPOO.agregarPersona(pNinio);
-        }
+            pNinio = new Persona(Edad.NIÑOS, false, false, cuidadonino, comorbilidadNino, TallerPOO.getActividad(), 0, TallerPOO.getHospital());
+            for (int i = 0; i < Integer.parseInt(this.CantidadNino.getValue().toString()); i++) {
+                TallerPOO.agregarPersona(pNinio);
+            }
 //-------------------Adulto-------------
-        comorbilidadAdulto.setDiabetes(modelo.contains("Diabetes"));
-        comorbilidadAdulto.setHipertencionArterial(modelo.contains("Hipertensión Arterial"));
-        comorbilidadAdulto.setEnfCard(modelo.contains("Enfermedades Cardiológicas"));
-        comorbilidadAdulto.setEnfPul(modelo.contains("Enfermedades Pulmonares"));
+            comorbilidadAdulto.setDiabetes(modelo.contains("Diabetes"));
+            comorbilidadAdulto.setHipertencionArterial(modelo.contains("Hipertensión Arterial"));
+            comorbilidadAdulto.setEnfCard(modelo.contains("Enfermedades Cardiológicas"));
+            comorbilidadAdulto.setEnfPul(modelo.contains("Enfermedades Pulmonares"));
 
-        pAdulto = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadAdulto, TallerPOO.getActividad(), 0, TallerPOO.getHospital());
-        for (int i = 0; i < Integer.parseInt(this.CantidadAdulto.getValue().toString()); i++) {
-            TallerPOO.agregarPersona(pAdulto);
-        }
+            pAdulto = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadAdulto, TallerPOO.getActividad(), 0, TallerPOO.getHospital());
+            for (int i = 0; i < Integer.parseInt(this.CantidadAdulto.getValue().toString()); i++) {
+                TallerPOO.agregarPersona(pAdulto);
+            }
 //---------------------------AdultoMayor----------
-        comorbilidadAdultoM.setDiabetes(modelo.contains("Diabetes"));
-        comorbilidadAdultoM.setHipertencionArterial(modelo.contains("Hipertensión Arterial"));
-        comorbilidadAdultoM.setEnfCard(modelo.contains("Enfermedades Cardiológicas"));
-        comorbilidadAdultoM.setEnfPul(modelo.contains("Enfermedades Pulmonares"));
+            comorbilidadAdultoM.setDiabetes(modelo.contains("Diabetes"));
+            comorbilidadAdultoM.setHipertencionArterial(modelo.contains("Hipertensión Arterial"));
+            comorbilidadAdultoM.setEnfCard(modelo.contains("Enfermedades Cardiológicas"));
+            comorbilidadAdultoM.setEnfPul(modelo.contains("Enfermedades Pulmonares"));
 
-        pAdultoM = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdulto, comorbilidadAdultoM, TallerPOO.getActividad(), 0, TallerPOO.getHospital());
-        for (int i = 0; i < Integer.parseInt(this.CantidadAdultosMay.getValue().toString()); i++) {
-            TallerPOO.agregarPersona(pAdultoM);
+            pAdultoM = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdulto, comorbilidadAdultoM, TallerPOO.getActividad(), 0, TallerPOO.getHospital());
+            for (int i = 0; i < Integer.parseInt(this.CantidadAdultosMay.getValue().toString()); i++) {
+                TallerPOO.agregarPersona(pAdultoM);
+            }
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "El limite de personas es 100");   
         }
-        this.dispose();
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void CuidadoAdultosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuidadoAdultosActionPerformed
@@ -461,7 +459,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
     }//GEN-LAST:event_lComorbilidadNinoComponentAdded
 
     private void CuidadoAdultosMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuidadoAdultosMActionPerformed
-            if (CuidadoAdultosM.getSelectedItem() == "Bajo") {
+        if (CuidadoAdultosM.getSelectedItem() == "Bajo") {
             cuidadoAdulto = new TipoCuidado(false, false, false, false);
         }
         if (CuidadoAdultosM.getSelectedItem() == "Medio") {
