@@ -13,14 +13,22 @@ import java.awt.Graphics;
  *
  * @author ACU
  */
-public class FiguraPersona extends Persona{
+public class FiguraPersona extends Persona {
+
     int x, width;
     int y, height;
     int dir;
-    private final int vel =1;
-//Edad edad, Boolean contagio, Boolean sintoma, TipoCuidado cuidado, Comorbilidad comorbilidad, Actividad actividad, int id, Hospital h
+    private final int vel = 1;
+
+    /**
+     * Constructor Parametrizado
+     *
+     * @param width
+     * @param height
+     * @param p
+     */
     public FiguraPersona(int width, int height, Persona p) {
-        super(p.getEdad(),p.getContagio(),p.getSintoma(),p.getCuidado(),p.getComorbilidad(),p.getActividad(),p.getID(),p.getHospital());
+        super(p.getEdad(), p.getContagio(), p.getSintoma(), p.getCuidado(), p.getComorbilidad(), p.getActividad(), p.getID(), p.getHospital());
         this.width = width;
         this.height = height;
         this.x = (int) (width * Math.random());
@@ -43,6 +51,11 @@ public class FiguraPersona extends Persona{
         this.y = y;
     }
 
+    /**
+     * La persona se mueve en la direccion indicada por el parametro dir
+     *
+     * @param dir
+     */
     public void mover(int dir) {
         switch (dir) {
             case 0:
@@ -78,6 +91,10 @@ public class FiguraPersona extends Persona{
         }
     }
 
+    /**
+     * Si la persona llega al limite del area donde se puede mover cambia de
+     * direccion
+     */
     public void rebotar() {
         if (y <= 0) {
             int nr = (int) (Math.random() * 3) + 1;
@@ -101,6 +118,11 @@ public class FiguraPersona extends Persona{
         }
     }
 
+    /**
+     * Crea la figura de la persona
+     *
+     * @param g
+     */
     public void paint(Graphics g) {
         g.setColor(this.getColor());
         g.fillOval((int) x, (int) y, 10, 10);

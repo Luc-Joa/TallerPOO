@@ -29,15 +29,17 @@ public class ifrmSimulacionMovimiento extends javax.swing.JInternalFrame {
 
         movimientoPersona1 = new tallerpoo.ventanas.MovimientoPersona();
 
+        setTitle("Escuela");
+
         javax.swing.GroupLayout movimientoPersona1Layout = new javax.swing.GroupLayout(movimientoPersona1);
         movimientoPersona1.setLayout(movimientoPersona1Layout);
         movimientoPersona1Layout.setHorizontalGroup(
             movimientoPersona1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 382, Short.MAX_VALUE)
+            .addGap(0, 665, Short.MAX_VALUE)
         );
         movimientoPersona1Layout.setVerticalGroup(
             movimientoPersona1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 262, Short.MAX_VALUE)
+            .addGap(0, 361, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

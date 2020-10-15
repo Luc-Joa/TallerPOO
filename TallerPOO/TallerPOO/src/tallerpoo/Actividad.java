@@ -22,6 +22,9 @@ public class Actividad {
     private List<Persona> adultoMayor;
     final int horaPaseo, horaEscuela, horaTrabajo;
 
+    /**
+     * Constructor por defecto de Actividad
+     */
     public Actividad() {
         nino = new ArrayList<>();
         adulto = new ArrayList<>();
@@ -146,6 +149,7 @@ public class Actividad {
                 }
             }
         }
+        //Modificar luego puede dar error division por 0
         try {
             sleep((10000 * this.horaEscuela) / nino.size());
         } catch (InterruptedException ex) {
@@ -171,6 +175,7 @@ public class Actividad {
                 }
             }
         }
+        //Modificar luego puede dar error division por 0
         try {
             sleep((10000 * this.horaTrabajo) / adulto.size());
         } catch (InterruptedException ex) {
@@ -196,6 +201,7 @@ public class Actividad {
                 }
             }
         }
+        //Modificar luego puede dar error division por 0
         try {
             sleep((10000 * this.horaTrabajo) / adultoMayor.size());
         } catch (InterruptedException ex) {

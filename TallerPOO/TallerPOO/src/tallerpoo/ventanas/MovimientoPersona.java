@@ -20,7 +20,8 @@ public class MovimientoPersona extends javax.swing.JPanel implements Runnable {
     Thread[] animacion;
 
     /**
-     * Creates new form MovimientoPersona
+     * Crea el panel MovimientoPersona , los hilos y carga la figura de la
+     * persona en el arreglo p
      */
     public MovimientoPersona() {
         initComponents();
@@ -30,7 +31,7 @@ public class MovimientoPersona extends javax.swing.JPanel implements Runnable {
         }
         p = new FiguraPersona[TallerPOO.getNinos().size()];
         for (int i = 0; i < p.length; i++) {
-            p[i] = new FiguraPersona(300, 300,TallerPOO.getNinos().get(i));
+            p[i] = new FiguraPersona(600, 400, TallerPOO.getNinos().get(i));
         }
 
         for (int i = 0; i < animacion.length; i++) {
@@ -47,21 +48,26 @@ public class MovimientoPersona extends javax.swing.JPanel implements Runnable {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        setPreferredSize(new java.awt.Dimension(600, 400));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Pone en movimiento a la persona
+     */
     @Override
     public void run() {
-for (int i = 0; i < p.length; i++) {
+        for (int i = 0; i < p.length; i++) {
             p[i].setDir(((int) (Math.random() * 7)));
 
         }
@@ -85,6 +91,11 @@ for (int i = 0; i < p.length; i++) {
         }
     }
 
+    /**
+     * Agrega las figuras de las personas al panel
+     *
+     * @param g
+     */
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
