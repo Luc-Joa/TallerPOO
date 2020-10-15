@@ -414,6 +414,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
 
             pNinio = new Persona(Edad.NIÑOS, false, false, cuidadonino, comorbilidadNino, TallerPOO.getActividad(), 0, TallerPOO.getHospital());
             for (int i = 0; i < Integer.parseInt(this.CantidadNino.getValue().toString()); i++) {
+                pNinio.setId(i);
                 TallerPOO.agregarPersona(pNinio);
             }
 //-------------------Adulto-------------
@@ -424,6 +425,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
 
             pAdulto = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadAdulto, TallerPOO.getActividad(), 0, TallerPOO.getHospital());
             for (int i = 0; i < Integer.parseInt(this.CantidadAdulto.getValue().toString()); i++) {
+                pAdulto.setId(i+Integer.parseInt(this.CantidadNino.getValue().toString()));
                 TallerPOO.agregarPersona(pAdulto);
             }
 //---------------------------AdultoMayor----------
@@ -434,6 +436,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
 
             pAdultoM = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdulto, comorbilidadAdultoM, TallerPOO.getActividad(), 0, TallerPOO.getHospital());
             for (int i = 0; i < Integer.parseInt(this.CantidadAdultosMay.getValue().toString()); i++) {
+               pAdultoM.setId(i+Integer.parseInt(this.CantidadNino.getValue().toString())+Integer.parseInt(this.CantidadAdulto.getValue().toString()));
                 TallerPOO.agregarPersona(pAdultoM);
             }
             this.dispose();

@@ -6,15 +6,14 @@
 package TallerPoo;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author Joaquin
  */
-public class Persona extends Thread {
+public class Persona  {
 
     private Edad edad;
     private Boolean contagio, sintoma;
@@ -37,6 +36,22 @@ public class Persona extends Thread {
         this.hospital = h;
     }
 
+    public Hospital getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(Hospital hospital) {
+        this.hospital = hospital;
+    }
+
+    public Actividad getActividad() {
+        return actividad;
+    }
+
+    public void setActividad(Actividad actividad) {
+        this.actividad = actividad;
+    }
+
     //para comenzar con los threads/hilos
     //constructor por defecto
     public Persona() {
@@ -48,7 +63,103 @@ public class Persona extends Thread {
         comorbilidad = null;
         actividad = null;
     }
+    //-------
+//    int x;
+//    int width;
+//    int y, height;
+//    int dir;
+//    private final int vel = 1;
+//
+//    public void setDir(int dir) {
+//        this.dir = dir;
+//    }
+//
+//    public int getDir() {
+//        return dir;
+//    }
+//
+//    public void setWidth(int width) {
+//        this.width = width;
+//    }
+//
+//    public void setHeight(int height) {
+//        this.height = height;
+//    }
+//
+//    public void setX(int x) {
+//        this.x = x;
+//
+//    }
+//
+//    public void setY(int y) {
+//        this.y = y;
+//    }
+//
+//    public void mover(int dir) {
+//        switch (dir) {
+//            case 0:
+//                this.y += this.vel;
+//                break;
+//            case 1:
+//                this.y -= this.vel;
+//                break;
+//            case 2:
+//                this.x += this.vel;
+//                break;
+//            case 3:
+//               this.x -= this.vel;
+//                break;
+//            case 4:
+//                this.x += this.vel;
+//                this.y += this.vel;
+//                break;
+//            case 5:
+//                this.x -= this.vel;
+//                this.y -= this.vel;
+//                break;
+//            case 6:
+//                this.x += this.vel;
+//                this.y -= this.vel;
+//                break;
+//            case 7:
+//                this.x -= this.vel;
+//                this.y += this.vel;
+//                break;
+//            default:
+//                break;
+//        }
+//    }
+//
+//    public void rebotar() {
+//        if (y <= 0) {
+//            int nr = (int) (Math.random() * 3) + 1;
+//            dir = nr == 1 ? 7 : nr == 2 ? 0 : 4;
+//        }
+//        if (x <= 0) {
+//            int nr = (int) (Math.random() * 3) + 1;
+//            dir = nr == 1 ? 2 : nr == 2 ? 6 : 4;
+//        }
+//        if (x <= 0 && y <= 0) {
+//            int nr = (int) (Math.random() * 3) + 1;
+//            dir = nr == 1 ? 0 : nr == 2 ? 2 : 4;
+//        }
+//        if (x >= width) {
+//            int nr = (int) (Math.random() * 3) + 1;
+//            dir = nr == 1 ? 5 : nr == 2 ? 7 : 3;
+//        }
+//        if (y >= height) {
+//            int nr = (int) (Math.random() * 3) + 1;
+//            dir = nr == 1 ? 6 : nr == 2 ? 1 : 5;
+//        }
+//    }
+//
+//    public void paint(Graphics g) {
+//        g.setColor(this.getColor());
+//        g.fillOval(x, y, 10, 10);
+////        return g;
+//    }
 
+    //-------
     public void setId(int id) {
         this.id = id;
     }
@@ -218,22 +329,22 @@ public class Persona extends Thread {
     }
 
     //Mientras no tengan sintomas van a realizar la actividad
-    @Override
-    public void run() {
-        while (!this.getSintoma()) {
-            realizar();
-
-            if (this.getSintoma() && hospital.consulta(this)) {
-                System.out.println(this.id + ". En cuarentena");
-                actividad.quitarPersona(this);
-                hospital.agregarContagiado(this);
-            }
-        }
-        try {
-            sleep((int) (Math.random() * 100));
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
+//    @Override
+//    public void run() {
+//        while (!this.getSintoma()) {
+//            realizar();
+//
+//            if (this.getSintoma() && hospital.consulta(this)) {
+//                System.out.println(this.id + ". En cuarentena");
+//                actividad.quitarPersona(this);
+//                hospital.agregarContagiado(this);
+//            }
+//        }
+//        try {
+//            sleep((int) (Math.random() * 100));
+//        } catch (InterruptedException ex) {
+//            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//    }
 }

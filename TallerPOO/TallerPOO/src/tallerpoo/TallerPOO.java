@@ -20,7 +20,6 @@ public class TallerPOO {
     private static Hospital h = new Hospital();
 
     public static void main(String[] args) throws InterruptedException {
-
         VentanaIngreso vIng = new VentanaIngreso();
         vIng.setVisible(true);
 //
@@ -106,9 +105,7 @@ public class TallerPOO {
      * @param personas 
      */
     public static void agregarPersona(Persona personas) {
-        personas.setId(cont);
         persona.add(personas);
-        cont++;
     }
     /**
      * Elimina la Lista de personas
@@ -119,7 +116,34 @@ public class TallerPOO {
     public static List<Persona> getPersona() {
         return persona;
     }
-
+    public static List<Persona> getNinos() {
+        List<Persona> ninos= new ArrayList<>();
+        for (int i = 0; i < persona.size(); i++) {
+            if (persona.get(i).getEdad().equals(Edad.NIÑOS)) {
+                ninos.add(persona.get(i));
+            }
+        }
+        return ninos;
+    }
+    public static List<Persona> getAdultos() {
+            List<Persona> adultos= new ArrayList<>();
+        for (int i = 0; i < persona.size(); i++) {
+            if (persona.get(i).getEdad().equals(Edad.ADULTOS)) {
+                adultos.add(persona.get(i));
+            }
+        }
+        return adultos;
+    }
+    public static List<Persona> getMayores() {
+            List<Persona> mayores= new ArrayList<>();
+        for (int i = 0; i < persona.size(); i++) {
+            if (persona.get(i).getEdad().equals(Edad.ADULTOS_MAYORES)) {
+                mayores.add(persona.get(i));
+            }
+        }
+        return mayores;
+    }
+    
     public static Actividad getActividad() {
         return act;
     }

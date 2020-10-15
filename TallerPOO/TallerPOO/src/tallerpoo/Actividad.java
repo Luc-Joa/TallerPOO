@@ -77,6 +77,19 @@ public class Actividad {
         }
     }
 
+    public List<Persona> getNino() {
+        return nino;
+    }
+
+    public List<Persona> getAdulto() {
+        return adulto;
+    }
+
+    public List<Persona> getAdultoMayor() {
+        return adultoMayor;
+    }
+
+    
     /*
     * return @horaPaseo
      */

@@ -180,10 +180,9 @@ public class VentanaIngreso extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnINICIOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnINICIOActionPerformed
-          ifrmAnimacionSimulacion a= new ifrmAnimacionSimulacion();
+          ifrmSimulacionMovimiento a= new ifrmSimulacionMovimiento();
           jdEscritorio.add(a);
           a.setVisible(true);
-    
 //        VentanaSimulacion vSim = new VentanaSimulacion();
 //        vSim.setVisible(true);
     }//GEN-LAST:event_btnINICIOActionPerformed
