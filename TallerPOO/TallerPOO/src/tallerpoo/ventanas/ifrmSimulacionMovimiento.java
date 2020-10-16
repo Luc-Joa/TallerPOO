@@ -7,6 +7,8 @@ package tallerpoo.ventanas;
 
 import TallerPoo.Comorbilidad;
 import TallerPoo.*;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultListModel;
 
 /**
@@ -14,6 +16,8 @@ import javax.swing.DefaultListModel;
  * @author ACU
  */
 public class ifrmSimulacionMovimiento extends javax.swing.JInternalFrame {
+
+    List<Thread> hilo = new ArrayList();
 
     DefaultListModel modelo = new DefaultListModel();
     Persona contagiado = new Persona();
@@ -97,19 +101,17 @@ public class ifrmSimulacionMovimiento extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Thread[] a = new Thread[TallerPOO.getNinos().size()];
         FiguraPersona[] p = new FiguraPersona[TallerPOO.getNinos().size()];
         for (int i = 0; i < p.length; i++) {
             p[i] = new FiguraPersona(TallerPOO.getNinos().get(i), movimientoPersona2);
             movimientoPersona2.add(p[i]);
         }
 
-        for (int i = 0; i < a.length; i++) {
-            a[i] = new Thread(new HiloPersona(p[i]));
+        for (int i = 0; i < p.length; i++) {
+            hilo.add(new Thread(new HiloPersona(p[i])));
         }
-        for (int i = 0; i < a.length; i++) {
-            a[i].start();
-
+        for (int i = 0; i < hilo.size(); i++) {
+            hilo.get(i).start();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

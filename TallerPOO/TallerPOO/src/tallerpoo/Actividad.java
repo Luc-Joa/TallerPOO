@@ -34,12 +34,14 @@ public class Actividad {
     public void Contagio(Persona a, Persona b) {
         if (a.getContagio() && !b.getContagio()) {
             if ((Math.random() * 100) < interactuar(a, b)) {
-                a.setColor(Color.red);
+                b.setColor(Color.red);
+                b.setContagio(Boolean.TRUE);
             }
         }
         if (!a.getContagio() && b.getContagio()) {
             if ((Math.random() * 100) < interactuar(b, a)) {
                 a.setColor(Color.red);
+                a.setContagio(Boolean.TRUE);
             }
         }
     }

@@ -173,16 +173,16 @@ public class VentanaIngreso extends javax.swing.JFrame {
         if (TallerPOO.getPersona().size() != 100) {
             frmVentanaIngreso fVIng = new frmVentanaIngreso();
             fVIng.setVisible(true);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "El limite de personas es 100");
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnINICIOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnINICIOActionPerformed
-          ifrmSimulacionMovimiento a= new ifrmSimulacionMovimiento();
-          jdEscritorio.add(a);
-          a.setVisible(true);
+        ifrmSimulacionMovimiento a = new ifrmSimulacionMovimiento();
+        jdEscritorio.add(a);
+        a.setVisible(true);
 //        VentanaSimulacion vSim = new VentanaSimulacion();
 //        vSim.setVisible(true);
     }//GEN-LAST:event_btnINICIOActionPerformed
@@ -210,8 +210,8 @@ public class VentanaIngreso extends javax.swing.JFrame {
 
         Object[] row2 = {"Adultos Mayores", cam};
         tabla.addRow(row2);
-        
-        Object[] row3 = {"Cantidad Total", cam+ca+cn};
+
+        Object[] row3 = {"Cantidad Total", cam + ca + cn};
         tabla.addRow(row3);
     }//GEN-LAST:event_btnActualizarActionPerformed
 

@@ -32,6 +32,7 @@ public class TallerPOO {
      */
     public static void agregarPersona(Persona personas) {
         persona.add(personas);
+        cont++;
     }
 
     /**
@@ -101,6 +102,14 @@ public class TallerPOO {
 
     public static Hospital getHospital() {
         return h;
+    }
+
+    public static int getCont() {
+        return cont;
+    }
+
+    public static void setCont(int cont) {
+        TallerPOO.cont = cont;
     }
 
 }

@@ -405,16 +405,15 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
     }//GEN-LAST:event_lComorbilidadAdultosMComponentAdded
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        int total=Integer.parseInt(this.CantidadNino.getValue().toString())+Integer.parseInt(this.CantidadAdulto.getValue().toString())+Integer.parseInt(this.CantidadAdulto.getValue().toString());
-        if ((TallerPOO.getPersona().size()+total) <= 100) {
+        int total = Integer.parseInt(this.CantidadNino.getValue().toString()) + Integer.parseInt(this.CantidadAdulto.getValue().toString()) + Integer.parseInt(this.CantidadAdulto.getValue().toString());
+        if ((TallerPOO.getPersona().size() + total) <= 100) {
             comorbilidadNino.setDiabetes(modelon.contains("Diabetes"));
             comorbilidadNino.setHipertencionArterial(modelon.contains("Hipertensión Arterial"));
             comorbilidadNino.setEnfCard(modelon.contains("Enfermedades Cardiológicas"));
             comorbilidadNino.setEnfPul(modelon.contains("Enfermedades Pulmonares"));
 
-            pNinio = new Persona(Edad.NIÑOS, false, false, cuidadonino, comorbilidadNino, TallerPOO.getActividad(), 0, TallerPOO.getHospital());
             for (int i = 0; i < Integer.parseInt(this.CantidadNino.getValue().toString()); i++) {
-                pNinio.setId(i);
+                pNinio = new Persona(Edad.NIÑOS, false, false, cuidadonino, comorbilidadNino, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
                 TallerPOO.agregarPersona(pNinio);
             }
 //-------------------Adulto-------------
@@ -423,9 +422,8 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
             comorbilidadAdulto.setEnfCard(modelo.contains("Enfermedades Cardiológicas"));
             comorbilidadAdulto.setEnfPul(modelo.contains("Enfermedades Pulmonares"));
 
-            pAdulto = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadAdulto, TallerPOO.getActividad(), 0, TallerPOO.getHospital());
             for (int i = 0; i < Integer.parseInt(this.CantidadAdulto.getValue().toString()); i++) {
-                pAdulto.setId(i+Integer.parseInt(this.CantidadNino.getValue().toString()));
+                pAdulto = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadAdulto, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
                 TallerPOO.agregarPersona(pAdulto);
             }
 //---------------------------AdultoMayor----------
@@ -434,14 +432,13 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
             comorbilidadAdultoM.setEnfCard(modelo.contains("Enfermedades Cardiológicas"));
             comorbilidadAdultoM.setEnfPul(modelo.contains("Enfermedades Pulmonares"));
 
-            pAdultoM = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdulto, comorbilidadAdultoM, TallerPOO.getActividad(), 0, TallerPOO.getHospital());
             for (int i = 0; i < Integer.parseInt(this.CantidadAdultosMay.getValue().toString()); i++) {
-               pAdultoM.setId(i+Integer.parseInt(this.CantidadNino.getValue().toString())+Integer.parseInt(this.CantidadAdulto.getValue().toString()));
+                pAdultoM = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdulto, comorbilidadAdultoM, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
                 TallerPOO.agregarPersona(pAdultoM);
             }
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "El limite de personas es 100");   
+            JOptionPane.showMessageDialog(null, "El limite de personas es 100");
         }
     }//GEN-LAST:event_AgregarActionPerformed
 
@@ -555,6 +552,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new frmVentanaIngreso().setVisible(true);
             }

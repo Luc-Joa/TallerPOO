@@ -96,6 +96,7 @@ public class FiguraPersona extends Persona {
             default:
                 break;
         }
+        canvas.repaint();
     }
 
     /**
