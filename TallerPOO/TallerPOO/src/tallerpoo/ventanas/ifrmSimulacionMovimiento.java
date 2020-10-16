@@ -5,11 +5,18 @@
  */
 package tallerpoo.ventanas;
 
+import TallerPoo.Comorbilidad;
+import TallerPoo.*;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author ACU
  */
 public class ifrmSimulacionMovimiento extends javax.swing.JInternalFrame {
+
+    DefaultListModel modelo = new DefaultListModel();
+    Persona contagiado = new Persona();
 
     /**
      * Creates new form ifrmSimulacionMovimiento
@@ -27,20 +34,36 @@ public class ifrmSimulacionMovimiento extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        movimientoPersona1 = new tallerpoo.ventanas.MovimientoPersona();
+        movimientoPersona2 = new tallerpoo.ventanas.MovimientoPersona();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setTitle("Escuela");
 
-        javax.swing.GroupLayout movimientoPersona1Layout = new javax.swing.GroupLayout(movimientoPersona1);
-        movimientoPersona1.setLayout(movimientoPersona1Layout);
-        movimientoPersona1Layout.setHorizontalGroup(
-            movimientoPersona1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 665, Short.MAX_VALUE)
+        javax.swing.GroupLayout movimientoPersona2Layout = new javax.swing.GroupLayout(movimientoPersona2);
+        movimientoPersona2.setLayout(movimientoPersona2Layout);
+        movimientoPersona2Layout.setHorizontalGroup(
+            movimientoPersona2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 479, Short.MAX_VALUE)
         );
-        movimientoPersona1Layout.setVerticalGroup(
-            movimientoPersona1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 361, Short.MAX_VALUE)
+        movimientoPersona2Layout.setVerticalGroup(
+            movimientoPersona2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 341, Short.MAX_VALUE)
         );
+
+        jButton1.setText("Iniciar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Contagiados");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -48,22 +71,82 @@ public class ifrmSimulacionMovimiento extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(movimientoPersona1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(movimientoPersona2, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(movimientoPersona1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(movimientoPersona2, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Thread[] a = new Thread[TallerPOO.getNinos().size()];
+        FiguraPersona[] p = new FiguraPersona[TallerPOO.getNinos().size()];
+        for (int i = 0; i < p.length; i++) {
+            p[i] = new FiguraPersona(600, 400, TallerPOO.getNinos().get(i));
+            p[i].setCanvas(movimientoPersona2);
+            movimientoPersona2.add(p[i]);
+        }
+
+        for (int i = 0; i < a.length; i++) {
+            a[i] = new Thread(new HiloPersona(p[i]));
+        }
+        for (int i = 0; i < a.length; i++) {
+            a[i].start();
+
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Persona[] pNinio = new Persona[3];
+        FiguraPersona[] p = new FiguraPersona[3];
+        Comorbilidad co1 = new Comorbilidad(false, true, true, false, false);
+        Comorbilidad co2 = new Comorbilidad(true, false, true, false, false); //intentos
+        Comorbilidad co3 = new Comorbilidad(false, true, false, true, true); //intentos
+        TipoCuidado t1 = new TipoCuidado(true, true, true, true); //intentos
+        TipoCuidado t2 = new TipoCuidado(false, false, true, true);
+        TipoCuidado t3 = new TipoCuidado(true, true, false, false); 
+        Actividad act = new Actividad();
+        Hospital h = new Hospital();
+        pNinio[0] =new Persona(Edad.NIÑOS, true, false, t2, co1, act, 321, h);
+        pNinio [1]=new Persona(Edad.NIÑOS, true, false, t1, co1, act, 321, h);
+        pNinio[2] =new Persona(Edad.NIÑOS, true, false, t3, co1, act, 321, h);
+        for (int i = 0; i < p.length; i++) {
+            p[i] = new FiguraPersona(600, 400, pNinio [i]);
+            p[i].setCanvas(movimientoPersona2);
+            movimientoPersona2.add(p[i]);
+        }
+        Thread[] a = new Thread[3];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = new Thread(new HiloPersona(p[i]));
+        }
+        for (int i = 0; i < a.length; i++) {
+            a[i].start();
+
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private tallerpoo.ventanas.MovimientoPersona movimientoPersona1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private tallerpoo.ventanas.MovimientoPersona movimientoPersona2;
     // End of variables declaration//GEN-END:variables
 }

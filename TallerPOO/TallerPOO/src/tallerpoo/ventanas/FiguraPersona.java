@@ -7,14 +7,16 @@ package tallerpoo.ventanas;
 
 import TallerPoo.Persona;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 /**
  *
  * @author ACU
  */
 public class FiguraPersona extends Persona {
-
+    private Component canvas;
     int x, width;
     int y, height;
     int dir;
@@ -49,6 +51,14 @@ public class FiguraPersona extends Persona {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public Component getCanvas() {
+        return canvas;
+    }
+
+    public void setCanvas(Component canvas) {
+        this.canvas = canvas;
     }
 
     /**
@@ -116,6 +126,7 @@ public class FiguraPersona extends Persona {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 6 : nr == 2 ? 1 : 5;
         }
+        canvas.repaint(); 
     }
 
     /**
@@ -127,5 +138,9 @@ public class FiguraPersona extends Persona {
         g.setColor(this.getColor());
         g.fillOval((int) x, (int) y, 10, 10);
 //        return g;
+    }
+
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, 10, 10);
     }
 }

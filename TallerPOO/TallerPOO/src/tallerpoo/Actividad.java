@@ -32,11 +32,16 @@ public class Actividad {
    
 
    public void Contagio(Persona a, Persona b){
-//       if (!a.getContagio() && b.getContagio()) {
+      if (a.getContagio() && !b.getContagio()) {
            if ((Math.random()*100)< interactuar(a,b)) {
                a.setColor(Color.red);
            }
-//       }
+      }
+      if (!a.getContagio() && b.getContagio()) {
+           if ((Math.random()*100)< interactuar(b,a)) {
+               a.setColor(Color.red);
+           }
+      }
    }
     /**
      * devuelve la posibilidad de contagio entre dos personas que interactúan

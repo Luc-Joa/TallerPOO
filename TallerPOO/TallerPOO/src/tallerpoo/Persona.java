@@ -40,7 +40,12 @@ public class Persona {
         this.edad = edad;
         this.contagio = contagio;
         this.sintoma = sintoma;
-        this.color = cuidado.tipoCuidado();
+        if (contagio) {
+            this.color= Color.red;
+        }else{
+            this.color = cuidado.tipoCuidado();
+        }
+        
         this.cuidado = cuidado;
         this.comorbilidad = comorbilidad;
         this.actividad = actividad;
@@ -173,17 +178,13 @@ public class Persona {
     /**
      * agrega una persona a la actividad según su edad
      */
-    public void actividad() {
-        actividad.agregarPersona(this);
+    public void actividad(Persona b) {
+        actividad.Contagio(this, b);
     }
 
     /**
      * realiza una actividad según su edad
      */
-    public void realizar() {
-        actividad.realizarActividad(this);
-    }
-
     /**
      * muestra el cuidado de cada persona
      *

@@ -5,19 +5,23 @@
  */
 package tallerpoo.ventanas;
 
+import TallerPoo.Persona;
 import TallerPoo.TallerPOO;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import static java.lang.Thread.sleep;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author ACU
  */
-public class MovimientoPersona extends javax.swing.JPanel implements Runnable {
+public class MovimientoPersona extends javax.swing.JPanel {
 
-    FiguraPersona p[];
-    Thread[] animacion;
+    List<FiguraPersona> p = new ArrayList<>();
+
 
     /**
      * Crea el panel MovimientoPersona , los hilos y carga la figura de la
@@ -25,17 +29,29 @@ public class MovimientoPersona extends javax.swing.JPanel implements Runnable {
      */
     public MovimientoPersona() {
         initComponents();
-        animacion = new Thread[TallerPOO.getNinos().size()];
-        for (int i = 0; i < animacion.length; i++) {
-            animacion[i] = new Thread(this);
-        }
-        p = new FiguraPersona[TallerPOO.getNinos().size()];
-        for (int i = 0; i < p.length; i++) {
-            p[i] = new FiguraPersona(600, 400, TallerPOO.getNinos().get(i));
-        }
+    }
 
-        for (int i = 0; i < animacion.length; i++) {
-            animacion[i].start();
+    public void add(FiguraPersona per) {
+        p.add(per);
+    }
+/**
+ * Dibuja las personas
+ * @param g 
+ */
+    public void paintComponent(Graphics g) { // Dibujamos la Persona
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+        for (int i = 0; i < p.size(); i++) {
+            FiguraPersona b = p.get(i);
+            b.paint(g2);
+        }
+        for (int i = 0; i < p.size(); i++) {
+            for (int j = 0; j <  p.size(); j++) {
+               if (collision(p.get(i), p.get(j))&& j!=i) {
+                            p.get(i).actividad(p.get(j));
+                        }
+            }
+            
         }
     }
 
@@ -54,64 +70,63 @@ public class MovimientoPersona extends javax.swing.JPanel implements Runnable {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 355, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 260, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     /**
      * Pone en movimiento a la persona
      */
-    @Override
-    public void run() {
-        for (int i = 0; i < p.length; i++) {
-            p[i].setDir(((int) (Math.random() * 7)));
-
-        }
-
-        try {
-
-            while (true) {
-                for (int i = 0; i < p.length; i++) {
-                    for (int j = 0; j < p.length; j++) {
-                        if (collision(p[i], p[j])&& j!=i) {
-                            p[i].actividad(p[j]);
-                        }
-                    }
-
-                    p[i].rebotar();
-                    p[i].mover(p[i].getDir());
-                    repaint();
-                    try {
-                        sleep((int) (Math.random() * 50));
-                    } catch (InterruptedException ex) {
-
-                    }
-                }
-
-            }
-        } catch (Exception e) {
-        }
-    }
-
-    /**
-     * Agrega las figuras de las personas al panel
-     *
-     * @param g
-     */
-    @Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.setColor(Color.white);
-        g.fillRect(0, 0, getWidth(), getHeight());
-        for (int i = 0; i < p.length; i++) {
-            p[i].paint(g);
-        }
-    }
-
+//    @Override
+//    public void run() {
+//        for (int i = 0; i < p.length; i++) {
+//            p[i].setDir(((int) (Math.random() * 7)));
+//
+//        }
+//
+//        try {
+//
+//            while (true) {
+//                for (int i = 0; i < p.length; i++) {
+//                    for (int j = 0; j < p.length; j++) {
+//                        if (collision(p[i], p[j])&& j!=i) {
+//                            p[i].actividad(p[j]);
+//                        }
+//                    }
+//
+//                    p[i].rebotar();
+//                    p[i].mover(p[i].getDir());
+//                    repaint();
+//                    try {
+//                        sleep((int) (Math.random() * 10));
+//                    } catch (InterruptedException ex) {
+//
+//                    }
+//                }
+//
+//            }
+//        } catch (Exception e) {
+//        }
+//    }
+//
+//    /**
+//     * Agrega las figuras de las personas al panel
+//     *
+//     * @param g
+//     */
+//    @Override
+//    public void paintComponent(Graphics g) {
+//        super.paintComponent(g);
+//        g.setColor(Color.white);
+//        g.fillRect(0, 0, getWidth(), getHeight());
+//        for (int i = 0; i < p.length; i++) {
+//            p[i].paint(g);
+//        }
+//    }
     private boolean collision(FiguraPersona a, FiguraPersona b) {
         return a.getBounds().intersects(b.getBounds());
     }
