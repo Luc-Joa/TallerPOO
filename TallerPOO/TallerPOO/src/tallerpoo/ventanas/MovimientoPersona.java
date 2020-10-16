@@ -76,11 +76,17 @@ public class MovimientoPersona extends javax.swing.JPanel implements Runnable {
 
             while (true) {
                 for (int i = 0; i < p.length; i++) {
+                    for (int j = 0; j < p.length; j++) {
+                        if (collision(p[i], p[j])&& j!=i) {
+                            p[i].actividad(p[j]);
+                        }
+                    }
+
                     p[i].rebotar();
                     p[i].mover(p[i].getDir());
                     repaint();
                     try {
-                        sleep((int) (Math.random() * 10));
+                        sleep((int) (Math.random() * 50));
                     } catch (InterruptedException ex) {
 
                     }
@@ -104,6 +110,10 @@ public class MovimientoPersona extends javax.swing.JPanel implements Runnable {
         for (int i = 0; i < p.length; i++) {
             p[i].paint(g);
         }
+    }
+
+    private boolean collision(FiguraPersona a, FiguraPersona b) {
+        return a.getBounds().intersects(b.getBounds());
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
