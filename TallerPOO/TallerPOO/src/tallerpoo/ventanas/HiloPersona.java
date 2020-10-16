@@ -27,7 +27,7 @@ public class HiloPersona extends Thread {
             p.rebotar();
             p.mover(p.getDir());
             try { 
-                sleep(60);
+                sleep(40);
             } catch (InterruptedException ex) {
                 Logger.getLogger(HiloPersona.class.getName()).log(Level.SEVERE, null, ex);
             }

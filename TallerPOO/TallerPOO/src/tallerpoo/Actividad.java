@@ -6,12 +6,6 @@
 package TallerPoo;
 
 import java.awt.Color;
-import static java.lang.Thread.sleep;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author ACU

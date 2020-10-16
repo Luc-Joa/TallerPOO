@@ -72,11 +72,11 @@ public class ifrmSimulacionMovimiento extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(movimientoPersona2, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(37, 37, 37))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,7 +90,7 @@ public class ifrmSimulacionMovimiento extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(movimientoPersona2, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -100,8 +100,7 @@ public class ifrmSimulacionMovimiento extends javax.swing.JInternalFrame {
         Thread[] a = new Thread[TallerPOO.getNinos().size()];
         FiguraPersona[] p = new FiguraPersona[TallerPOO.getNinos().size()];
         for (int i = 0; i < p.length; i++) {
-            p[i] = new FiguraPersona(600, 400, TallerPOO.getNinos().get(i));
-            p[i].setCanvas(movimientoPersona2);
+            p[i] = new FiguraPersona(TallerPOO.getNinos().get(i),movimientoPersona2);
             movimientoPersona2.add(p[i]);
         }
 
@@ -129,8 +128,7 @@ public class ifrmSimulacionMovimiento extends javax.swing.JInternalFrame {
         pNinio [1]=new Persona(Edad.NIÑOS, true, false, t1, co1, act, 321, h);
         pNinio[2] =new Persona(Edad.NIÑOS, true, false, t3, co1, act, 321, h);
         for (int i = 0; i < p.length; i++) {
-            p[i] = new FiguraPersona(600, 400, pNinio [i]);
-            p[i].setCanvas(movimientoPersona2);
+            p[i] = new FiguraPersona(pNinio [i],movimientoPersona2);
             movimientoPersona2.add(p[i]);
         }
         Thread[] a = new Thread[3];

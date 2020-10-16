@@ -16,6 +16,7 @@ import java.awt.Rectangle;
  * @author ACU
  */
 public class FiguraPersona extends Persona {
+
     private Component canvas;
     int x, width;
     int y, height;
@@ -29,12 +30,11 @@ public class FiguraPersona extends Persona {
      * @param height
      * @param p
      */
-    public FiguraPersona(int width, int height, Persona p) {
+    public FiguraPersona(Persona p, Component canvas) {
         super(p.getEdad(), p.getContagio(), p.getSintoma(), p.getCuidado(), p.getComorbilidad(), p.getActividad(), p.getID(), p.getHospital());
-        this.width = width;
-        this.height = height;
-        this.x = (int) (width * Math.random());
-        this.y = (int) (height * Math.random());
+        this.canvas = canvas;
+        this.x = (int) (canvas.getWidth() * Math.random());
+        this.y = (int) (canvas.getHeight() * Math.random());
     }
 
     public int getDir() {
@@ -118,15 +118,15 @@ public class FiguraPersona extends Persona {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 0 : nr == 2 ? 2 : 4;
         }
-        if (x >= width) {
+        if (x >= canvas.getWidth() - 10) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 5 : nr == 2 ? 7 : 3;
         }
-        if (y >= height) {
+        if (y >= canvas.getHeight() - 10) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 6 : nr == 2 ? 1 : 5;
         }
-        canvas.repaint(); 
+        canvas.repaint();
     }
 
     /**

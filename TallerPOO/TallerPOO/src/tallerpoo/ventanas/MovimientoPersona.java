@@ -40,6 +40,8 @@ public class MovimientoPersona extends javax.swing.JPanel {
  */
     public void paintComponent(Graphics g) { // Dibujamos la Persona
         super.paintComponent(g);
+        g.setColor(Color.black);
+        g.fillRect(0, 0, getWidth(), getHeight());
         Graphics2D g2 = (Graphics2D) g;
         for (int i = 0; i < p.size(); i++) {
             FiguraPersona b = p.get(i);
