@@ -100,7 +100,7 @@ public class ifrmSimulacionMovimiento extends javax.swing.JInternalFrame {
         Thread[] a = new Thread[TallerPOO.getNinos().size()];
         FiguraPersona[] p = new FiguraPersona[TallerPOO.getNinos().size()];
         for (int i = 0; i < p.length; i++) {
-            p[i] = new FiguraPersona(TallerPOO.getNinos().get(i),movimientoPersona2);
+            p[i] = new FiguraPersona(TallerPOO.getNinos().get(i), movimientoPersona2);
             movimientoPersona2.add(p[i]);
         }
 
@@ -117,18 +117,18 @@ public class ifrmSimulacionMovimiento extends javax.swing.JInternalFrame {
         Persona[] pNinio = new Persona[3];
         FiguraPersona[] p = new FiguraPersona[3];
         Comorbilidad co1 = new Comorbilidad(false, true, true, false, false);
-        Comorbilidad co2 = new Comorbilidad(true, false, true, false, false); //intentos
-        Comorbilidad co3 = new Comorbilidad(false, true, false, true, true); //intentos
-        TipoCuidado t1 = new TipoCuidado(true, true, true, true); //intentos
+        Comorbilidad co2 = new Comorbilidad(true, false, true, false, false);
+        Comorbilidad co3 = new Comorbilidad(false, true, false, true, true);
+        TipoCuidado t1 = new TipoCuidado(true, true, true, true);
         TipoCuidado t2 = new TipoCuidado(false, false, true, true);
-        TipoCuidado t3 = new TipoCuidado(true, true, false, false); 
+        TipoCuidado t3 = new TipoCuidado(true, true, false, false);
         Actividad act = new Actividad();
         Hospital h = new Hospital();
-        pNinio[0] =new Persona(Edad.NIÑOS, true, false, t2, co1, act, 321, h);
-        pNinio [1]=new Persona(Edad.NIÑOS, true, false, t1, co1, act, 321, h);
-        pNinio[2] =new Persona(Edad.NIÑOS, true, false, t3, co1, act, 321, h);
+        pNinio[0] = new Persona(Edad.NIÑOS, true, false, t2, co1, act, 321, h);
+        pNinio[1] = new Persona(Edad.NIÑOS, true, false, t1, co1, act, 321, h);
+        pNinio[2] = new Persona(Edad.NIÑOS, true, false, t3, co1, act, 321, h);
         for (int i = 0; i < p.length; i++) {
-            p[i] = new FiguraPersona(pNinio [i],movimientoPersona2);
+            p[i] = new FiguraPersona(pNinio[i], movimientoPersona2);
             movimientoPersona2.add(p[i]);
         }
         Thread[] a = new Thread[3];

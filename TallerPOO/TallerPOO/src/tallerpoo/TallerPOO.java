@@ -107,15 +107,26 @@ public class TallerPOO {
     public static void agregarPersona(Persona personas) {
         persona.add(personas);
     }
+    
     /**
      * Elimina la Lista de personas
      */
     public static void resetearPersona(){
         persona.clear();
     }
+    
+    /**
+     * devuelve la lista de personas
+     * @return persona
+     */
     public static List<Persona> getPersona() {
         return persona;
     }
+    
+    /**
+     * Agrega niños a la lista de personas
+     * @return ninos
+     */
     public static List<Persona> getNinos() {
         List<Persona> ninos= new ArrayList<>();
         for (int i = 0; i < persona.size(); i++) {
@@ -125,6 +136,11 @@ public class TallerPOO {
         }
         return ninos;
     }
+    
+    /**
+     * Agrega adultos a la lista de personas
+     * @return adultos
+     */
     public static List<Persona> getAdultos() {
             List<Persona> adultos= new ArrayList<>();
         for (int i = 0; i < persona.size(); i++) {
@@ -134,6 +150,11 @@ public class TallerPOO {
         }
         return adultos;
     }
+    
+    /**
+     * Agrega adultos mayores a la lista de personas
+     * @return mayores
+     */
     public static List<Persona> getMayores() {
             List<Persona> mayores= new ArrayList<>();
         for (int i = 0; i < persona.size(); i++) {

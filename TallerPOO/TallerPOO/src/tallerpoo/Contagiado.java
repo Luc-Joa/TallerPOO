@@ -18,11 +18,20 @@ public class Contagiado {
     private Persona persona;
     Hospital hospital;
 
+    /**
+     * constructor por defecto
+     */
     public Contagiado() {
         this.perSana = new ArrayList<>();
         this.perCont = new ArrayList<>();
     }
 
+    /**
+     * constructor parametrizado
+     *
+     * @param persona
+     * @param hospital
+     */
     public Contagiado(Persona persona, Hospital hospital) {
         this.persona = persona;
         this.hospital = hospital;

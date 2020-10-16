@@ -6,7 +6,6 @@
 package tallerpoo.ventanas;
 
 import TallerPoo.Persona;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -26,8 +25,6 @@ public class FiguraPersona extends Persona {
     /**
      * Constructor Parametrizado
      *
-     * @param width
-     * @param height
      * @param p
      */
     public FiguraPersona(Persona p, Component canvas) {
@@ -62,7 +59,7 @@ public class FiguraPersona extends Persona {
     }
 
     /**
-     * La persona se mueve en la direccion indicada por el parametro dir
+     * La persona se mueve en la dirección indicada por el parametro dir
      *
      * @param dir
      */
@@ -102,7 +99,7 @@ public class FiguraPersona extends Persona {
     }
 
     /**
-     * Si la persona llega al limite del area donde se puede mover cambia de
+     * Si la persona llega al límite del area donde se puede mover cambia de
      * direccion
      */
     public void rebotar() {
@@ -137,9 +134,14 @@ public class FiguraPersona extends Persona {
     public void paint(Graphics g) {
         g.setColor(this.getColor());
         g.fillOval((int) x, (int) y, 10, 10);
-//        return g;
     }
 
+    /**
+     * Obtiene las dimensiones del rectángulo, (la ventana de simulación), para
+     * devolver así los límites de la misma
+     *
+     * @return Rectangle
+     */
     public Rectangle getBounds() {
         return new Rectangle(x, y, 10, 10);
     }

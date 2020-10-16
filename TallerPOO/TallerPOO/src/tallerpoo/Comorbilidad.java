@@ -13,6 +13,15 @@ public class Comorbilidad {
 
     private Boolean diabetes, hipertencionArterial, obesidad, enfCard, enfPul;
 
+    /**
+     * Constructor parametrizado
+     *
+     * @param diabetes
+     * @param hipertencionArterial
+     * @param obesidad
+     * @param enfCard
+     * @param enfPul
+     */
     public Comorbilidad(Boolean diabetes, Boolean hipertencionArterial, Boolean obesidad, Boolean enfCard, Boolean enfPul) {
         this.diabetes = diabetes;
         this.hipertencionArterial = hipertencionArterial;

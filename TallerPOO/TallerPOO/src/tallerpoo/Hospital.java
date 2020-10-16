@@ -21,6 +21,9 @@ public class Hospital {
     private List<Persona> perCont;
     private int contcm = 0, contcti = 0, cta = 0;
 
+    /**
+     * constructor por defecto
+     */
     public Hospital() {
         this.perCont = new ArrayList<>();
         for (int i = 0; i < cm.length; i++) {

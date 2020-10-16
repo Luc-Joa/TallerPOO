@@ -6,6 +6,7 @@
 package TallerPoo;
 
 import java.awt.Color;
+
 /**
  *
  * @author ACU
@@ -23,22 +24,28 @@ public class Actividad {
         horaTrabajo = 8;
     }
 
-   
-
-   public void Contagio(Persona a, Persona b){
-      if (a.getContagio() && !b.getContagio()) {
-           if ((Math.random()*100)< interactuar(a,b)) {
-               a.setColor(Color.red);
-           }
-      }
-      if (!a.getContagio() && b.getContagio()) {
-           if ((Math.random()*100)< interactuar(b,a)) {
-               a.setColor(Color.red);
-           }
-      }
-   }
     /**
-     * devuelve la posibilidad de contagio entre dos personas que interactúan
+     * Si una de las dos personas está contagiada, calcula la probabilidad de
+     * contagio en método interactuar() y devuelve color rojo si se contagió
+     *
+     * @param a
+     * @param b
+     */
+    public void Contagio(Persona a, Persona b) {
+        if (a.getContagio() && !b.getContagio()) {
+            if ((Math.random() * 100) < interactuar(a, b)) {
+                a.setColor(Color.red);
+            }
+        }
+        if (!a.getContagio() && b.getContagio()) {
+            if ((Math.random() * 100) < interactuar(b, a)) {
+                a.setColor(Color.red);
+            }
+        }
+    }
+
+    /**
+     * Devuelve la posibilidad de contagio entre dos personas que interactúan
      * entre sí, dependiendo el tipo de cuidado de cada una
      *
      * @param a

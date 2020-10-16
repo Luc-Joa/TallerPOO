@@ -14,11 +14,20 @@ public class Cuidado {
     private int duracion;
     private Persona paciente;
 
+    /**
+     * constructor por defecto
+     */
     public Cuidado() {
         duracion = 0;
         paciente = null;
     }
 
+    /**
+     * constructor parametrizado
+     *
+     * @param duracion
+     * @param paciente
+     */
     public Cuidado(int duracion, Persona paciente) {
         this.duracion = duracion;
         this.paciente = paciente;
