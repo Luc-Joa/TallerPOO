@@ -5,20 +5,19 @@
  */
 package tallerpoo.ventanas;
 
+import TallerPoo.Actividad;
 import TallerPoo.Comorbilidad;
-import TallerPoo.*;
+import TallerPoo.Edad;
+import TallerPoo.Hospital;
+import TallerPoo.Persona;
+import TallerPoo.TallerPOO;
+import TallerPoo.TipoCuidado;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.DefaultListModel;
 
-/**
- *
- * @author ACU
- */
 public class ifrmSimulacionMovimientoNinios extends javax.swing.JInternalFrame {
 
     List<Thread> hilo = new ArrayList();
-
 
     /**
      * Creates new form ifrmSimulacionMovimiento
@@ -48,24 +47,94 @@ public class ifrmSimulacionMovimientoNinios extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         movimientoPersona2 = new tallerpoo.ventanas.MovimientoPersona();
+        jButton10 = new javax.swing.JButton();
+
+        jButton6.setText("Agregar Contagiados");
+
+        jButton7.setText("Agregar Contagiados");
+
+        jButton8.setText("Agregar Contagiados");
+
+        jButton9.setText("Agregar Contagiados");
+
+        jButton1.setText("jButton1");
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
         setTitle("Escuela");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/tallerpoo/imagenes/school.png"))); // NOI18N
-        setPreferredSize(new java.awt.Dimension(503, 384));
+        setPreferredSize(new java.awt.Dimension(602, 422));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        movimientoPersona2.setLayout(new java.awt.BorderLayout());
+        jButton10.setText("Agregar Contagiados");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout movimientoPersona2Layout = new javax.swing.GroupLayout(movimientoPersona2);
+        movimientoPersona2.setLayout(movimientoPersona2Layout);
+        movimientoPersona2Layout.setHorizontalGroup(
+            movimientoPersona2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, movimientoPersona2Layout.createSequentialGroup()
+                .addGap(0, 255, Short.MAX_VALUE)
+                .addComponent(jButton10))
+        );
+        movimientoPersona2Layout.setVerticalGroup(
+            movimientoPersona2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, movimientoPersona2Layout.createSequentialGroup()
+                .addGap(0, 246, Short.MAX_VALUE)
+                .addComponent(jButton10))
+        );
+
         getContentPane().add(movimientoPersona2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        Persona[] pAdultos = new Persona[3];
+        FiguraPersona[] p = new FiguraPersona[3];
+        Comorbilidad co1 = new Comorbilidad(false, true, true, false, false);
+        Comorbilidad co2 = new Comorbilidad(true, false, true, false, false);
+        Comorbilidad co3 = new Comorbilidad(false, true, false, true, true);
+        TipoCuidado t1 = new TipoCuidado(true, true, true, true);
+        TipoCuidado t2 = new TipoCuidado(false, false, true, true);
+        TipoCuidado t3 = new TipoCuidado(true, true, false, false);
+        Actividad act = new Actividad();
+        Hospital h = new Hospital();
+        pAdultos[0] = new Persona(Edad.ADULTOS, true, false, t2, co1, act, 321, h);
+        pAdultos[1] = new Persona(Edad.ADULTOS, true, false, t1, co1, act, 322, h);
+        pAdultos[2] = new Persona(Edad.ADULTOS, true, false, t3, co1, act, 323, h);
+        for (int i = 0; i < p.length; i++) {
+            p[i] = new FiguraPersona(pAdultos[i], movimientoPersona2);
+            movimientoPersona2.add(p[i]);
+        }
+        Thread[] a = new Thread[3];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = new Thread(new HiloPersona(p[i]));
+        }
+        for (int i = 0; i < a.length; i++) {
+            a[i].start();
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private tallerpoo.ventanas.MovimientoPersona movimientoPersona2;
     // End of variables declaration//GEN-END:variables
 }
