@@ -30,8 +30,8 @@ public class FiguraPersona extends Persona {
     public FiguraPersona(Persona p, Component canvas) {
         super(p.getEdad(), p.getContagio(), p.getSintoma(), p.getCuidado(), p.getComorbilidad(), p.getActividad(), p.getID(), p.getHospital());
         this.canvas = canvas;
-        this.x = (int) (canvas.getWidth() * Math.random());
-        this.y = (int) (canvas.getHeight() * Math.random());
+        this.x = (int) (300 * Math.random());
+        this.y = (int) (300 * Math.random());
     }
 
     public int getDir() {
