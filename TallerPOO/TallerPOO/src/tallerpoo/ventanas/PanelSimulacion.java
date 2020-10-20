@@ -29,6 +29,9 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
         panelNinos();
     }
 
+    /**
+     * Panel que muestra la actividad realizada por adultos (trabajo)
+     */
     public void panelAdultos() {
         FiguraPersona[] p = new FiguraPersona[TallerPOO.getAdultos().size()];
         for (int i = 0; i < p.length; i++) {
@@ -44,6 +47,9 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
         }
     }
 
+    /**
+     * Panel que muestra la actividad realizada por adultos mayores (paseo)
+     */
     public void panelMayores() {
         FiguraPersona[] p = new FiguraPersona[TallerPOO.getMayores().size()];
         for (int i = 0; i < p.length; i++) {
@@ -59,6 +65,9 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
         }
     }
 
+    /**
+     * Panel que muestra la actividad realizada por los niños (escuela)
+     */
     public void panelNinos() {
         FiguraPersona[] p = new FiguraPersona[TallerPOO.getNinos().size()];
         for (int i = 0; i < p.length; i++) {

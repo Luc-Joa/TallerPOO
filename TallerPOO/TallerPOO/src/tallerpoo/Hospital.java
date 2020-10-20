@@ -87,7 +87,7 @@ public class Hospital {
      */
     public void derivarPersona(Persona p) {
         if (p.getComorbilidad().getEnfCard() || p.getComorbilidad().getEnfPul()) {
-            if (contcti<2) {
+            if (contcti < 2) {
                 cti[contcti].setPaciente(p);
                 contcti++;
                 System.out.println("Pacientes CTI :" + contcti);
@@ -134,16 +134,4 @@ public class Hospital {
     public List<Aislamiento> mostrarPacientesAislamiento() {
         return aislamiento;
     }
-//
-//    @Override
-//    public void run() {
-//        while (true) {
-//            if (persona.getTerminoActividad() && persona.getSintoma()) {
-//                persona.consulta();
-//                if (persona.getContagio()) {
-//                    this.derivarPersona(persona);
-//                }
-//            }
-//        }
-//    }
 }

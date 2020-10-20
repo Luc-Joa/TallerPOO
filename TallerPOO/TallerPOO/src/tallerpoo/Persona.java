@@ -205,19 +205,11 @@ public class Persona {
         if (this.hospital.consulta(this)) {
             this.hospital.agregarContagiado(this);
         }
-        
+
     }
 
     public int getID() {
         return id;
-    }
-
-    public Boolean getTerminoActividad() {
-        return terminoActividad;
-    }
-
-    public void setTerminoActividad(Boolean terminoActividad) {
-        this.terminoActividad = terminoActividad;
     }
 
     @Override

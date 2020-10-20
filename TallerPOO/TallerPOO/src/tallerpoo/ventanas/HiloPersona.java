@@ -24,10 +24,9 @@ public class HiloPersona extends Thread {
 
     @Override
     public void run() {
-        boolean t= true;
+        boolean t = true;
         p.setDir(((int) (Math.random() * 7)));
         while (t) {
-//        for (int i = 0; i < 1000; i++) {
             p.rebotar();
             p.mover(p.getDir());
             if (p.getContagio()) {
