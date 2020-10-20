@@ -5,9 +5,28 @@
  */
 package tallerpoo.ventanas;
 
+import TallerPoo.Persona;
 import TallerPoo.TallerPOO;
+import TallerPoo.TipoCuidado;
 
 public class jpanelInformacion extends javax.swing.JPanel implements Runnable {
+
+    private int PMasCuidan = 0, PSoloLavanManos = 0, PSoloTapabocas = 0;
+    TipoCuidado tcmc = new TipoCuidado(true, true, true, true);
+    TipoCuidado tcslm = new TipoCuidado(false, false, true, false);
+    TipoCuidado tcstb = new TipoCuidado(true, false, false, false);
+
+    public void PMasCuidan(Persona p) {
+        for (int i = 0; i < TallerPOO.getPersona().size(); i++) {
+            if (p.getCuidado().equals(tcmc)) {
+                PMasCuidan++;
+            } else if (p.getCuidado().equals(tcslm)) {
+                PSoloLavanManos++;
+            } else if (p.getCuidado().equals(tcstb)) {
+                PSoloTapabocas++;
+            }
+        }
+    }
 
     /**
      * Creates new form jpanelInformacion
@@ -113,6 +132,11 @@ public class jpanelInformacion extends javax.swing.JPanel implements Runnable {
 
     @Override
     public void run() {
-        jPC.setText("Personas Contagiadas: " + TallerPOO.getPersona());
+        jPC.setText("Personas Contagiadas: " + TallerPOO.getHospital().getPerCont().size());
+        jPS.setText("Personas Contagiadas: " + (TallerPOO.getHospital().getPerCont().size() - (TallerPOO.getNinos().size() + TallerPOO.getAdultos().size() + TallerPOO.getMayores().size())));
+        jPMasCuidan.setText("Personas que más se cuidan: " + this.PMasCuidan);
+        jPSoloLavanManos.setText("Personas que más se cuidan: " + this.PSoloLavanManos);
+        jPSoloTapabocas.setText("Personas que más se cuidan: " + this.PSoloTapabocas);
+
     }
 }

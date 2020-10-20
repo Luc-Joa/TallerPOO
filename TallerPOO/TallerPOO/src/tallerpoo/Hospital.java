@@ -88,14 +88,12 @@ public class Hospital {
     public void derivarPersona(Persona p) {
         if (p.getComorbilidad().getEnfCard() || p.getComorbilidad().getEnfPul()) {
             if (contcti < 2) {
-//                cti[contcti].setPaciente(p);
                 this.cti.add(new CTI(p));
                 contcti++;
                 System.out.println("Pacientes CTI: " + contcti);
             }
         } else {
             if (contcm < 5 && (p.getComorbilidad().getDiabetes() || p.getComorbilidad().getHipertencionArterial() || p.getComorbilidad().getObesidad())) {
-//                cm[contcm].setPaciente(p);
                 this.cm.add(new CM(p));
                 contcm++;
                 System.out.println("Pacientes Moderados: " + contcm);

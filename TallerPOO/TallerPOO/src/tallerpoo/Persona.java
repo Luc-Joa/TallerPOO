@@ -181,9 +181,6 @@ public class Persona {
     }
 
     /**
-     * realiza una actividad según su edad
-     */
-    /**
      * muestra el cuidado de cada persona
      *
      * @return cuidado
