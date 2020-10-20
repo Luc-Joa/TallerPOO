@@ -53,7 +53,7 @@ public class ifrmSimulacionMovimientoNinios extends javax.swing.JInternalFrame {
         jButton9 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         movimientoPersona2 = new tallerpoo.ventanas.MovimientoPersona();
-        jButton10 = new javax.swing.JButton();
+        btnAgregarContagiadosN = new javax.swing.JButton();
 
         jButton6.setText("Agregar Contagiados");
 
@@ -73,10 +73,10 @@ public class ifrmSimulacionMovimientoNinios extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(602, 422));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        jButton10.setText("Agregar Contagiados");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarContagiadosN.setText("Agregar Contagiados");
+        btnAgregarContagiadosN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                btnAgregarContagiadosNActionPerformed(evt);
             }
         });
 
@@ -86,13 +86,13 @@ public class ifrmSimulacionMovimientoNinios extends javax.swing.JInternalFrame {
             movimientoPersona2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, movimientoPersona2Layout.createSequentialGroup()
                 .addGap(0, 255, Short.MAX_VALUE)
-                .addComponent(jButton10))
+                .addComponent(btnAgregarContagiadosN))
         );
         movimientoPersona2Layout.setVerticalGroup(
             movimientoPersona2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, movimientoPersona2Layout.createSequentialGroup()
                 .addGap(0, 246, Short.MAX_VALUE)
-                .addComponent(jButton10))
+                .addComponent(btnAgregarContagiadosN))
         );
 
         getContentPane().add(movimientoPersona2);
@@ -100,7 +100,7 @@ public class ifrmSimulacionMovimientoNinios extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void btnAgregarContagiadosNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarContagiadosNActionPerformed
         Persona[] pAdultos = new Persona[3];
         FiguraPersona[] p = new FiguraPersona[3];
         Comorbilidad co1 = new Comorbilidad(false, true, true, false, false);
@@ -125,12 +125,12 @@ public class ifrmSimulacionMovimientoNinios extends javax.swing.JInternalFrame {
         for (int i = 0; i < a.length; i++) {
             a[i].start();
         }
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_btnAgregarContagiadosNActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarContagiadosN;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;

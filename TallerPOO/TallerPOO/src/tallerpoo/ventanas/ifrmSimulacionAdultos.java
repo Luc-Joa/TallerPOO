@@ -49,7 +49,7 @@ public class ifrmSimulacionAdultos extends javax.swing.JInternalFrame {
 
         jButton1 = new javax.swing.JButton();
         movimientoPersona1 = new tallerpoo.ventanas.MovimientoPersona();
-        jButton6 = new javax.swing.JButton();
+        btnAgregarContagiadosA = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -62,10 +62,10 @@ public class ifrmSimulacionAdultos extends javax.swing.JInternalFrame {
         setName(""); // NOI18N
         setVisible(false);
 
-        jButton6.setText("Agregar Contagiados");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarContagiadosA.setText("Agregar Contagiados");
+        btnAgregarContagiadosA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnAgregarContagiadosAActionPerformed(evt);
             }
         });
 
@@ -75,13 +75,13 @@ public class ifrmSimulacionAdultos extends javax.swing.JInternalFrame {
             movimientoPersona1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, movimientoPersona1Layout.createSequentialGroup()
                 .addGap(0, 255, Short.MAX_VALUE)
-                .addComponent(jButton6))
+                .addComponent(btnAgregarContagiadosA))
         );
         movimientoPersona1Layout.setVerticalGroup(
             movimientoPersona1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, movimientoPersona1Layout.createSequentialGroup()
                 .addGap(0, 246, Short.MAX_VALUE)
-                .addComponent(jButton6))
+                .addComponent(btnAgregarContagiadosA))
         );
 
         getContentPane().add(movimientoPersona1, java.awt.BorderLayout.CENTER);
@@ -89,7 +89,7 @@ public class ifrmSimulacionAdultos extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnAgregarContagiadosAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarContagiadosAActionPerformed
         Persona[] pAdultos = new Persona[3];
         FiguraPersona[] p = new FiguraPersona[3];
         Comorbilidad co1 = new Comorbilidad(false, true, true, false, false);
@@ -115,12 +115,12 @@ public class ifrmSimulacionAdultos extends javax.swing.JInternalFrame {
             a[i].start();
         }
 
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnAgregarContagiadosAActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarContagiadosA;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton6;
     private tallerpoo.ventanas.MovimientoPersona movimientoPersona1;
     // End of variables declaration//GEN-END:variables
 }

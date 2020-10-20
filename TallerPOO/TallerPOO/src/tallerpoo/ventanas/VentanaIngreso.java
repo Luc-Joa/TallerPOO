@@ -38,11 +38,11 @@ public class VentanaIngreso extends javax.swing.JFrame {
     private void initComponents() {
 
         jdEscritorio = new javax.swing.JDesktopPane();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jTitulo = new javax.swing.JLabel();
+        btnAddPersona = new javax.swing.JButton();
         btnINICIO = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jMostrarPersonas = new javax.swing.JTable();
         btnActualizar = new javax.swing.JButton();
         btnReiniciar = new javax.swing.JButton();
 
@@ -50,18 +50,18 @@ public class VentanaIngreso extends javax.swing.JFrame {
         setTitle("Simulación");
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("SIMULACIÓN CIUDAD DE CONCORDIA COVID-19");
-        jLabel2.setToolTipText("");
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(187, 187, 187)));
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTitulo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jTitulo.setText("SIMULACIÓN CIUDAD DE CONCORDIA COVID-19");
+        jTitulo.setToolTipText("");
+        jTitulo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(187, 187, 187)));
+        jTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton1.setText("AGREGAR PERSONAS");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddPersona.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnAddPersona.setText("AGREGAR PERSONAS");
+        btnAddPersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddPersonaActionPerformed(evt);
             }
         });
 
@@ -73,7 +73,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jMostrarPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -89,9 +89,9 @@ public class VentanaIngreso extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jMostrarPersonas.setColumnSelectionAllowed(true);
+        jScrollPane1.setViewportView(jMostrarPersonas);
+        jMostrarPersonas.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         btnActualizar.setText("Actualizar");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -107,8 +107,8 @@ public class VentanaIngreso extends javax.swing.JFrame {
             }
         });
 
-        jdEscritorio.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdEscritorio.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(jTitulo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(btnAddPersona, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdEscritorio.setLayer(btnINICIO, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdEscritorio.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdEscritorio.setLayer(btnActualizar, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -128,9 +128,9 @@ public class VentanaIngreso extends javax.swing.JFrame {
                             .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                             .addComponent(btnReiniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdEscritorioLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                         .addComponent(btnINICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
@@ -138,7 +138,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
             jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdEscritorioLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jdEscritorioLayout.createSequentialGroup()
@@ -148,7 +148,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnINICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27))
         );
@@ -168,7 +168,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPersonaActionPerformed
         if (TallerPOO.getPersona().size() != 100) {
             frmVentanaIngreso fVIng = new frmVentanaIngreso();
             fVIng.setVisible(true);
@@ -176,7 +176,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El limite de personas es 100");
         }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAddPersonaActionPerformed
 
     private void btnINICIOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnINICIOActionPerformed
         PanelSimulacion panel= new PanelSimulacion();
@@ -186,7 +186,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         int cn = 0, ca = 0, cam = 0;
-        DefaultTableModel tabla = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel tabla = (DefaultTableModel) jMostrarPersonas.getModel();
         tabla.setNumRows(0);
         for (int i = 0; i < TallerPOO.getPersona().size(); i++) {
             if (TallerPOO.getPersona().get(i).getEdad() == Edad.NIÑOS) {
@@ -256,12 +256,12 @@ public class VentanaIngreso extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnAddPersona;
     private javax.swing.JButton btnINICIO;
     private javax.swing.JButton btnReiniciar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTable jMostrarPersonas;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel jTitulo;
     private javax.swing.JDesktopPane jdEscritorio;
     // End of variables declaration//GEN-END:variables
 }

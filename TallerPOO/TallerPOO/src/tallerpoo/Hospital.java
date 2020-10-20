@@ -15,23 +15,27 @@ import java.util.List;
 public class Hospital {
 
     private Persona persona;
-    private CM[] cm = new CM[5];
-    private CTI[] cti = new CTI[2];
+//    private CM[] cm = new CM[5];
+//    private CTI[] cti = new CTI[2];
+    private List<CM> cm;
+    private List<CTI> cti;
     private List<Aislamiento> aislamiento;
     private List<Persona> perCont;
-    private int contcm = 0, contcti = 0, cta = 0;
+    private int contcm = 0, contcti = 0, contais = 0;
 
     /**
      * constructor por defecto
      */
     public Hospital() {
         this.perCont = new ArrayList<>();
-        for (int i = 0; i < cm.length; i++) {
-            cm[i] = new CM(this);
-        }
-        for (int i = 0; i < cti.length; i++) {
-            cti[i] = new CTI(this);
-        }
+//        for (int i = 0; i < cm.length; i++) {
+//            cm[i] = new CM(this);
+//        }
+//        for (int i = 0; i < cti.length; i++) {
+//            cti[i] = new CTI(this);
+//        }
+        this.cm = new ArrayList();
+        this.cti = new ArrayList();
         this.aislamiento = new ArrayList();
     }
 
@@ -76,8 +80,8 @@ public class Hospital {
         return contcti;
     }
 
-    public int getCta() {
-        return cta;
+    public int getContais() {
+        return contais;
     }
 
     /**
@@ -88,21 +92,22 @@ public class Hospital {
     public void derivarPersona(Persona p) {
         if (p.getComorbilidad().getEnfCard() || p.getComorbilidad().getEnfPul()) {
             if (contcti < 2) {
-                cti[contcti].setPaciente(p);
+//                cti[contcti].setPaciente(p);
+                this.cti.add(new CTI(p));
                 contcti++;
-                System.out.println("Pacientes CTI :" + contcti);
+                System.out.println("Pacientes CTI: " + contcti);
             }
-        }
-        if (!(contcti >= cti.length)) {
-            if (contcm >= cm.length && (p.getComorbilidad().getDiabetes() || p.getComorbilidad().getHipertencionArterial() || p.getComorbilidad().getObesidad())) {
-                cm[contcm].setPaciente(p);
+        } else {
+            if (contcm < 5 && (p.getComorbilidad().getDiabetes() || p.getComorbilidad().getHipertencionArterial() || p.getComorbilidad().getObesidad())) {
+//                cm[contcm].setPaciente(p);
+                this.cm.add(new CM(p));
                 contcm++;
-                System.out.println("Pacientes Moderados :" + contcm);
+                System.out.println("Pacientes Moderados: " + contcm);
             } else {
                 this.aislamiento.add(new Aislamiento(p));
 
-                System.out.println("Pacientes Aislamiento :" + this.aislamiento.size());
-                cta++;
+                System.out.println("Pacientes Aislamiento: " + contais);
+                contais++;
 
             }
         }
@@ -113,7 +118,7 @@ public class Hospital {
      *
      * @return cti
      */
-    public CTI[] mostrarPacientesCTI() {
+    public List<CTI> mostrarPacientesCTI() {
         return cti;
     }
 
@@ -122,7 +127,7 @@ public class Hospital {
      *
      * @return cm
      */
-    public CM[] mostrarPacientesCM() {
+    public List<CM> mostrarPacientesCM() {
         return cm;
     }
 

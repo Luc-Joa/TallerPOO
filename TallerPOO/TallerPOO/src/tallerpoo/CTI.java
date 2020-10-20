@@ -13,9 +13,9 @@ public class CTI extends Cuidado {
 
     private Hospital cti;
 
-    public CTI(Hospital cti) {
-        super();
-        this.cti = cti;
+    public CTI(Persona p) {
+        super(4, p);
+//        this.cti = cti;
     }
 
 }

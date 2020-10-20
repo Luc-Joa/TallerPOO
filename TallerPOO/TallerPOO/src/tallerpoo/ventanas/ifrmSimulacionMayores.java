@@ -48,7 +48,7 @@ public class ifrmSimulacionMayores extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         movimientoPersona3 = new tallerpoo.ventanas.MovimientoPersona();
-        jButton6 = new javax.swing.JButton();
+        btnAgregarContagiadosAM = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -57,10 +57,10 @@ public class ifrmSimulacionMayores extends javax.swing.JInternalFrame {
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/tallerpoo/imagenes/park.png"))); // NOI18N
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        jButton6.setText("Agregar Contagiados");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarContagiadosAM.setText("Agregar Contagiados");
+        btnAgregarContagiadosAM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnAgregarContagiadosAMActionPerformed(evt);
             }
         });
 
@@ -70,13 +70,13 @@ public class ifrmSimulacionMayores extends javax.swing.JInternalFrame {
             movimientoPersona3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, movimientoPersona3Layout.createSequentialGroup()
                 .addGap(0, 255, Short.MAX_VALUE)
-                .addComponent(jButton6))
+                .addComponent(btnAgregarContagiadosAM))
         );
         movimientoPersona3Layout.setVerticalGroup(
             movimientoPersona3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, movimientoPersona3Layout.createSequentialGroup()
                 .addGap(0, 246, Short.MAX_VALUE)
-                .addComponent(jButton6))
+                .addComponent(btnAgregarContagiadosAM))
         );
 
         getContentPane().add(movimientoPersona3);
@@ -84,7 +84,7 @@ public class ifrmSimulacionMayores extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnAgregarContagiadosAMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarContagiadosAMActionPerformed
         Persona[] pAdMayoyes = new Persona[3];
         FiguraPersona[] p = new FiguraPersona[3];
         Comorbilidad co1 = new Comorbilidad(false, true, true, false, false);
@@ -109,11 +109,11 @@ public class ifrmSimulacionMayores extends javax.swing.JInternalFrame {
         for (int i = 0; i < a.length; i++) {
             a[i].start();
         }
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnAgregarContagiadosAMActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btnAgregarContagiadosAM;
     private tallerpoo.ventanas.MovimientoPersona movimientoPersona3;
     // End of variables declaration//GEN-END:variables
 }

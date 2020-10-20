@@ -14,9 +14,9 @@ public class CM extends Cuidado {
     private Hospital cm;
     private Persona persona;
 
-    public CM(Hospital cm) {
-        super();
-        this.cm = cm;
+    public CM(Persona p) {
+        super(4, p);
+//        this.cm = cm;
     }
 
 }

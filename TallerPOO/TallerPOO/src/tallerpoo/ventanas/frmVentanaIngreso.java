@@ -40,31 +40,31 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jNinos = new javax.swing.JLabel();
         Ltipocuidado = new javax.swing.JLabel();
         CuidadoNino = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
+        jComorbilidad = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lComorbilidadAdultosM = new javax.swing.JList<>();
-        jLabel4 = new javax.swing.JLabel();
+        jCantidadNinos = new javax.swing.JLabel();
         CantidadNino = new javax.swing.JSpinner();
-        jLabel5 = new javax.swing.JLabel();
-        Agregar = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        jTituloAP = new javax.swing.JLabel();
+        btnAgregar = new javax.swing.JButton();
+        jAdultos = new javax.swing.JLabel();
         CuidadoAdultos = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        jTCAdulto = new javax.swing.JLabel();
+        jComorbilidadA = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         lComorbilidadNino = new javax.swing.JList<>();
-        jLabel9 = new javax.swing.JLabel();
+        jCantidadAdultos = new javax.swing.JLabel();
         CantidadAdulto = new javax.swing.JSpinner();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        jAdultosMayores = new javax.swing.JLabel();
+        jTCAM = new javax.swing.JLabel();
         CuidadoAdultosM = new javax.swing.JComboBox<>();
-        jLabel12 = new javax.swing.JLabel();
+        jComorbilidadAM = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         lComorbilidadAdulto = new javax.swing.JList<>();
-        jLabel13 = new javax.swing.JLabel();
+        jCantidadAM = new javax.swing.JLabel();
         CantidadAdultosMay = new javax.swing.JSpinner();
         cbxComorbilidadAdulto = new javax.swing.JComboBox<>();
         agregarComorbilidadAdulto = new javax.swing.JButton();
@@ -79,11 +79,10 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agregar Personas");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(868, 720));
         setSize(new java.awt.Dimension(0, 0));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Niños");
+        jNinos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jNinos.setText("Niños");
 
         Ltipocuidado.setText("Tipo de Cuidado :");
 
@@ -94,7 +93,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Comorbolidad :");
+        jComorbilidad.setText("Comorbolidad :");
 
         lComorbilidadAdultosM.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
@@ -103,7 +102,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(lComorbilidadAdultosM);
 
-        jLabel4.setText("Cantidad :");
+        jCantidadNinos.setText("Cantidad :");
 
         CantidadNino.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
         CantidadNino.setToolTipText("");
@@ -113,19 +112,19 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel5.setText("Agregar Personas");
+        jTituloAP.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jTituloAP.setText("Agregar Personas");
 
-        Agregar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Agregar.setText("Agregar");
-        Agregar.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel6.setText("Adultos");
+        jAdultos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jAdultos.setText("Adultos");
 
         CuidadoAdultos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bajo", "Medio", "Alto" }));
         CuidadoAdultos.addActionListener(new java.awt.event.ActionListener() {
@@ -134,9 +133,9 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Tipo de Cuidado :");
+        jTCAdulto.setText("Tipo de Cuidado :");
 
-        jLabel8.setText("Comorbolidad :");
+        jComorbilidadA.setText("Comorbolidad :");
 
         lComorbilidadNino.setVisibleRowCount(5);
         lComorbilidadNino.addContainerListener(new java.awt.event.ContainerAdapter() {
@@ -147,7 +146,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
         jScrollPane2.setViewportView(lComorbilidadNino);
         lComorbilidadNino.getAccessibleContext().setAccessibleName("");
 
-        jLabel9.setText("Cantidad :");
+        jCantidadAdultos.setText("Cantidad :");
 
         CantidadAdulto.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
         CantidadAdulto.setToolTipText("");
@@ -157,10 +156,10 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel10.setText("Adultos Mayores");
+        jAdultosMayores.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jAdultosMayores.setText("Adultos Mayores");
 
-        jLabel11.setText("Tipo de Cuidado :");
+        jTCAM.setText("Tipo de Cuidado :");
 
         CuidadoAdultosM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bajo", "Medio", "Alto" }));
         CuidadoAdultosM.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +168,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setText("Comorbolidad :");
+        jComorbilidadAM.setText("Comorbolidad :");
 
         lComorbilidadAdulto.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
@@ -178,7 +177,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(lComorbilidadAdulto);
 
-        jLabel13.setText("Cantidad :");
+        jCantidadAM.setText("Cantidad :");
 
         CantidadAdultosMay.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
 
@@ -251,24 +250,24 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Agregar)
+                .addComponent(btnAgregar)
                 .addGap(30, 30, 30))
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel1)
+                    .addComponent(jAdultosMayores)
+                    .addComponent(jAdultos)
+                    .addComponent(jNinos)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
+                                        .addComponent(jTCAdulto)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(CuidadoAdultos, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel8)
+                                        .addComponent(jComorbilidadA)
                                         .addGap(18, 18, 18)
                                         .addComponent(cbxComorbilidadAdulto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(eliminarComorbilidadAdulto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -278,15 +277,15 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(CuidadoNino, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel3)
+                                    .addComponent(jComorbilidad)
                                     .addGap(18, 18, 18)
                                     .addComponent(cbxComorbilidadNino, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel11)
+                                .addComponent(jTCAM)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CuidadoAdultosM, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12)
+                                .addComponent(jComorbilidadAM)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cbxComorbilidadAdultoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -295,25 +294,25 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(btnagregarComorbilidadNino, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btneliminarComorbilidadNino, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jTituloAP, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel13)
+                                .addComponent(jCantidadAM)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CantidadAdultosMay, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel9)
+                                .addComponent(jCantidadAdultos)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CantidadAdulto, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4)
+                                .addComponent(jCantidadNinos)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CantidadNino, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(22, Short.MAX_VALUE))
@@ -322,16 +321,16 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabel5)
+                .addComponent(jTituloAP)
                 .addGap(31, 31, 31)
-                .addComponent(jLabel1)
+                .addComponent(jNinos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Ltipocuidado)
                             .addComponent(CuidadoNino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
+                            .addComponent(jComorbilidad)
                             .addComponent(cbxComorbilidadNino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnagregarComorbilidadNino)
@@ -339,19 +338,19 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
                         .addComponent(btneliminarComorbilidadNino))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(CantidadNino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4))
+                        .addComponent(jCantidadNinos))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
-                .addComponent(jLabel6)
+                .addComponent(jAdultos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel7)
+                                    .addComponent(jTCAdulto)
                                     .addComponent(CuidadoAdultos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8))
+                                    .addComponent(jComorbilidadA))
                                 .addGap(11, 11, 11))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(cbxComorbilidadAdulto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -359,19 +358,19 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
                         .addComponent(agregarComorbilidadAdulto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(eliminarComorbilidadAdulto))
-                    .addComponent(jLabel9)
+                    .addComponent(jCantidadAdultos)
                     .addComponent(CantidadAdulto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
-                .addComponent(jLabel10)
+                .addComponent(jAdultosMayores)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
+                    .addComponent(jTCAM)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel12)
+                        .addComponent(jComorbilidadAM)
                         .addComponent(CuidadoAdultosM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
+                    .addComponent(jCantidadAM)
                     .addComponent(CantidadAdultosMay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cbxComorbilidadAdultoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -380,7 +379,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(eliminarComorbilidadAdultoM)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Agregar)
+                .addComponent(btnAgregar)
                 .addGap(30, 30, 30))
         );
 
@@ -404,7 +403,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
 
     }//GEN-LAST:event_lComorbilidadAdultosMComponentAdded
 
-    private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         int total = Integer.parseInt(this.CantidadNino.getValue().toString()) + Integer.parseInt(this.CantidadAdulto.getValue().toString()) + Integer.parseInt(this.CantidadAdulto.getValue().toString());
         if ((TallerPOO.getPersona().size() + total) <= 100) {
             comorbilidadNino.setDiabetes(modelon.contains("Diabetes"));
@@ -440,7 +439,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "El limite de personas es 100");
         }
-    }//GEN-LAST:event_AgregarActionPerformed
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void CuidadoAdultosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuidadoAdultosActionPerformed
         if (CuidadoAdultos.getSelectedItem() == "Bajo") {
@@ -560,7 +559,6 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Agregar;
     private javax.swing.JSpinner CantidadAdulto;
     private javax.swing.JSpinner CantidadAdultosMay;
     private javax.swing.JSpinner CantidadNino;
@@ -570,6 +568,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
     private javax.swing.JLabel Ltipocuidado;
     private javax.swing.JButton agregarComorbilidadAdulto;
     private javax.swing.JButton agregarComorbilidadAdultoM;
+    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnagregarComorbilidadNino;
     private javax.swing.JButton btneliminarComorbilidadNino;
     private javax.swing.JComboBox<String> cbxComorbilidadAdulto;
@@ -577,21 +576,21 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxComorbilidadNino;
     private javax.swing.JButton eliminarComorbilidadAdulto;
     private javax.swing.JButton eliminarComorbilidadAdultoM;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jAdultos;
+    private javax.swing.JLabel jAdultosMayores;
+    private javax.swing.JLabel jCantidadAM;
+    private javax.swing.JLabel jCantidadAdultos;
+    private javax.swing.JLabel jCantidadNinos;
+    private javax.swing.JLabel jComorbilidad;
+    private javax.swing.JLabel jComorbilidadA;
+    private javax.swing.JLabel jComorbilidadAM;
+    private javax.swing.JLabel jNinos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel jTCAM;
+    private javax.swing.JLabel jTCAdulto;
+    private javax.swing.JLabel jTituloAP;
     private javax.swing.JList<String> lComorbilidadAdulto;
     private javax.swing.JList<String> lComorbilidadAdultosM;
     private javax.swing.JList<String> lComorbilidadNino;

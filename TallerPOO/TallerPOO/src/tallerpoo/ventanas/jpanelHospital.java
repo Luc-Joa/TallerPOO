@@ -11,14 +11,14 @@ import TallerPoo.TallerPOO;
  *
  * @author ACU
  */
-public class jpanelHospital extends javax.swing.JPanel implements Runnable{
+public class jpanelHospital extends javax.swing.JPanel implements Runnable {
 
     /**
      * Creates new form jpanelHospital
      */
     public jpanelHospital() {
         initComponents();
-        Thread hospital= new Thread(this);
+        Thread hospital = new Thread(this);
         hospital.start();
     }
 
@@ -97,9 +97,9 @@ public class jpanelHospital extends javax.swing.JPanel implements Runnable{
     @Override
     public void run() {
         while (true) {
-            jlAislamiento.setText("Aislamiento :"+ TallerPOO.getHospital().mostrarPacientesAislamiento().size());
-            jlIntensivo.setText("Cuidados Intensivos :"+TallerPOO.getHospital().getContcti());
-            jlModerado.setText("Cuidados Moderados :"+ TallerPOO.getHospital().getContcm());
+            jlAislamiento.setText("Aislamiento: " + TallerPOO.getHospital().mostrarPacientesAislamiento().size());
+            jlIntensivo.setText("Cuidados Intensivos: " + TallerPOO.getHospital().mostrarPacientesCTI().size());
+            jlModerado.setText("Cuidados Moderados: " + TallerPOO.getHospital().mostrarPacientesCM().size());
         }
     }
 }
