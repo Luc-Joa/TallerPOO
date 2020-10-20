@@ -9,10 +9,6 @@ import TallerPoo.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author ACU
- */
 public class PanelSimulacion extends javax.swing.JInternalFrame {
 
     List<Thread> hiloAdulto = new ArrayList();
@@ -123,14 +119,14 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
             .addGroup(jpanelAdultosLayout.createSequentialGroup()
                 .addGap(126, 126, 126)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         jpanelAdultosLayout.setVerticalGroup(
             jpanelAdultosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelAdultosLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
                 .addComponent(jButton7))
         );
 
@@ -154,7 +150,7 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
             .addGroup(jpanelMayoresLayout.createSequentialGroup()
                 .addGap(114, 114, 114)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         jpanelMayoresLayout.setVerticalGroup(
             jpanelMayoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,14 +181,14 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
             .addGroup(jpanelNinosLayout.createSequentialGroup()
                 .addGap(128, 128, 128)
                 .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         jpanelNinosLayout.setVerticalGroup(
             jpanelNinosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelNinosLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
                 .addComponent(jButton10))
         );
 
@@ -211,7 +207,7 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
                         .addComponent(jpanelAdultos, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jpanelNinos, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(266, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

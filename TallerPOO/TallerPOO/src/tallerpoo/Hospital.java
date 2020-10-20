@@ -8,10 +8,6 @@ package TallerPoo;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Joaquin
- */
 public class Hospital {
 
     private Persona persona;

@@ -5,10 +5,6 @@
  */
 package TallerPoo;
 
-/**
- *
- * @author Joaquin
- */
 public class CTI extends Cuidado {
 
     private Hospital cti;

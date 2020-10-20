@@ -7,10 +7,6 @@ package TallerPoo;
 
 import java.awt.Color;
 
-/**
- *
- * @author ACU
- */
 public class Actividad {
 
     final int horaPaseo, horaEscuela, horaTrabajo;

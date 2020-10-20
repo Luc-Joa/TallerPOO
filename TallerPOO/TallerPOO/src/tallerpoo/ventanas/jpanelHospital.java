@@ -7,10 +7,6 @@ package tallerpoo.ventanas;
 
 import TallerPoo.TallerPOO;
 
-/**
- *
- * @author ACU
- */
 public class jpanelHospital extends javax.swing.JPanel implements Runnable {
 
     /**

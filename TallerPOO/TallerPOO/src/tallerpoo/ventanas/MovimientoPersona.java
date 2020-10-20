@@ -10,10 +10,6 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author ACU
- */
 public class MovimientoPersona extends javax.swing.JPanel {
 
     List<FiguraPersona> p = new ArrayList<>();

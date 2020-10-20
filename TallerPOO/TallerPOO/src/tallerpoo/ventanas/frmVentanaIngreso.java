@@ -9,10 +9,6 @@ import TallerPoo.*;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author ACU
- */
 public class frmVentanaIngreso extends javax.swing.JFrame {
 
     DefaultListModel modelo = new DefaultListModel();

@@ -5,10 +5,6 @@
  */
 package TallerPoo;
 
-/**
- *
- * @author Joaquin
- */
 public class Cuidado {
 
     private int duracion;

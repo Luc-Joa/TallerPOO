@@ -9,10 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import tallerpoo.ventanas.VentanaIngreso;
 
-/**
- *
- * @author ACU
- */
 public class TallerPOO {
 
     private static int cont = 0;

@@ -9,10 +9,6 @@ import TallerPoo.Persona;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author ACU
- */
 public class HiloPersona extends Thread {
 
     private FiguraPersona p;

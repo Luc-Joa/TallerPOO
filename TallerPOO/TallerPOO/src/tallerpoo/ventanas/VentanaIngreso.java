@@ -9,16 +9,9 @@ import TallerPoo.Edad;
 import TallerPoo.TallerPOO;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Joaquin
- */
 public class VentanaIngreso extends javax.swing.JFrame {
-
-    
 
     /**
      * Creates new form VentanaIngresoo
@@ -179,7 +172,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddPersonaActionPerformed
 
     private void btnINICIOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnINICIOActionPerformed
-        PanelSimulacion panel= new PanelSimulacion();
+        PanelSimulacion panel = new PanelSimulacion();
         jdEscritorio.add(panel);
         panel.setVisible(true);
     }//GEN-LAST:event_btnINICIOActionPerformed
@@ -210,7 +203,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
 
         Object[] row3 = {"Cantidad Total", cam + ca + cn};
         tabla.addRow(row3);
-        
+
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed

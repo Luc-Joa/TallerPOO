@@ -10,10 +10,6 @@ import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-/**
- *
- * @author ACU
- */
 public class FiguraPersona extends Persona {
 
     private Component canvas;

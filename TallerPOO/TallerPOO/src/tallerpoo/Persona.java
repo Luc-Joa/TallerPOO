@@ -8,10 +8,6 @@ package TallerPoo;
 import java.awt.Color;
 import java.util.Objects;
 
-/**
- *
- * @author Joaquin
- */
 public class Persona {
 
     private Edad edad;

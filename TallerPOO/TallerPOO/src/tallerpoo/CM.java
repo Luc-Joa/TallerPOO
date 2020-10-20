@@ -5,10 +5,6 @@
  */
 package TallerPoo;
 
-/**
- *
- * @author Joaquin
- */
 public class CM extends Cuidado {
 
     private Hospital cm;

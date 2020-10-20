@@ -5,10 +5,6 @@
  */
 package TallerPoo;
 
-/**
- *
- * @author ACU
- */
 public class Aislamiento extends Cuidado {
 
     private Hospital pacientesAislamiento;

@@ -7,10 +7,6 @@ package tallerpoo.ventanas;
 
 import TallerPoo.TallerPOO;
 
-/**
- *
- * @author Joaquin
- */
 public class jpanelInformacion extends javax.swing.JPanel implements Runnable {
 
     /**
