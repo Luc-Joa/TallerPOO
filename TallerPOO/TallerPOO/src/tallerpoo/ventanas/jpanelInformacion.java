@@ -14,8 +14,6 @@ public class jpanelInformacion extends javax.swing.JPanel implements Runnable {
      */
     public jpanelInformacion() {
         initComponents();
-        Thread info = new Thread(this);
-        info.start();
     }
 
     /**
