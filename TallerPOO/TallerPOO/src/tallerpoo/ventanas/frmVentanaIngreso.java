@@ -72,7 +72,6 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
         agregarComorbilidadAdultoM = new javax.swing.JButton();
         eliminarComorbilidadAdultoM = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agregar Personas");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setSize(new java.awt.Dimension(0, 0));

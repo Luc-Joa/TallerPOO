@@ -106,6 +106,7 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(255, 198, 52));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tallerpoo/imagenes/bank.png"))); // NOI18N
         jLabel1.setText("Trabajo");
 
@@ -137,6 +138,7 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel3.setForeground(new java.awt.Color(255, 198, 52));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tallerpoo/imagenes/park.png"))); // NOI18N
         jLabel3.setText("Paseo");
 
@@ -168,6 +170,7 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(255, 198, 52));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tallerpoo/imagenes/school.png"))); // NOI18N
         jLabel2.setText("Escuela");
 

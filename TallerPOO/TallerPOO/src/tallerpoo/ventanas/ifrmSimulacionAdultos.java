@@ -114,7 +114,6 @@ public class ifrmSimulacionAdultos extends javax.swing.JInternalFrame {
         for (int i = 0; i < a.length; i++) {
             a[i].start();
         }
-
     }//GEN-LAST:event_btnAgregarContagiadosAActionPerformed
 
 
