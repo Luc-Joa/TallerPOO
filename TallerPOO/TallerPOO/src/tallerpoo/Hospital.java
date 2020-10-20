@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Joaquin
  */
-public class Hospital {
+public class Hospital extends Thread {
 
     private Persona persona;
     private CM[] cm = new CM[5];
@@ -114,5 +114,17 @@ public class Hospital {
      */
     public List<Aislamiento> mostrarPacientesAislamiento() {
         return aislamiento;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            if (persona.getTerminoActividad() && persona.getSintoma()) {
+                persona.consulta();
+                if (persona.getContagio()) {
+                    this.derivarPersona(persona);
+                }
+            }
+        }
     }
 }

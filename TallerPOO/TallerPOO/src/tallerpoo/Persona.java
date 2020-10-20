@@ -6,7 +6,6 @@
 package TallerPoo;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.util.Objects;
 
 /**
@@ -23,6 +22,7 @@ public class Persona {
     private Hospital hospital;
     private Actividad actividad;
     private int id;
+    private Boolean terminoActividad;
 
     /**
      * Constructor Parametrizado
@@ -41,11 +41,11 @@ public class Persona {
         this.contagio = contagio;
         this.sintoma = sintoma;
         if (contagio) {
-            this.color= Color.red;
-        }else{
+            this.color = Color.red;
+        } else {
             this.color = cuidado.tipoCuidado();
         }
-        
+
         this.cuidado = cuidado;
         this.comorbilidad = comorbilidad;
         this.actividad = actividad;
@@ -177,6 +177,8 @@ public class Persona {
 
     /**
      * agrega una persona a la actividad según su edad
+     *
+     * @param b
      */
     public void actividad(Persona b) {
         actividad.Contagio(this, b);
@@ -197,6 +199,7 @@ public class Persona {
     /**
      * devuelve si una persona está contagiada o no, si está contagiada la
      * agrega a la lista de persona correspondiente
+     *
      */
     public void consulta() {
         this.hospital.consulta(this);
@@ -204,6 +207,14 @@ public class Persona {
 
     public int getID() {
         return id;
+    }
+
+    public Boolean getTerminoActividad() {
+        return terminoActividad;
+    }
+
+    public void setTerminoActividad(Boolean terminoActividad) {
+        this.terminoActividad = terminoActividad;
     }
 
     @Override

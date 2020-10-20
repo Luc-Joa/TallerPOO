@@ -15,7 +15,7 @@ public class VentanaSimulacion extends javax.swing.JFrame {
     ifrmSimulacionMovimientoNinios ninios = new ifrmSimulacionMovimientoNinios();
     ifrmSimulacionAdultos adultos = new ifrmSimulacionAdultos();
     ifrmSimulacionMayores mayores = new ifrmSimulacionMayores();
-    ifrmSimulacionHospiltal hospital = new ifrmSimulacionHospiltal();
+    ifrmSimulacionHospital hospital = new ifrmSimulacionHospital();
 
     /**
      * Creates new form VentanaSimulacion

@@ -9,12 +9,12 @@ package tallerpoo.ventanas;
  *
  * @author Joaquin
  */
-public class ifrmSimulacionHospiltal extends javax.swing.JInternalFrame {
+public class ifrmSimulacionHospital extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ifrmSimulacionHospiltal
      */
-    public ifrmSimulacionHospiltal() {
+    public ifrmSimulacionHospital() {
         initComponents();
     }
 
@@ -38,7 +38,6 @@ public class ifrmSimulacionHospiltal extends javax.swing.JInternalFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -92,13 +91,6 @@ public class ifrmSimulacionHospiltal extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setText("Consultar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout hospitalPersonaLayout = new javax.swing.GroupLayout(hospitalPersona);
         hospitalPersona.setLayout(hospitalPersonaLayout);
         hospitalPersonaLayout.setHorizontalGroup(
@@ -129,10 +121,6 @@ public class ifrmSimulacionHospiltal extends javax.swing.JInternalFrame {
                                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hospitalPersonaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
         );
         hospitalPersonaLayout.setVerticalGroup(
             hospitalPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,9 +137,7 @@ public class ifrmSimulacionHospiltal extends javax.swing.JInternalFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(jLabel1)
-                .addGap(55, 55, 55)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addGap(93, 93, 93))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -169,31 +155,17 @@ public class ifrmSimulacionHospiltal extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (Integer.parseInt(jTextField1.getText()) < 2) {
-            jTextField1.setText("" + (Integer.parseInt(jTextField1.getText()) + 1));
-        } else if (Integer.parseInt(jTextField1.getText()) >= 2 && Integer.parseInt(jTextField2.getText()) < 5) {
-            jTextField2.setText("" + (Integer.parseInt(jTextField2.getText()) + 1));
-        } else {
-            jTextField3.setText("" + (Integer.parseInt(jTextField3.getText()) + 1));
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private tallerpoo.ventanas.MovimientoPersona hospitalPersona;
-    private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
@@ -201,8 +173,8 @@ public class ifrmSimulacionHospiltal extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    public javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField2;
+    public javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
