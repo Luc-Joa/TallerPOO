@@ -16,23 +16,28 @@ public class jpanelInformacion extends javax.swing.JPanel implements Runnable {
     TipoCuidado tcslm = new TipoCuidado(false, false, true, false);
     TipoCuidado tcstb = new TipoCuidado(true, false, false, false);
 
-    public void PMasCuidan(Persona p) {
-        for (int i = 0; i < TallerPOO.getPersona().size(); i++) {
-            if (p.getCuidado().equals(tcmc)) {
-                PMasCuidan++;
-            } else if (p.getCuidado().equals(tcslm)) {
-                PSoloLavanManos++;
-            } else if (p.getCuidado().equals(tcstb)) {
-                PSoloTapabocas++;
-            }
-        }
-    }
-
     /**
      * Creates new form jpanelInformacion
      */
     public jpanelInformacion() {
         initComponents();
+        Thread inf = new Thread(this);
+
+        inf.start();
+    }
+
+    public void Cuidados() {
+        System.out.println(TallerPOO.getPersona().size());
+        for (int i = 0; i < TallerPOO.getPersona().size(); i++) {
+            
+            if (TallerPOO.getPersona().get(i).getCuidado().equals(tcmc)) {
+                PMasCuidan++;
+            } else if (TallerPOO.getPersona().get(i).getCuidado().equals(tcslm)) {
+                PSoloLavanManos++;
+            } else if (TallerPOO.getPersona().get(i).getCuidado().equals(tcstb)) {
+                PSoloTapabocas++;
+            }
+        }
     }
 
     /**
@@ -132,11 +137,13 @@ public class jpanelInformacion extends javax.swing.JPanel implements Runnable {
 
     @Override
     public void run() {
-        jPC.setText("Personas Contagiadas: " + TallerPOO.getHospital().getPerCont().size());
-        jPS.setText("Personas Contagiadas: " + (TallerPOO.getHospital().getPerCont().size() - (TallerPOO.getNinos().size() + TallerPOO.getAdultos().size() + TallerPOO.getMayores().size())));
+        Cuidados();
         jPMasCuidan.setText("Personas que más se cuidan: " + this.PMasCuidan);
-        jPSoloLavanManos.setText("Personas que más se cuidan: " + this.PSoloLavanManos);
-        jPSoloTapabocas.setText("Personas que más se cuidan: " + this.PSoloTapabocas);
-
+        jPSoloLavanManos.setText("Personas que solo se lavan las manos : " + this.PSoloLavanManos);
+        jPSoloTapabocas.setText("Personas solo tapabocas : " + this.PSoloTapabocas);
+        while (true) {
+            jPC.setText("Personas Contagiadas: " + TallerPOO.getHospital().getPerCont().size());
+            jPS.setText("Personas Sanas: " + (TallerPOO.getPersona().size() - TallerPOO.getHospital().getPerCont().size()));
+        }
     }
 }

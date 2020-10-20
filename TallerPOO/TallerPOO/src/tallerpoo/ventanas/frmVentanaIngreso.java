@@ -384,7 +384,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
 
     private void CuidadoNinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuidadoNinoActionPerformed
         if (CuidadoNino.getSelectedItem() == "Bajo") {
-            cuidadonino = new TipoCuidado(false, false, false, false);
+            cuidadonino = new TipoCuidado(false, false, true, false);
         }
         if (CuidadoNino.getSelectedItem() == "Medio") {
             cuidadonino = new TipoCuidado(true, false, false, false);
@@ -438,7 +438,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
 
     private void CuidadoAdultosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuidadoAdultosActionPerformed
         if (CuidadoAdultos.getSelectedItem() == "Bajo") {
-            cuidadoAdulto = new TipoCuidado(false, false, false, false);
+            cuidadoAdulto = new TipoCuidado(false, false, true, false);
         }
         if (CuidadoAdultos.getSelectedItem() == "Medio") {
             cuidadoAdulto = new TipoCuidado(true, false, false, false);
@@ -454,7 +454,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
 
     private void CuidadoAdultosMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuidadoAdultosMActionPerformed
         if (CuidadoAdultosM.getSelectedItem() == "Bajo") {
-            cuidadoAdulto = new TipoCuidado(false, false, false, false);
+            cuidadoAdulto = new TipoCuidado(false, false, true, false);
         }
         if (CuidadoAdultosM.getSelectedItem() == "Medio") {
             cuidadoAdultoM = new TipoCuidado(true, false, false, false);

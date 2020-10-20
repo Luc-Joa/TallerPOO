@@ -6,6 +6,7 @@
 package TallerPoo;
 
 import java.awt.Color;
+import java.util.Objects;
 
 public class TipoCuidado {
 
@@ -72,6 +73,39 @@ public class TipoCuidado {
      */
     public void setEvitarcontacto(Boolean evitarcontacto) {
         this.evitarcontacto = evitarcontacto;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final TipoCuidado other = (TipoCuidado) obj;
+        if (!Objects.equals(this.tapabocas, other.tapabocas)) {
+            return false;
+        }
+        if (!Objects.equals(this.distanciamiento, other.distanciamiento)) {
+            return false;
+        }
+        if (!Objects.equals(this.desinfectar, other.desinfectar)) {
+            return false;
+        }
+        if (!Objects.equals(this.evitarcontacto, other.evitarcontacto)) {
+            return false;
+        }
+        return true;
     }
 
     /**

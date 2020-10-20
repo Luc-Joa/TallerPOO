@@ -98,6 +98,7 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
         jButton10 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jpanelHospital1 = new tallerpoo.ventanas.jpanelHospital();
+        jpanelInformacion1 = new tallerpoo.ventanas.jpanelInformacion();
 
         jButton7.setText("Agregar Contagiados");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +128,7 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelAdultosLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
                 .addComponent(jButton7))
         );
 
@@ -147,12 +148,12 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
         jpanelMayoresLayout.setHorizontalGroup(
             jpanelMayoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelMayoresLayout.createSequentialGroup()
-                .addGap(0, 155, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton6))
             .addGroup(jpanelMayoresLayout.createSequentialGroup()
-                .addGap(114, 114, 114)
+                .addGap(333, 333, 333)
                 .addComponent(jLabel3)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpanelMayoresLayout.setVerticalGroup(
             jpanelMayoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,7 +192,7 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelNinosLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
                 .addComponent(jButton10))
         );
 
@@ -210,7 +211,9 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
                         .addComponent(jpanelAdultos, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jpanelNinos, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jpanelInformacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,8 +221,9 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jpanelAdultos, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpanelNinos, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
+                    .addComponent(jpanelNinos, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jpanelInformacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jpanelMayores, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                     .addComponent(jpanelHospital1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
@@ -320,6 +324,7 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private tallerpoo.ventanas.MovimientoPersona jpanelAdultos;
     private tallerpoo.ventanas.jpanelHospital jpanelHospital1;
+    private tallerpoo.ventanas.jpanelInformacion jpanelInformacion1;
     private tallerpoo.ventanas.MovimientoPersona jpanelMayores;
     private tallerpoo.ventanas.MovimientoPersona jpanelNinos;
     // End of variables declaration//GEN-END:variables
