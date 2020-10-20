@@ -21,6 +21,7 @@ public class jpanelInformacion extends javax.swing.JPanel implements Runnable {
      */
     public jpanelInformacion() {
         initComponents();
+
         Thread inf = new Thread(this);
 
         inf.start();
@@ -29,13 +30,14 @@ public class jpanelInformacion extends javax.swing.JPanel implements Runnable {
     public void Cuidados() {
         System.out.println(TallerPOO.getPersona().size());
         for (int i = 0; i < TallerPOO.getPersona().size(); i++) {
-            
-            if (TallerPOO.getPersona().get(i).getCuidado().equals(tcmc)) {
-                PMasCuidan++;
-            } else if (TallerPOO.getPersona().get(i).getCuidado().equals(tcslm)) {
-                PSoloLavanManos++;
-            } else if (TallerPOO.getPersona().get(i).getCuidado().equals(tcstb)) {
-                PSoloTapabocas++;
+            if (TallerPOO.getPersona().get(i).getCuidado().equals(this.tcmc)) {
+                this.PMasCuidan++;
+            }
+            if (TallerPOO.getPersona().get(i).getCuidado().equals(this.tcslm)) {
+                this.PSoloLavanManos++;
+            }
+            if (TallerPOO.getPersona().get(i).getCuidado().equals(this.tcstb)) {
+                this.PSoloTapabocas++;
             }
         }
     }
@@ -142,6 +144,7 @@ public class jpanelInformacion extends javax.swing.JPanel implements Runnable {
         jPSoloLavanManos.setText("Personas que solo se lavan las manos : " + this.PSoloLavanManos);
         jPSoloTapabocas.setText("Personas solo tapabocas : " + this.PSoloTapabocas);
         while (true) {
+
             jPC.setText("Personas Contagiadas: " + TallerPOO.getHospital().getPerCont().size());
             jPS.setText("Personas Sanas: " + (TallerPOO.getPersona().size() - TallerPOO.getHospital().getPerCont().size()));
         }

@@ -81,7 +81,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
 
         Ltipocuidado.setText("Tipo de Cuidado :");
 
-        CuidadoNino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bajo", "Medio", "Alto" }));
+        CuidadoNino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Bajo", "Medio", "Alto" }));
         CuidadoNino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CuidadoNinoActionPerformed(evt);
@@ -121,7 +121,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
         jAdultos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jAdultos.setText("Adultos");
 
-        CuidadoAdultos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bajo", "Medio", "Alto" }));
+        CuidadoAdultos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Bajo", "Medio", "Alto" }));
         CuidadoAdultos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CuidadoAdultosActionPerformed(evt);
@@ -156,7 +156,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
 
         jTCAM.setText("Tipo de Cuidado :");
 
-        CuidadoAdultosM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bajo", "Medio", "Alto" }));
+        CuidadoAdultosM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Bajo", "Medio", "Alto" }));
         CuidadoAdultosM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CuidadoAdultosMActionPerformed(evt);
@@ -383,6 +383,7 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CuidadoNinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuidadoNinoActionPerformed
+       
         if (CuidadoNino.getSelectedItem() == "Bajo") {
             cuidadonino = new TipoCuidado(false, false, true, false);
         }
@@ -400,7 +401,10 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         int total = Integer.parseInt(this.CantidadNino.getValue().toString()) + Integer.parseInt(this.CantidadAdulto.getValue().toString()) + Integer.parseInt(this.CantidadAdulto.getValue().toString());
-        if ((TallerPOO.getPersona().size() + total) <= 100) {
+        if ((TallerPOO.getPersona().size() + total) <= 100 ) {
+            if (CuidadoNino.getSelectedItem() != "-----" && CuidadoAdultos.getSelectedItem() !="-----"&& CuidadoAdultosM.getSelectedItem() != "-----") {
+                
+            
             comorbilidadNino.setDiabetes(modelon.contains("Diabetes"));
             comorbilidadNino.setHipertencionArterial(modelon.contains("Hipertensión Arterial"));
             comorbilidadNino.setEnfCard(modelon.contains("Enfermedades Cardiológicas"));
@@ -427,10 +431,13 @@ public class frmVentanaIngreso extends javax.swing.JFrame {
             comorbilidadAdultoM.setEnfPul(modelo.contains("Enfermedades Pulmonares"));
 
             for (int i = 0; i < Integer.parseInt(this.CantidadAdultosMay.getValue().toString()); i++) {
-                pAdultoM = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdulto, comorbilidadAdultoM, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+                pAdultoM = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdultoM, comorbilidadAdultoM, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
                 TallerPOO.agregarPersona(pAdultoM);
             }
             this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Seleccionar Tipo de Cuidado");
+            }
         } else {
             JOptionPane.showMessageDialog(null, "El limite de personas es 100");
         }
