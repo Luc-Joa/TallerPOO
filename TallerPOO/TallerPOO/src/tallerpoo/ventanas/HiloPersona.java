@@ -22,16 +22,17 @@ public class HiloPersona extends Thread {
         this.p = p;
     }
 
-    ifrmSimulacionHospital iH = new ifrmSimulacionHospital();
-
     @Override
     public void run() {
+        boolean t= true;
         p.setDir(((int) (Math.random() * 7)));
-//        while (true) {
-        for (int i = 0; i < 1000; i++) {
+        while (t) {
+//        for (int i = 0; i < 1000; i++) {
             p.rebotar();
             p.mover(p.getDir());
-
+            if (p.getContagio()) {
+                p.consulta();
+            }
             try {
                 sleep(40);
             } catch (InterruptedException ex) {

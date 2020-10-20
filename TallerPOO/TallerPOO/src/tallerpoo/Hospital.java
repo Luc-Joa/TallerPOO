@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Joaquin
  */
-public class Hospital extends Thread {
+public class Hospital {
 
     private Persona persona;
     private CM[] cm = new CM[5];
@@ -39,6 +39,7 @@ public class Hospital extends Thread {
      * devuelve si una persona está contagiada o no, si está contagiada la
      * agrega a la lista de persona correspondiente
      *
+     * @param persona
      * @return contagio
      */
     public Boolean consulta(Persona persona) {
@@ -51,8 +52,11 @@ public class Hospital extends Thread {
      * @param p
      */
     public void agregarContagiado(Persona p) {
-        this.perCont.add(p);
-        derivarPersona(p);
+        if (!this.perCont.contains(p)) {
+            this.perCont.add(p);
+            derivarPersona(p);
+        }
+
     }
 
     /**
@@ -60,6 +64,22 @@ public class Hospital extends Thread {
      *
      * @return List perCont
      */
+    public List<Persona> getPerCont() {
+        return perCont;
+    }
+
+    public int getContcm() {
+        return contcm;
+    }
+
+    public int getContcti() {
+        return contcti;
+    }
+
+    public int getCta() {
+        return cta;
+    }
+
     /**
      * deriva a la persona contagiada determinando su gravedad y comorbilidades
      *
@@ -67,7 +87,7 @@ public class Hospital extends Thread {
      */
     public void derivarPersona(Persona p) {
         if (p.getComorbilidad().getEnfCard() || p.getComorbilidad().getEnfPul()) {
-            if (!(contcti >= cti.length)) {
+            if (contcti<2) {
                 cti[contcti].setPaciente(p);
                 contcti++;
                 System.out.println("Pacientes CTI :" + contcti);
@@ -79,8 +99,7 @@ public class Hospital extends Thread {
                 contcm++;
                 System.out.println("Pacientes Moderados :" + contcm);
             } else {
-                this.aislamiento.add(new Aislamiento());
-                this.aislamiento.get(cta).setPaciente(persona);
+                this.aislamiento.add(new Aislamiento(p));
 
                 System.out.println("Pacientes Aislamiento :" + this.aislamiento.size());
                 cta++;
@@ -115,16 +134,16 @@ public class Hospital extends Thread {
     public List<Aislamiento> mostrarPacientesAislamiento() {
         return aislamiento;
     }
-
-    @Override
-    public void run() {
-        while (true) {
-            if (persona.getTerminoActividad() && persona.getSintoma()) {
-                persona.consulta();
-                if (persona.getContagio()) {
-                    this.derivarPersona(persona);
-                }
-            }
-        }
-    }
+//
+//    @Override
+//    public void run() {
+//        while (true) {
+//            if (persona.getTerminoActividad() && persona.getSintoma()) {
+//                persona.consulta();
+//                if (persona.getContagio()) {
+//                    this.derivarPersona(persona);
+//                }
+//            }
+//        }
+//    }
 }

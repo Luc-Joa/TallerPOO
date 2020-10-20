@@ -202,7 +202,10 @@ public class Persona {
      *
      */
     public void consulta() {
-        this.hospital.consulta(this);
+        if (this.hospital.consulta(this)) {
+            this.hospital.agregarContagiado(this);
+        }
+        
     }
 
     public int getID() {

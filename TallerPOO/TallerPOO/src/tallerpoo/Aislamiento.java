@@ -13,8 +13,8 @@ public class Aislamiento extends Cuidado {
 
     private Hospital pacientesAislamiento;
 
-    public Aislamiento() {
-        super(4, null);
+    public Aislamiento(Persona p) {
+        super(4, p);
     }
     
 
