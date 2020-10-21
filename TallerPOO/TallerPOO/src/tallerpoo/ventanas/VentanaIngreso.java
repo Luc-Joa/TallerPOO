@@ -172,7 +172,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddPersonaActionPerformed
 
     private void btnINICIOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnINICIOActionPerformed
-        PanelSimulacion panel = new PanelSimulacion();
+        PanelMovimiento panel = new PanelMovimiento();
         jdEscritorio.add(panel);
         panel.setVisible(true);
     }//GEN-LAST:event_btnINICIOActionPerformed

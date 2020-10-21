@@ -70,6 +70,8 @@ public class PanelSimulacionGeneral extends javax.swing.JPanel {
         jCasa = new javax.swing.JLabel();
         jEscuela = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(1000, 600));
+
         jHospital.setForeground(new java.awt.Color(255, 198, 52));
         jHospital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tallerpoo/imagenes/hospital.png"))); // NOI18N
         jHospital.setText("Hospital");
@@ -99,7 +101,7 @@ public class PanelSimulacionGeneral extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPaseo)
                     .addComponent(jTrabajo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 755, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 732, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jHospital)
                     .addComponent(jCasa))
@@ -118,7 +120,7 @@ public class PanelSimulacionGeneral extends javax.swing.JPanel {
                     .addComponent(jCasa))
                 .addGap(223, 223, 223)
                 .addComponent(jEscuela)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPaseo)
                     .addComponent(jHospital))

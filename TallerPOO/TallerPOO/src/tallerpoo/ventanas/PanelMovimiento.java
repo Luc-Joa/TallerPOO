@@ -5,24 +5,28 @@
  */
 package tallerpoo.ventanas;
 
-import TallerPoo.*;
+import TallerPoo.TallerPOO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PanelSimulacion extends javax.swing.JInternalFrame {
+/**
+ *
+ * @author Joaquin
+ */
+public class PanelMovimiento extends javax.swing.JInternalFrame {
 
     List<Thread> hiloAdulto = new ArrayList();
     List<Thread> hiloNino = new ArrayList();
     List<Thread> hiloMayor = new ArrayList();
 
     /**
-     * Creates new form PanelSimulacion
+     * Creates new form PanelMovimiento
      */
-    public PanelSimulacion() {
+    public PanelMovimiento() {
         initComponents();
-//        panelAdultos();
-//        panelMayores();
         panelNinos();
+        panelAdultos();
+        panelMayores();
     }
 
     /**
@@ -31,8 +35,8 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
     public void panelAdultos() {
         FiguraPersona[] p = new FiguraPersona[TallerPOO.getAdultos().size()];
         for (int i = 0; i < p.length; i++) {
-            p[i] = new FiguraPersona(TallerPOO.getAdultos().get(i), jpanelAdultos);
-            jpanelAdultos.add(p[i]);
+            p[i] = new FiguraPersona(TallerPOO.getAdultos().get(i), panelSimulacionGeneral1);
+            panelSimulacionGeneral1.add(p[i]);
         }
 
         for (int i = 0; i < p.length; i++) {
@@ -49,8 +53,8 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
     public void panelMayores() {
         FiguraPersona[] p = new FiguraPersona[TallerPOO.getMayores().size()];
         for (int i = 0; i < p.length; i++) {
-            p[i] = new FiguraPersona(TallerPOO.getMayores().get(i), jpanelMayores);
-            jpanelMayores.add(p[i]);
+            p[i] = new FiguraPersona(TallerPOO.getMayores().get(i), panelSimulacionGeneral1);
+            panelSimulacionGeneral1.add(p[i]);
         }
 
         for (int i = 0; i < p.length; i++) {
@@ -67,8 +71,8 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
     public void panelNinos() {
         FiguraPersona[] p = new FiguraPersona[TallerPOO.getNinos().size()];
         for (int i = 0; i < p.length; i++) {
-            p[i] = new FiguraPersona(TallerPOO.getNinos().get(i), jpanelNinos);
-            jpanelNinos.add(p[i]);
+            p[i] = new FiguraPersona(TallerPOO.getNinos().get(i), panelSimulacionGeneral1);
+            panelSimulacionGeneral1.add(p[i]);
         }
 
         for (int i = 0; i < p.length; i++) {
@@ -88,15 +92,21 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelSimulacionGeneral1 = new tallerpoo.ventanas.PanelSimulacionGeneral();
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1006, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelSimulacionGeneral1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 619, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSimulacionGeneral1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -104,5 +114,6 @@ public class PanelSimulacion extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private tallerpoo.ventanas.PanelSimulacionGeneral panelSimulacionGeneral1;
     // End of variables declaration//GEN-END:variables
 }

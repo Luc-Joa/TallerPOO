@@ -14,8 +14,8 @@ import java.awt.Rectangle;
 public class FiguraPersona extends Persona {
 
     private Component canvas;
-    int x, width;
-    int y, height;
+    int x, x1;
+    int y, y1;
     int dir;
     private final int vel = 1;
 
@@ -28,8 +28,24 @@ public class FiguraPersona extends Persona {
         super(p.getEdad(), p.getContagio(), p.getSintoma(), p.getCuidado(), p.getComorbilidad(), p.getActividad(), p.getID(), p.getHospital());
         this.canvas = canvas;
         this.x = 950;
+        switch (p.getEdad()) {
+            case NIÑOS:
+                this.x1 = 500;
+                this.y1 = 300;
+                break;
+            case ADULTOS:
+                this.x1 = 140;
+                this.y1 = 50;
+                break;
+            case ADULTOS_MAYORES:
+                this.x1 = 140;
+                this.y1 = 500;
+                break;
+            default:
+                break;
+        }
 //        this.x = (int) (300 * Math.random());
-        this.y = 10;
+        this.y = 50;
     }
 
     public int getDir() {
@@ -97,12 +113,27 @@ public class FiguraPersona extends Persona {
         canvas.repaint();
     }
 
-    public void caminoEscuela() {
-        
-        if (this.getEdad() == Edad.NIÑOS) {
-            dir = 0;
-            if (y == (canvas.getHeight() / 2)) {
-                dir = 3;
+    public void camino() {
+
+        if (null != this.getEdad()) {
+            switch (this.getEdad()) {
+                case NIÑOS:
+                    dir = 0;
+                    if (y == y1) {
+                        dir = 3;
+                    }
+                    break;
+                case ADULTOS:
+                    dir = 3;
+                    break;
+                case ADULTOS_MAYORES:
+                    dir = 3;
+                    if (x == x1) {
+                        dir = 0;
+                    }
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -112,23 +143,23 @@ public class FiguraPersona extends Persona {
      * direccion
      */
     public void rebotar() {
-        if (y <= (canvas.getHeight()/2)-100) {
+        if (y <= y1 - 50) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 7 : nr == 2 ? 0 : 4;
         }
-        if (x <= 400) {
+        if (x <= x1 - 50) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 2 : nr == 2 ? 6 : 4;
         }
-        if (x <= 400 && y <= (canvas.getHeight()/2)-100) {
+        if (x <= x1 - 50 && y <= y1 - 50) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 0 : nr == 2 ? 2 : 4;
         }
-        if (x >= 600) {
+        if (x >= x1 + 50) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 5 : nr == 2 ? 7 : 3;
         }
-        if (y >= (canvas.getHeight()/2)+100) {
+        if (y >= y1 + 50) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 6 : nr == 2 ? 1 : 5;
         }
@@ -154,11 +185,11 @@ public class FiguraPersona extends Persona {
     public Rectangle getBounds() {
         return new Rectangle(x, y, 10, 10);
     }
-    
-    public boolean llego(){
-        if (x==500) {
-            return false;
+
+    public boolean llego() {
+        if (x == x1 && y == y1) {
+            return true;
         }
-        return true;
+        return false;
     }
 }
