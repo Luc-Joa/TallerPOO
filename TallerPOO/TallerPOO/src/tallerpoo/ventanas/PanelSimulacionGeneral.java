@@ -5,17 +5,54 @@
  */
 package tallerpoo.ventanas;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Joaquin
  */
 public class PanelSimulacionGeneral extends javax.swing.JPanel {
 
+    List<FiguraPersona> p = new ArrayList<>();
+
     /**
      * Creates new form PanelSimulacionGeneral
      */
     public PanelSimulacionGeneral() {
         initComponents();
+    }
+
+    public void add(FiguraPersona per) {
+        p.add(per);
+    }
+
+    @Override
+    public void paintComponent(Graphics g) { // Dibujamos la Persona
+        super.paintComponent(g);
+        g.setColor(Color.black);
+        g.fillRect(0, 0, getWidth(), getHeight());
+        for (int i = 0; i < p.size(); i++) {
+            p.get(i).paint(g);
+        }
+        for (int i = 0; i < p.size(); i++) {
+            for (int j = 0; j < p.size(); j++) {
+                if (collision(p.get(i), p.get(j)) && j != i) {
+                    if (!p.get(i).getContagio() && p.get(j).getContagio()) {
+                        p.get(i).actividad(p.get(j));
+                    } else if (p.get(i).getContagio() && !p.get(j).getContagio()) {
+                        p.get(j).actividad(p.get(i));
+                    }
+                }
+            }
+
+        }
+    }
+
+    private boolean collision(FiguraPersona a, FiguraPersona b) {
+        return a.getBounds().intersects(b.getBounds());
     }
 
     /**
@@ -28,18 +65,14 @@ public class PanelSimulacionGeneral extends javax.swing.JPanel {
     private void initComponents() {
 
         jHospital = new javax.swing.JLabel();
-        jEscuela = new javax.swing.JLabel();
         jPaseo = new javax.swing.JLabel();
         jTrabajo = new javax.swing.JLabel();
         jCasa = new javax.swing.JLabel();
+        jEscuela = new javax.swing.JLabel();
 
         jHospital.setForeground(new java.awt.Color(255, 198, 52));
         jHospital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tallerpoo/imagenes/hospital.png"))); // NOI18N
         jHospital.setText("Hospital");
-
-        jEscuela.setForeground(new java.awt.Color(255, 198, 52));
-        jEscuela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tallerpoo/imagenes/school.png"))); // NOI18N
-        jEscuela.setText("Escuela");
 
         jPaseo.setForeground(new java.awt.Color(255, 198, 52));
         jPaseo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tallerpoo/imagenes/park.png"))); // NOI18N
@@ -53,6 +86,10 @@ public class PanelSimulacionGeneral extends javax.swing.JPanel {
         jCasa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tallerpoo/imagenes/house.png"))); // NOI18N
         jCasa.setText("Casa");
 
+        jEscuela.setForeground(new java.awt.Color(255, 198, 52));
+        jEscuela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tallerpoo/imagenes/school.png"))); // NOI18N
+        jEscuela.setText("Escuela");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -62,29 +99,26 @@ public class PanelSimulacionGeneral extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPaseo)
                     .addComponent(jTrabajo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 755, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jEscuela)
-                    .addComponent(jHospital))
+                    .addComponent(jHospital)
+                    .addComponent(jCasa))
                 .addGap(22, 22, 22))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(647, Short.MAX_VALUE)
-                .addComponent(jCasa)
-                .addGap(268, 268, 268))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(447, 447, 447)
+                .addComponent(jEscuela)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jEscuela))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jTrabajo)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
-                .addComponent(jCasa)
-                .addGap(128, 128, 128)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTrabajo)
+                    .addComponent(jCasa))
+                .addGap(223, 223, 223)
+                .addComponent(jEscuela)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPaseo)
                     .addComponent(jHospital))

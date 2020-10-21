@@ -5,6 +5,7 @@
  */
 package tallerpoo.ventanas;
 
+import TallerPoo.Edad;
 import TallerPoo.Persona;
 import java.awt.Component;
 import java.awt.Graphics;
@@ -26,8 +27,9 @@ public class FiguraPersona extends Persona {
     public FiguraPersona(Persona p, Component canvas) {
         super(p.getEdad(), p.getContagio(), p.getSintoma(), p.getCuidado(), p.getComorbilidad(), p.getActividad(), p.getID(), p.getHospital());
         this.canvas = canvas;
-        this.x = (int) (300 * Math.random());
-        this.y = (int) (300 * Math.random());
+        this.x = 950;
+//        this.x = (int) (300 * Math.random());
+        this.y = 10;
     }
 
     public int getDir() {
@@ -95,28 +97,38 @@ public class FiguraPersona extends Persona {
         canvas.repaint();
     }
 
+    public void caminoEscuela() {
+        
+        if (this.getEdad() == Edad.NIÑOS) {
+            dir = 0;
+            if (y == (canvas.getHeight() / 2)) {
+                dir = 3;
+            }
+        }
+    }
+
     /**
      * Si la persona llega al límite del area donde se puede mover cambia de
      * direccion
      */
     public void rebotar() {
-        if (y <= 0) {
+        if (y <= (canvas.getHeight()/2)-100) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 7 : nr == 2 ? 0 : 4;
         }
-        if (x <= 0) {
+        if (x <= 400) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 2 : nr == 2 ? 6 : 4;
         }
-        if (x <= 0 && y <= 0) {
+        if (x <= 400 && y <= (canvas.getHeight()/2)-100) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 0 : nr == 2 ? 2 : 4;
         }
-        if (x >= canvas.getWidth() - 10) {
+        if (x >= 600) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 5 : nr == 2 ? 7 : 3;
         }
-        if (y >= canvas.getHeight() - 10) {
+        if (y >= (canvas.getHeight()/2)+100) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 6 : nr == 2 ? 1 : 5;
         }
@@ -141,5 +153,12 @@ public class FiguraPersona extends Persona {
      */
     public Rectangle getBounds() {
         return new Rectangle(x, y, 10, 10);
+    }
+    
+    public boolean llego(){
+        if (x==500) {
+            return false;
+        }
+        return true;
     }
 }

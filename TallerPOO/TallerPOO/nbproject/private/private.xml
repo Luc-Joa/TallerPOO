@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Joaquin/Documents/NetBeansProjects/TallerPOO/TallerPOO/TallerPOO/src/tallerpoo/ventanas/jpanelHospital.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/NetBeansProjects/TallerPOO/TallerPOO/TallerPOO/src/tallerpoo/ventanas/jpanelInformacion.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/NetBeansProjects/TallerPOO/TallerPOO/TallerPOO/src/tallerpoo/ventanas/MovimientoPersona.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/NetBeansProjects/TallerPOO/TallerPOO/TallerPOO/src/tallerpoo/ventanas/PanelSimulacion.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/NetBeansProjects/TallerPOO/TallerPOO/TallerPOO/src/tallerpoo/TallerPOO.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/NetBeansProjects/TallerPOO/TallerPOO/TallerPOO/src/tallerpoo/ventanas/FiguraPersona.java</file>
-            <file>file:/C:/Users/Joaquin/Documents/NetBeansProjects/TallerPOO/TallerPOO/TallerPOO/src/tallerpoo/ventanas/HiloPersona.java</file>
+            <file>file:/C:/Users/ACU/Desktop/TallerPOO/TallerPOO/TallerPOO/src/tallerpoo/ventanas/MovimientoPersona.java</file>
+            <file>file:/C:/Users/ACU/Desktop/TallerPOO/TallerPOO/TallerPOO/src/tallerpoo/ventanas/HiloPersona.java</file>
+            <file>file:/C:/Users/ACU/Desktop/TallerPOO/TallerPOO/TallerPOO/src/tallerpoo/ventanas/jpanelInformacion.java</file>
+            <file>file:/C:/Users/ACU/Desktop/TallerPOO/TallerPOO/TallerPOO/src/tallerpoo/ventanas/frmVentanaIngreso.java</file>
+            <file>file:/C:/Users/ACU/Desktop/TallerPOO/TallerPOO/TallerPOO/src/tallerpoo/ventanas/PanelSimulacionGeneral.java</file>
+            <file>file:/C:/Users/ACU/Desktop/TallerPOO/TallerPOO/TallerPOO/src/tallerpoo/ventanas/FiguraPersona.java</file>
         </group>
     </open-files>
 </project-private>
