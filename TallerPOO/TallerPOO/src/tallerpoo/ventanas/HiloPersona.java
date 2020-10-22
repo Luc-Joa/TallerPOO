@@ -5,43 +5,58 @@
  */
 package tallerpoo.ventanas;
 
-import TallerPoo.Persona;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class HiloPersona extends Thread {
 
     private FiguraPersona p;
-    private Persona per;
 
     public HiloPersona(FiguraPersona p) {
         this.p = p;
     }
 
     @Override
-    public void run() {
-        boolean t = true;
+    public void run() {      
         try {
-            sleep((int) (Math.random() * 5000));
+            sleep((int) (p.getID() * 1000));
         } catch (InterruptedException ex) {
             Logger.getLogger(HiloPersona.class.getName()).log(Level.SEVERE, null, ex);
         }
-//        while (!p.llego()) {
-//            p.camino();
-//            p.mover(p.getDir());
-//            try {
-//                sleep((int) (Math.random() * 40));
-//            } catch (InterruptedException ex) {
-//                Logger.getLogger(HiloPersona.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//        p.setDir(((int) (Math.random() * 7)));
+       
+        camino();
+        actividad();
+
+    }
+
+    private void actividad() {
+        boolean t = true;
+        long tiempo = 0;
+        int contador = 0;
+        p.setDir(((int) (Math.random() * 7)));
         while (t) {
+            contador = 60;
+            tiempo += contador;
+            if (tiempo >= 120000) {
+                t = false;
+            }
             p.rebotar();
             p.mover(p.getDir());
             if (p.getContagio()) {
                 p.consulta();
             }
+            try {
+                sleep(contador);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(HiloPersona.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    private void camino() {
+        while (!p.llego()) {
+            p.camino();
+            p.mover(p.getDir());
             try {
                 sleep((int) (Math.random() * 40));
             } catch (InterruptedException ex) {
