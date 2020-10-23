@@ -27,22 +27,7 @@ public class FiguraPersona extends Persona {
         super(p.getEdad(), p.getContagio(), p.getSintoma(), p.getCuidado(), p.getComorbilidad(), p.getActividad(), p.getID(), p.getHospital());
         this.canvas = canvas;
         this.x = 950;
-        switch (p.getEdad()) {
-            case NIÑOS:
-                this.x1 = 500;
-                this.y1 = 310;
-                break;
-            case ADULTOS:
-                this.x1 = 130;
-                this.y1 = 50;
-                break;
-            case ADULTOS_MAYORES:
-                this.x1 = 230;
-                this.y1 = 445;
-                break;
-            default:
-                break;
-        }
+
 //        this.x = (int) (300 * Math.random());
         this.y = 50;
     }
@@ -76,8 +61,8 @@ public class FiguraPersona extends Persona {
      *
      * @param dir
      */
-    public void mover(int dir) {
-        switch (dir) {
+    public void mover() {
+        switch (this.dir) {
             case 0:
                 y += vel;
                 break;
@@ -113,7 +98,22 @@ public class FiguraPersona extends Persona {
     }
 
     public void camino() {
-
+        switch (this.getEdad()) {
+            case NIÑOS:
+                this.x1 = 500;
+                this.y1 = 310;
+                break;
+            case ADULTOS:
+                this.x1 = 130;
+                this.y1 = 50;
+                break;
+            case ADULTOS_MAYORES:
+                this.x1 = 230;
+                this.y1 = 445;
+                break;
+            default:
+                break;
+        }
         if (null != this.getEdad()) {
             switch (this.getEdad()) {
                 case NIÑOS:
@@ -186,15 +186,12 @@ public class FiguraPersona extends Persona {
     }
 
     public boolean llego() {
-        if (x == x1 && y == y1) {
-            return true;
-        }
-        return false;
+        return (x == x1 && y == y1);
     }
 
     public void vuelta() {
-        x1 = 950;
-        y1 = 40;
+        this.x1 = 950;
+        this.y1 = 50;
         switch (this.getEdad()) {
             case NIÑOS:
                 dir = 1;
@@ -203,7 +200,13 @@ public class FiguraPersona extends Persona {
                 }
                 break;
             case ADULTOS:
-                dir = 2;
+                if (y < y1) {
+                    dir = 0;
+                } else if (y > y1) {
+                    dir = 1;
+                } else if (y == y1) {
+                    dir = 2;
+                }
                 break;
             case ADULTOS_MAYORES:
                 dir = 1;
@@ -216,11 +219,22 @@ public class FiguraPersona extends Persona {
         }
     }
 
+    public void volverHospital() {
+        this.x1 = 950;
+        this.y1 = 50;
+        if (x1 == x) {
+            dir = 1;
+        }
+    }
+
     public void hospital() {
-        x1 = 950;
-        y1 = 500;
-        if (this.getSintoma()) {
+        this.x1 = 950;
+        this.y1 = 550;
+        if (x == x1) {
             dir = 0;
         }
+//        if (this.getSintoma()) {
+
+//        }
     }
 }

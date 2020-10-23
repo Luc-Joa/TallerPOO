@@ -10,11 +10,7 @@ import java.util.logging.Logger;
 
 public class HiloPersona extends Thread {
 
-    Comorbilidad comorbilidadObesidad = new Comorbilidad(false, false, true, false, false); 
-    Comorbilidad comorbilidadHArterial = new Comorbilidad(false, true, false, false, false); 
-    Comorbilidad comorbilidadDiabetes = new Comorbilidad(true, false, false, false, false); 
-    Comorbilidad comorbilidadECardiológica = new Comorbilidad(false, false, false, true, false);
-    Comorbilidad comorbilidadEPulmonares = new Comorbilidad(false, false, false, false, true);
+
     
     private FiguraPersona p;
     
@@ -33,23 +29,15 @@ public class HiloPersona extends Thread {
             camino();
             actividad();
             volver();
-            if (p.getSintoma()) {
-                hospital();
-                if (p.getComorbilidad().equals(comorbilidadObesidad) || p.getComorbilidad().equals(comorbilidadHArterial) || p.getComorbilidad().equals(comorbilidadDiabetes)) {
-                    //entra en CM
-                } else if (p.getComorbilidad().equals(comorbilidadECardiológica) || p.getComorbilidad().equals(comorbilidadEPulmonares)) {
-                    //entra en CTI
-                }
-            } else {
-                volver();
-            }
+            hospital();
+            volverHospital();
         }
     }
 
     private void volver() {
         while (!p.llego()) {
             p.vuelta();
-            p.mover(p.getDir());
+            p.mover();
             try {
                 sleep((int) (Math.random() * 40));
             } catch (InterruptedException ex) {
@@ -70,7 +58,7 @@ public class HiloPersona extends Thread {
                 t = false;
             }
             p.rebotar();
-            p.mover(p.getDir());
+            p.mover();
             if (p.getContagio()) {
                 p.consulta();
             }
@@ -85,7 +73,7 @@ public class HiloPersona extends Thread {
     private void camino() {
         while (!p.llego()) {
             p.camino();
-            p.mover(p.getDir());
+            p.mover();
             try {
                 sleep((int) (Math.random() * 40));
             } catch (InterruptedException ex) {
@@ -98,7 +86,19 @@ public class HiloPersona extends Thread {
         p.hospital();
         while (!p.llego()) {
             p.hospital();
-            p.mover(p.getDir());
+            p.mover();
+            try {
+                sleep((int) (Math.random() * 40));
+            } catch (InterruptedException ex) {
+                Logger.getLogger(HiloPersona.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    private void volverHospital() {
+        p.volverHospital();
+        while (!p.llego()) {
+            p.volverHospital();
+            p.mover();
             try {
                 sleep((int) (Math.random() * 40));
             } catch (InterruptedException ex) {
