@@ -35,6 +35,7 @@ public class HiloPersona extends Thread {
     }
 
     private void volver() {
+        p.vuelta();
         while (!p.llego()) {
             p.vuelta();
             p.mover();
@@ -59,9 +60,6 @@ public class HiloPersona extends Thread {
             }
             p.rebotar();
             p.mover();
-            if (p.getContagio()) {
-                p.consulta();
-            }
             try {
                 sleep(contador);
             } catch (InterruptedException ex) {
@@ -71,6 +69,7 @@ public class HiloPersona extends Thread {
     }
 
     private void camino() {
+        p.camino();
         while (!p.llego()) {
             p.camino();
             p.mover();

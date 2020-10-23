@@ -27,8 +27,6 @@ public class FiguraPersona extends Persona {
         super(p.getEdad(), p.getContagio(), p.getSintoma(), p.getCuidado(), p.getComorbilidad(), p.getActividad(), p.getID(), p.getHospital());
         this.canvas = canvas;
         this.x = 950;
-
-//        this.x = (int) (300 * Math.random());
         this.y = 50;
     }
 
