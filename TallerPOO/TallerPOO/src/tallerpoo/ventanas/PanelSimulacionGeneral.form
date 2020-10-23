@@ -25,22 +25,24 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPaseo" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTrabajo" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="732" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+              <Component id="jTrabajo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jHospital" min="-2" max="-2" attributes="0"/>
                   <Component id="jCasa" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="447" max="-2" attributes="0"/>
-              <Component id="jEscuela" min="-2" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="198" max="-2" attributes="0"/>
+              <Component id="jPaseo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="468" max="32767" attributes="0"/>
+              <Component id="jEscuela" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="433" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -52,13 +54,12 @@
                   <Component id="jTrabajo" min="-2" max="-2" attributes="0"/>
                   <Component id="jCasa" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
               <Component id="jEscuela" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="207" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jPaseo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jHospital" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+              <Component id="jPaseo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="87" max="32767" attributes="0"/>
+              <Component id="jHospital" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>

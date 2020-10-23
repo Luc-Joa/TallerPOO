@@ -5,7 +5,6 @@
  */
 package tallerpoo.ventanas;
 
-import TallerPoo.Edad;
 import TallerPoo.Persona;
 import java.awt.Component;
 import java.awt.Graphics;
@@ -31,15 +30,15 @@ public class FiguraPersona extends Persona {
         switch (p.getEdad()) {
             case NIÑOS:
                 this.x1 = 500;
-                this.y1 = 300;
+                this.y1 = 310;
                 break;
             case ADULTOS:
-                this.x1 = 140;
+                this.x1 = 130;
                 this.y1 = 50;
                 break;
             case ADULTOS_MAYORES:
-                this.x1 = 140;
-                this.y1 = 500;
+                this.x1 = 230;
+                this.y1 = 445;
                 break;
             default:
                 break;

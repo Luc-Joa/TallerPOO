@@ -5,13 +5,30 @@
  */
 package tallerpoo.ventanas;
 
+import TallerPoo.Comorbilidad;
 import TallerPoo.Edad;
+import TallerPoo.Persona;
 import TallerPoo.TallerPOO;
+import TallerPoo.TipoCuidado;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class VentanaIngreso extends javax.swing.JFrame {
+
+    TipoCuidado cuidadonino = new TipoCuidado(false, false, false, false);
+    TipoCuidado cuidadoAdulto = new TipoCuidado(true, false, true, false);
+    TipoCuidado cuidadoAdultoM = new TipoCuidado(true, true, true, true);
+    Comorbilidad comorbilidadNino = new Comorbilidad(false, false, false, false, false);
+    Comorbilidad comorbilidadAdulto = new Comorbilidad(false, false, false, false, false);
+    Comorbilidad comorbilidadAdultoM = new Comorbilidad(false, false, false, false, false);
+    Comorbilidad comorbilidadObesidad = new Comorbilidad(false, false, true, false, false);
+    Comorbilidad comorbilidadECardiológica = new Comorbilidad(false, false, false, true, false);
+    Persona pObe = new Persona();
+    Persona pCard = new Persona();
+    Persona pNinio = new Persona();
+    Persona pAdulto = new Persona();
+    Persona pAdultoM = new Persona();
 
     /**
      * Creates new form VentanaIngresoo
@@ -19,6 +36,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
     public VentanaIngreso() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        btnAddPersonaPorDefecto.setToolTipText("Agrega 28 niños, 31 adultos y 34 adultos mayores, también 2 adultos mayores con enfermedades cardiológicas y 5 adultos con obesidad");
     }
 
     /**
@@ -38,6 +56,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
         jMostrarPersonas = new javax.swing.JTable();
         btnActualizar = new javax.swing.JButton();
         btnReiniciar = new javax.swing.JButton();
+        btnAddPersonaPorDefecto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Simulación");
@@ -100,12 +119,21 @@ public class VentanaIngreso extends javax.swing.JFrame {
             }
         });
 
+        btnAddPersonaPorDefecto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnAddPersonaPorDefecto.setText("AGREGAR PERSONAS POR DEFECTO");
+        btnAddPersonaPorDefecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddPersonaPorDefectoActionPerformed(evt);
+            }
+        });
+
         jdEscritorio.setLayer(jTitulo, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdEscritorio.setLayer(btnAddPersona, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdEscritorio.setLayer(btnINICIO, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdEscritorio.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdEscritorio.setLayer(btnActualizar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdEscritorio.setLayer(btnReiniciar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdEscritorio.setLayer(btnAddPersonaPorDefecto, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jdEscritorioLayout = new javax.swing.GroupLayout(jdEscritorio);
         jdEscritorio.setLayout(jdEscritorioLayout);
@@ -114,18 +142,22 @@ public class VentanaIngreso extends javax.swing.JFrame {
             .addGroup(jdEscritorioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jdEscritorioLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                            .addComponent(btnReiniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())
                     .addComponent(jTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdEscritorioLayout.createSequentialGroup()
-                        .addComponent(btnAddPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                        .addComponent(btnINICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jdEscritorioLayout.createSequentialGroup()
+                        .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jdEscritorioLayout.createSequentialGroup()
+                                .addComponent(jScrollPane1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                                    .addComponent(btnReiniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jdEscritorioLayout.createSequentialGroup()
+                                .addComponent(btnAddPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAddPersonaPorDefecto, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnINICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         jdEscritorioLayout.setVerticalGroup(
             jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +174,8 @@ public class VentanaIngreso extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(jdEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnINICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnINICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddPersonaPorDefecto, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27))
         );
 
@@ -211,6 +244,37 @@ public class VentanaIngreso extends javax.swing.JFrame {
         btnActualizarActionPerformed(evt);
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
+    private void btnAddPersonaPorDefectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPersonaPorDefectoActionPerformed
+        if (TallerPOO.getPersona().size() != 100) {
+            for (int i = 0; i < 28; i++) {
+                pNinio = new Persona(Edad.NIÑOS, false, false, cuidadonino, comorbilidadNino, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+                TallerPOO.agregarPersona(pNinio);
+            }
+
+            for (int i = 0; i < 31; i++) {
+                pAdulto = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadAdulto, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+                TallerPOO.agregarPersona(pAdulto);
+            }
+
+            for (int i = 0; i < 5; i++) {
+                pObe = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadObesidad, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+                TallerPOO.agregarPersona(pObe);
+            }
+
+            for (int i = 0; i < 34; i++) {
+                pAdultoM = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdultoM, comorbilidadAdultoM, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+                TallerPOO.agregarPersona(pAdultoM);
+            }
+
+            for (int i = 0; i < 2; i++) {
+                pCard = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdultoM, comorbilidadECardiológica, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+                TallerPOO.agregarPersona(pCard);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "El limite de personas es 100");
+        }
+    }//GEN-LAST:event_btnAddPersonaPorDefectoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -241,6 +305,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new VentanaIngreso().setVisible(true);
             }
@@ -250,6 +315,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnAddPersona;
+    private javax.swing.JButton btnAddPersonaPorDefecto;
     private javax.swing.JButton btnINICIO;
     private javax.swing.JButton btnReiniciar;
     private javax.swing.JTable jMostrarPersonas;
