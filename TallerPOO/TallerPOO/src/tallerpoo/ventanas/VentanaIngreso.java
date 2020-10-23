@@ -245,34 +245,40 @@ public class VentanaIngreso extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
     private void btnAddPersonaPorDefectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPersonaPorDefectoActionPerformed
-        if (TallerPOO.getPersona().size() != 100) {
-            for (int i = 0; i < 28; i++) {
-                pNinio = new Persona(Edad.NIÑOS, false, false, cuidadonino, comorbilidadNino, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
-                TallerPOO.agregarPersona(pNinio);
-            }
-
-            for (int i = 0; i < 31; i++) {
-                pAdulto = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadAdulto, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
-                TallerPOO.agregarPersona(pAdulto);
-            }
-
-            for (int i = 0; i < 5; i++) {
-                pObe = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadObesidad, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
-                TallerPOO.agregarPersona(pObe);
-            }
-
-            for (int i = 0; i < 34; i++) {
-                pAdultoM = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdultoM, comorbilidadAdultoM, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
-                TallerPOO.agregarPersona(pAdultoM);
-            }
-
-            for (int i = 0; i < 2; i++) {
-                pCard = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdultoM, comorbilidadECardiológica, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
-                TallerPOO.agregarPersona(pCard);
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "El limite de personas es 100");
-        }
+        pNinio = new Persona(Edad.NIÑOS, false, false, cuidadonino, comorbilidadNino, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+        TallerPOO.agregarPersona(pNinio);
+        pAdulto = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadAdulto, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+        TallerPOO.agregarPersona(pAdulto);
+        pCard = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdultoM, comorbilidadECardiológica, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+        TallerPOO.agregarPersona(pCard);
+//        if (TallerPOO.getPersona().size() != 100) {
+//            for (int i = 0; i < 28; i++) {
+//                pNinio = new Persona(Edad.NIÑOS, false, false, cuidadonino, comorbilidadNino, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+//                TallerPOO.agregarPersona(pNinio);
+//            }
+//
+//            for (int i = 0; i < 31; i++) {
+//                pAdulto = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadAdulto, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+//                TallerPOO.agregarPersona(pAdulto);
+//            }
+//
+//            for (int i = 0; i < 5; i++) {
+//                pObe = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadObesidad, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+//                TallerPOO.agregarPersona(pObe);
+//            }
+//
+//            for (int i = 0; i < 34; i++) {
+//                pAdultoM = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdultoM, comorbilidadAdultoM, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+//                TallerPOO.agregarPersona(pAdultoM);
+//            }
+//
+//            for (int i = 0; i < 2; i++) {
+//                pCard = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdultoM, comorbilidadECardiológica, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+//                TallerPOO.agregarPersona(pCard);
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(null, "El limite de personas es 100");
+//        }
     }//GEN-LAST:event_btnAddPersonaPorDefectoActionPerformed
 
     /**
