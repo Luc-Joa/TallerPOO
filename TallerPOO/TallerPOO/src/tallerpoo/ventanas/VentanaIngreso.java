@@ -16,20 +16,6 @@ import javax.swing.table.DefaultTableModel;
 
 public class VentanaIngreso extends javax.swing.JFrame {
 
-    TipoCuidado cuidadonino = new TipoCuidado(false, false, false, false);
-    TipoCuidado cuidadoAdulto = new TipoCuidado(true, false, true, false);
-    TipoCuidado cuidadoAdultoM = new TipoCuidado(true, true, true, true);
-    Comorbilidad comorbilidadNino = new Comorbilidad(false, false, false, false, false);
-    Comorbilidad comorbilidadAdulto = new Comorbilidad(false, false, false, false, false);
-    Comorbilidad comorbilidadAdultoM = new Comorbilidad(false, false, false, false, false);
-    Comorbilidad comorbilidadObesidad = new Comorbilidad(false, false, true, false, false);
-    Comorbilidad comorbilidadECardiológica = new Comorbilidad(false, false, false, true, false);
-    Persona pObe = new Persona();
-    Persona pCard = new Persona();
-    Persona pNinio = new Persona();
-    Persona pAdulto = new Persona();
-    Persona pAdultoM = new Persona();
-
     /**
      * Creates new form VentanaIngresoo
      */
@@ -245,14 +231,22 @@ public class VentanaIngreso extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReiniciarActionPerformed
 
     private void btnAddPersonaPorDefectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPersonaPorDefectoActionPerformed
-//        pNinio = new Persona(Edad.NIÑOS, false, false, cuidadonino, comorbilidadNino, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
-//        TallerPOO.agregarPersona(pNinio);
-//        pAdulto = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadAdulto, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
-//        TallerPOO.agregarPersona(pAdulto);
-//        pCard = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdultoM, comorbilidadECardiológica, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
-//        TallerPOO.agregarPersona(pCard);
+        TipoCuidado cuidadonino = new TipoCuidado(false, false, false, false);
+        TipoCuidado cuidadoAdulto = new TipoCuidado(true, false, true, false);
+        TipoCuidado cuidadoAdultoM = new TipoCuidado(true, true, true, true);
+        Comorbilidad comorbilidadNino = new Comorbilidad(false, false, false, false, false);
+        Comorbilidad comorbilidadAdulto = new Comorbilidad(false, false, false, false, false);
+        Comorbilidad comorbilidadAdultoM = new Comorbilidad(false, false, false, false, false);
+        Comorbilidad comorbilidadObesidad = new Comorbilidad(false, false, true, false, false);
+        Comorbilidad comorbilidadECardiológica = new Comorbilidad(false, false, false, true, false);
+        Persona pObe = new Persona();
+        Persona pCard = new Persona();
+        Persona pNinio = new Persona();
+        Persona pAdulto = new Persona();
+        Persona pAdultoM = new Persona();
+
         if (TallerPOO.getPersona().size() != 100) {
-            for (int i = 0; i <10; i++) {
+            for (int i = 0; i < 10; i++) {
                 pNinio = new Persona(Edad.NIÑOS, false, false, cuidadonino, comorbilidadNino, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
                 TallerPOO.agregarPersona(pNinio);
             }
