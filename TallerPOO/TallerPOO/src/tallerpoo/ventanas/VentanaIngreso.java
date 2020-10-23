@@ -246,12 +246,12 @@ public class VentanaIngreso extends javax.swing.JFrame {
         Persona pAdultoM = new Persona();
 
         if (TallerPOO.getPersona().size() != 100) {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 28; i++) {
                 pNinio = new Persona(Edad.NIÑOS, false, false, cuidadonino, comorbilidadNino, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
                 TallerPOO.agregarPersona(pNinio);
             }
 
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 31; i++) {
                 pAdulto = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadAdulto, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
                 TallerPOO.agregarPersona(pAdulto);
             }
@@ -261,7 +261,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
                 TallerPOO.agregarPersona(pObe);
             }
 
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 34; i++) {
                 pAdultoM = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdultoM, comorbilidadAdultoM, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
                 TallerPOO.agregarPersona(pAdultoM);
             }

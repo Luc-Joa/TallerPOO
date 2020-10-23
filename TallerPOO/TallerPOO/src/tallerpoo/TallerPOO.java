@@ -15,7 +15,7 @@ public class TallerPOO {
     private static List<Persona> persona = new ArrayList<>();
     private static Actividad act = new Actividad();
     private static Hospital h = new Hospital();
-
+    
     public static void main(String[] args) throws InterruptedException {
         VentanaIngreso vIng = new VentanaIngreso();
         vIng.setVisible(true);

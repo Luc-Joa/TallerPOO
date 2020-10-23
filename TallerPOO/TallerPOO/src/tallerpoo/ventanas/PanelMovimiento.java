@@ -5,10 +5,8 @@
  */
 package tallerpoo.ventanas;
 
-import TallerPoo.Actividad;
 import TallerPoo.Comorbilidad;
 import TallerPoo.Edad;
-import TallerPoo.Hospital;
 import TallerPoo.Persona;
 import TallerPoo.TallerPOO;
 import TallerPoo.TipoCuidado;
@@ -21,73 +19,36 @@ import java.util.List;
  */
 public class PanelMovimiento extends javax.swing.JInternalFrame {
 
-    List<Thread> hiloAdulto = new ArrayList();
-    List<Thread> hiloNino = new ArrayList();
-    List<Thread> hiloMayor = new ArrayList();
+    List<Thread> hiloPersona = new ArrayList();
+    List<FiguraPersona> personas = new ArrayList();
 
     /**
      * Creates new form PanelMovimiento
      */
     public PanelMovimiento() {
         initComponents();
-        panelNinos();
-        panelAdultos();
-        panelMayores();
+        agregarPersonas();
+        jpanelInformacion1= new jpanelInformacion(personas);
     }
 
-    /**
-     * Panel que muestra la actividad realizada por adultos (trabajo)
-     */
-    public void panelAdultos() {
-        FiguraPersona[] p = new FiguraPersona[TallerPOO.getAdultos().size()];
-        for (int i = 0; i < p.length; i++) {
-            p[i] = new FiguraPersona(TallerPOO.getAdultos().get(i), panelSimulacionGeneral1);
-            panelSimulacionGeneral1.add(p[i]);
+    public void agregarPersonas() {
+        for (int i = 0; i < TallerPOO.getPersona().size(); i++) {
+            personas.add(new FiguraPersona(TallerPOO.getPersona().get(i), panelSimulacionGeneral1));
+            panelSimulacionGeneral1.add(personas.get(i));
         }
-
-        for (int i = 0; i < p.length; i++) {
-            hiloAdulto.add(new Thread(new HiloPersona(p[i])));
+        for (int i = 0; i <personas.size(); i++) {
+            hiloPersona.add(new Thread(new HiloPersona(personas.get(i))));
+            
         }
-        for (int i = 0; i < hiloAdulto.size(); i++) {
-            hiloAdulto.get(i).start();
+        for (int i = 0; i < personas.size(); i++) {
+            hiloPersona.get(i).start();
+            
         }
     }
 
-    /**
-     * Panel que muestra la actividad realizada por adultos mayores (paseo)
-     */
-    public void panelMayores() {
-        FiguraPersona[] p = new FiguraPersona[TallerPOO.getMayores().size()];
-        for (int i = 0; i < p.length; i++) {
-            p[i] = new FiguraPersona(TallerPOO.getMayores().get(i), panelSimulacionGeneral1);
-            panelSimulacionGeneral1.add(p[i]);
-        }
 
-        for (int i = 0; i < p.length; i++) {
-            hiloMayor.add(new Thread(new HiloPersona(p[i])));
-        }
-        for (int i = 0; i < hiloMayor.size(); i++) {
-            hiloMayor.get(i).start();
-        }
-    }
 
-    /**
-     * Panel que muestra la actividad realizada por los niños (escuela)
-     */
-    public void panelNinos() {
-        FiguraPersona[] p = new FiguraPersona[TallerPOO.getNinos().size()];
-        for (int i = 0; i < p.length; i++) {
-            p[i] = new FiguraPersona(TallerPOO.getNinos().get(i), panelSimulacionGeneral1);
-            panelSimulacionGeneral1.add(p[i]);
-        }
-
-        for (int i = 0; i < p.length; i++) {
-            hiloNino.add(new Thread(new HiloPersona(p[i])));
-        }
-        for (int i = 0; i < hiloNino.size(); i++) {
-            hiloNino.get(i).start();
-        }
-    }
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -152,11 +113,9 @@ public class PanelMovimiento extends javax.swing.JInternalFrame {
         TipoCuidado t1 = new TipoCuidado(true, true, true, true);
         TipoCuidado t2 = new TipoCuidado(false, false, true, true);
         TipoCuidado t3 = new TipoCuidado(true, true, false, false);
-        Actividadaact = new Actividad();
-        Hospital h = new Hospital();
-        pAdultos[0] = new Persona(Edad.ADULTOS, true, false, t2, co1, act, 321, h);
-        pAdultos[1] = new Persona(Edad.ADULTOS, true, false, t1, co1, act, 322, h);
-        pAdultos[2] = new Persona(Edad.ADULTOS, true, false, t3, co1, act, 323, h);
+        pAdultos[0] = new Persona(Edad.ADULTOS, true, false, t2, co1, TallerPOO.getActividad(), 321, TallerPOO.getHospital());
+        pAdultos[1] = new Persona(Edad.ADULTOS, true, false, t1, co1, TallerPOO.getActividad(), 322, TallerPOO.getHospital());
+        pAdultos[2] = new Persona(Edad.ADULTOS, true, false, t3, co1, TallerPOO.getActividad(), 323, TallerPOO.getHospital());
         for (int i = 0; i < p.length; i++) {
             p[i] = new FiguraPersona(pAdultos[i], panelSimulacionGeneral1);
             panelSimulacionGeneral1.add(p[i]);

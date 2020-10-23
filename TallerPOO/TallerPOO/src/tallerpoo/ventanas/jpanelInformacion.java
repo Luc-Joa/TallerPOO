@@ -8,6 +8,7 @@ package tallerpoo.ventanas;
 import TallerPoo.Persona;
 import TallerPoo.TallerPOO;
 import TallerPoo.TipoCuidado;
+import java.util.List;
 
 public class jpanelInformacion extends javax.swing.JPanel implements Runnable {
 
@@ -15,18 +16,30 @@ public class jpanelInformacion extends javax.swing.JPanel implements Runnable {
     TipoCuidado tcmc = new TipoCuidado(true, true, true, true);
     TipoCuidado tcslm = new TipoCuidado(false, false, true, false);
     TipoCuidado tcstb = new TipoCuidado(true, false, false, false);
+    List<FiguraPersona> persona;
+
+    public jpanelInformacion() {
+    }
 
     /**
      * Creates new form jpanelInformacion
      */
-    public jpanelInformacion() {
+    public jpanelInformacion(List<FiguraPersona> p) {
         initComponents();
-
+        persona=p;
         Thread inf = new Thread(this);
 
         inf.start();
     }
-
+    public int contagiados(){
+       int c=0;
+        for (FiguraPersona fp : persona) {
+            if (fp.getContagio()) {
+                c++;
+            }
+        }
+        return c;
+    }
     public void Cuidados() {
         System.out.println(TallerPOO.getPersona().size());
         for (int i = 0; i < TallerPOO.getPersona().size(); i++) {
@@ -145,8 +158,8 @@ public class jpanelInformacion extends javax.swing.JPanel implements Runnable {
         jPSoloTapabocas.setText("Personas solo tapabocas : " + this.PSoloTapabocas);
         while (true) {
 
-            jPC.setText("Personas Contagiadas: " + TallerPOO.getHospital().getPerCont().size());
-            jPS.setText("Personas Sanas: " + (TallerPOO.getPersona().size() - TallerPOO.getHospital().getPerCont().size()));
+            jPC.setText("Personas Contagiadas: " + contagiados());
+            jPS.setText("Personas Sanas: " + (TallerPOO.getPersona().size() - contagiados()));
         }
     }
 }

@@ -231,8 +231,5 @@ public class FiguraPersona extends Persona {
         if (x == x1) {
             dir = 0;
         }
-//        if (this.getSintoma()) {
-
-//        }
     }
 }
