@@ -10,8 +10,14 @@ import java.util.logging.Logger;
 
 public class HiloPersona extends Thread {
 
+    Comorbilidad comorbilidadObesidad = new Comorbilidad(false, false, true, false, false); 
+    Comorbilidad comorbilidadHArterial = new Comorbilidad(false, true, false, false, false); 
+    Comorbilidad comorbilidadDiabetes = new Comorbilidad(true, false, false, false, false); 
+    Comorbilidad comorbilidadECardiológica = new Comorbilidad(false, false, false, true, false);
+    Comorbilidad comorbilidadEPulmonares = new Comorbilidad(false, false, false, false, true);
+    
     private FiguraPersona p;
-
+    
     public HiloPersona(FiguraPersona p) {
         this.p = p;
     }
@@ -27,9 +33,16 @@ public class HiloPersona extends Thread {
             camino();
             actividad();
             volver();
-//            if (p.getSintoma()) {
+            if (p.getSintoma()) {
                 hospital();
-//            }
+                if (p.getComorbilidad().equals(comorbilidadObesidad) || p.getComorbilidad().equals(comorbilidadHArterial) || p.getComorbilidad().equals(comorbilidadDiabetes)) {
+                    //entra en CM
+                } else if (p.getComorbilidad().equals(comorbilidadECardiológica) || p.getComorbilidad().equals(comorbilidadEPulmonares)) {
+                    //entra en CTI
+                }
+            } else {
+                volver();
+            }
         }
     }
 
