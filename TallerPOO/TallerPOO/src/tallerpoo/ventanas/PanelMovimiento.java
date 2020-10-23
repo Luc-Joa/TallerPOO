@@ -5,7 +5,13 @@
  */
 package tallerpoo.ventanas;
 
+import TallerPoo.Actividad;
+import TallerPoo.Comorbilidad;
+import TallerPoo.Edad;
+import TallerPoo.Hospital;
+import TallerPoo.Persona;
 import TallerPoo.TallerPOO;
+import TallerPoo.TipoCuidado;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,6 +101,14 @@ public class PanelMovimiento extends javax.swing.JInternalFrame {
         panelSimulacionGeneral1 = new tallerpoo.ventanas.PanelSimulacionGeneral();
         jpanelHospital1 = new tallerpoo.ventanas.jpanelHospital();
         jpanelInformacion1 = new tallerpoo.ventanas.jpanelInformacion();
+        jButton1 = new javax.swing.JButton();
+
+        jButton1.setText("Agregar Contagiados");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,19 +118,23 @@ public class PanelMovimiento extends javax.swing.JInternalFrame {
                 .addComponent(panelSimulacionGeneral1, javax.swing.GroupLayout.PREFERRED_SIZE, 1012, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jpanelInformacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jpanelHospital1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(jpanelInformacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelSimulacionGeneral1, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
+            .addComponent(panelSimulacionGeneral1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpanelInformacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jpanelHospital1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -125,8 +143,36 @@ public class PanelMovimiento extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Persona[] pAdultos = new Persona[3];
+        FiguraPersona[] p = new FiguraPersona[3];
+        Comorbilidad co1 = new Comorbilidad(false, true, true, false, false);
+        Comorbilidad co2 = new Comorbilidad(true, false, true, false, false);
+        Comorbilidad co3 = new Comorbilidad(false, true, false, true, true);
+        TipoCuidado t1 = new TipoCuidado(true, true, true, true);
+        TipoCuidado t2 = new TipoCuidado(false, false, true, true);
+        TipoCuidado t3 = new TipoCuidado(true, true, false, false);
+        Actividadaact = new Actividad();
+        Hospital h = new Hospital();
+        pAdultos[0] = new Persona(Edad.ADULTOS, true, false, t2, co1, act, 321, h);
+        pAdultos[1] = new Persona(Edad.ADULTOS, true, false, t1, co1, act, 322, h);
+        pAdultos[2] = new Persona(Edad.ADULTOS, true, false, t3, co1, act, 323, h);
+        for (int i = 0; i < p.length; i++) {
+            p[i] = new FiguraPersona(pAdultos[i], panelSimulacionGeneral1);
+            panelSimulacionGeneral1.add(p[i]);
+        }
+        Thread[] a = new Thread[3];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = new Thread(new HiloPersona(p[i]));
+        }
+        for (int i = 0; i < a.length; i++) {
+            a[i].start();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private tallerpoo.ventanas.jpanelHospital jpanelHospital1;
     private tallerpoo.ventanas.jpanelInformacion jpanelInformacion1;
     private tallerpoo.ventanas.PanelSimulacionGeneral panelSimulacionGeneral1;
