@@ -17,16 +17,32 @@ public class HiloPersona extends Thread {
     }
 
     @Override
-    public void run() {      
+    public void run() {
         try {
             sleep((int) (p.getID() * 1000));
         } catch (InterruptedException ex) {
             Logger.getLogger(HiloPersona.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-        camino();
-        actividad();
+        while (true) {
+            camino();
+            actividad();
+            volver();
+//            if (p.getSintoma()) {
+                hospital();
+//            }
+        }
+    }
 
+    private void volver() {
+        while (!p.llego()) {
+            p.vuelta();
+            p.mover(p.getDir());
+            try {
+                sleep((int) (Math.random() * 40));
+            } catch (InterruptedException ex) {
+                Logger.getLogger(HiloPersona.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     private void actividad() {
@@ -37,7 +53,7 @@ public class HiloPersona extends Thread {
         while (t) {
             contador = 60;
             tiempo += contador;
-            if (tiempo >= 120000) {
+            if (tiempo >= 12000) {
                 t = false;
             }
             p.rebotar();
@@ -56,6 +72,19 @@ public class HiloPersona extends Thread {
     private void camino() {
         while (!p.llego()) {
             p.camino();
+            p.mover(p.getDir());
+            try {
+                sleep((int) (Math.random() * 40));
+            } catch (InterruptedException ex) {
+                Logger.getLogger(HiloPersona.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    private void hospital() {
+        p.hospital();
+        while (!p.llego()) {
+            p.hospital();
             p.mover(p.getDir());
             try {
                 sleep((int) (Math.random() * 40));

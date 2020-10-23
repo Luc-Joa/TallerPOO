@@ -191,4 +191,36 @@ public class FiguraPersona extends Persona {
         }
         return false;
     }
+
+    public void vuelta() {
+        x1 = 950;
+        y1 = 40;
+        switch (this.getEdad()) {
+            case NIÑOS:
+                dir = 1;
+                if (y == y1) {
+                    dir = 2;
+                }
+                break;
+            case ADULTOS:
+                dir = 2;
+                break;
+            case ADULTOS_MAYORES:
+                dir = 1;
+                if (y == y1) {
+                    dir = 2;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void hospital() {
+        x1 = 950;
+        y1 = 500;
+        if (this.getSintoma()) {
+            dir = 0;
+        }
+    }
 }
