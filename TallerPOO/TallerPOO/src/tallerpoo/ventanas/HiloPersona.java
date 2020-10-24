@@ -5,15 +5,14 @@
  */
 package tallerpoo.ventanas;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class HiloPersona extends Thread {
 
-
-    
     private FiguraPersona p;
-    
+
     public HiloPersona(FiguraPersona p) {
         this.p = p;
     }
@@ -26,11 +25,18 @@ public class HiloPersona extends Thread {
             Logger.getLogger(HiloPersona.class.getName()).log(Level.SEVERE, null, ex);
         }
         while (true) {
+            p.setPr(new ArrayList<>());
             camino();
             actividad();
             volver();
-            hospital();
-            volverHospital();
+            if (p.getSintoma()) {
+                hospital();
+                if (p.getContagio()) {
+                    p.consulta();
+                    break;
+                }
+                volverHospital();
+            }
         }
     }
 
@@ -55,7 +61,7 @@ public class HiloPersona extends Thread {
         while (t) {
             contador = 60;
             tiempo += contador;
-            if (tiempo >= 12000) {
+            if (tiempo >= 120000) {
                 t = false;
             }
             p.rebotar();
@@ -93,6 +99,7 @@ public class HiloPersona extends Thread {
             }
         }
     }
+
     private void volverHospital() {
         p.volverHospital();
         while (!p.llego()) {

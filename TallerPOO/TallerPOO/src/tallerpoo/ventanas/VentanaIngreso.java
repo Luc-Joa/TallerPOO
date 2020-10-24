@@ -22,7 +22,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
     public VentanaIngreso() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        btnAddPersonaPorDefecto.setToolTipText("Agrega 28 niños, 31 adultos y 34 adultos mayores, también 2 adultos mayores con enfermedades cardiológicas y 5 adultos con obesidad");
+        btnAddPersonaPorDefecto.setToolTipText("Agrega 29 niños, 30 adultos y 32 adultos mayores, también 2 adultos mayores con enfermedades cardiológicas, 5 adultos con obesidad y 2 persona contagiada");
     }
 
     /**
@@ -192,7 +192,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
 
     private void btnINICIOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnINICIOActionPerformed
         PanelMovimiento panel = new PanelMovimiento();
-        jdEscritorio.add(panel);
+        panel.setExtendedState(JFrame.MAXIMIZED_BOTH);
         panel.setVisible(true);
     }//GEN-LAST:event_btnINICIOActionPerformed
 
@@ -234,9 +234,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
         TipoCuidado cuidadonino = new TipoCuidado(false, false, false, false);
         TipoCuidado cuidadoAdulto = new TipoCuidado(true, false, true, false);
         TipoCuidado cuidadoAdultoM = new TipoCuidado(true, true, true, true);
-        Comorbilidad comorbilidadNino = new Comorbilidad(false, false, false, false, false);
-        Comorbilidad comorbilidadAdulto = new Comorbilidad(false, false, false, false, false);
-        Comorbilidad comorbilidadAdultoM = new Comorbilidad(false, false, false, false, false);
+        Comorbilidad comorbilidadNing = new Comorbilidad(false, false, false, false, false);
         Comorbilidad comorbilidadObesidad = new Comorbilidad(false, false, true, false, false);
         Comorbilidad comorbilidadECardiológica = new Comorbilidad(false, false, false, true, false);
         Persona pObe = new Persona();
@@ -244,31 +242,46 @@ public class VentanaIngreso extends javax.swing.JFrame {
         Persona pNinio = new Persona();
         Persona pAdulto = new Persona();
         Persona pAdultoM = new Persona();
+        Persona pContA = new Persona();
+        Persona pContAM = new Persona();
 
         if (TallerPOO.getPersona().size() != 100) {
-            for (int i = 0; i < 28; i++) {
-                pNinio = new Persona(Edad.NIÑOS, false, false, cuidadonino, comorbilidadNino, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+//            for (int i = 0; i < 29; i++) {
+            for (int i = 0; i < 10; i++) {
+                pNinio = new Persona(Edad.NIÑOS, false, false, cuidadonino, comorbilidadNing, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
                 TallerPOO.agregarPersona(pNinio);
             }
 
-            for (int i = 0; i < 31; i++) {
-                pAdulto = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadAdulto, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+//            for (int i = 0; i < 30; i++) {
+            for (int i = 0; i < 10; i++) {
+                pAdulto = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadNing, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
                 TallerPOO.agregarPersona(pAdulto);
             }
 
-            for (int i = 0; i < 5; i++) {
-                pObe = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadObesidad, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
-                TallerPOO.agregarPersona(pObe);
+//            for (int i = 0; i < 5; i++) {
+//                pObe = new Persona(Edad.ADULTOS, false, false, cuidadoAdulto, comorbilidadObesidad, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+//                TallerPOO.agregarPersona(pObe);
+//            }
+
+            for (int i = 0; i < 1; i++) {
+                pContA = new Persona(Edad.ADULTOS, true, false, cuidadoAdulto, comorbilidadNing, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+                TallerPOO.agregarPersona(pContA);
             }
 
-            for (int i = 0; i < 34; i++) {
-                pAdultoM = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdultoM, comorbilidadAdultoM, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+//            for (int i = 0; i < 32; i++) {
+            for (int i = 0; i < 10; i++) {
+                pAdultoM = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdultoM, comorbilidadNing, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
                 TallerPOO.agregarPersona(pAdultoM);
             }
 
-            for (int i = 0; i < 2; i++) {
-                pCard = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdultoM, comorbilidadECardiológica, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
-                TallerPOO.agregarPersona(pCard);
+//            for (int i = 0; i < 2; i++) {
+//                pCard = new Persona(Edad.ADULTOS_MAYORES, false, false, cuidadoAdultoM, comorbilidadECardiológica, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+//                TallerPOO.agregarPersona(pCard);
+//            }
+
+            for (int i = 0; i < 1; i++) {
+                pContAM = new Persona(Edad.ADULTOS_MAYORES, true, false, cuidadoAdulto, comorbilidadNing, TallerPOO.getActividad(), TallerPOO.getCont(), TallerPOO.getHospital());
+                TallerPOO.agregarPersona(pContAM);
             }
         } else {
             JOptionPane.showMessageDialog(null, "El limite de personas es 100");

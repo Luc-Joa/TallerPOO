@@ -9,6 +9,8 @@ import TallerPoo.Persona;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FiguraPersona extends Persona {
 
@@ -17,6 +19,8 @@ public class FiguraPersona extends Persona {
     int y, y1;
     int dir;
     private final int vel = 1;
+
+    private List<Integer> pr = new ArrayList<>();
 
     /**
      * Constructor Parametrizado
@@ -52,6 +56,18 @@ public class FiguraPersona extends Persona {
 
     public void setCanvas(Component canvas) {
         this.canvas = canvas;
+    }
+
+    public void setPr(List<Integer> pr) {
+        this.pr = pr;
+    }
+
+    public void registroPersona(int id) {
+        pr.add(id);
+    }
+
+    public boolean personaRepetida(int id) {
+        return pr.contains(id);
     }
 
     /**
@@ -140,23 +156,23 @@ public class FiguraPersona extends Persona {
      * direccion
      */
     public void rebotar() {
-        if (y <= y1 - 50) {
+        if (y <= y1 - 150) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 7 : nr == 2 ? 0 : 4;
         }
-        if (x <= x1 - 50) {
+        if (x <= x1 - 150) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 2 : nr == 2 ? 6 : 4;
         }
-        if (x <= x1 - 50 && y <= y1 - 50) {
+        if (x <= x1 - 150 && y <= y1 - 150) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 0 : nr == 2 ? 2 : 4;
         }
-        if (x >= x1 + 50) {
+        if (x >= x1 + 150) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 5 : nr == 2 ? 7 : 3;
         }
-        if (y >= y1 + 50) {
+        if (y >= y1 + 150) {
             int nr = (int) (Math.random() * 3) + 1;
             dir = nr == 1 ? 6 : nr == 2 ? 1 : 5;
         }
@@ -181,6 +197,20 @@ public class FiguraPersona extends Persona {
      */
     public Rectangle getBounds() {
         return new Rectangle(x, y, 10, 10);
+    }
+
+    public boolean casaRec() {
+        if (x >= 900 && y <= 100) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean hospitalRec() {
+        if (x >= 900 && y <= 500) {
+            return true;
+        }
+        return false;
     }
 
     public boolean llego() {
@@ -227,7 +257,7 @@ public class FiguraPersona extends Persona {
 
     public void hospital() {
         this.x1 = 950;
-        this.y1 = 550;
+        this.y1 = 570;
         if (x == x1) {
             dir = 0;
         }

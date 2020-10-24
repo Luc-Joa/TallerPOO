@@ -10,6 +10,7 @@ import TallerPoo.Edad;
 import TallerPoo.Persona;
 import TallerPoo.TallerPOO;
 import TallerPoo.TipoCuidado;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import java.util.List;
  *
  * @author Joaquin
  */
-public class PanelMovimiento extends javax.swing.JInternalFrame {
+public class PanelMovimiento extends javax.swing.JFrame {
 
     List<Thread> hiloPersona = new ArrayList();
     List<FiguraPersona> personas = new ArrayList();
@@ -28,7 +29,8 @@ public class PanelMovimiento extends javax.swing.JInternalFrame {
     public PanelMovimiento() {
         initComponents();
         agregarPersonas();
-        jpanelInformacion1= new jpanelInformacion(personas);
+        jpanelInformacion1.setPersona(personas);
+        getContentPane().setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
     }
 
     public void agregarPersonas() {
@@ -36,19 +38,15 @@ public class PanelMovimiento extends javax.swing.JInternalFrame {
             personas.add(new FiguraPersona(TallerPOO.getPersona().get(i), panelSimulacionGeneral1));
             panelSimulacionGeneral1.add(personas.get(i));
         }
-        for (int i = 0; i <personas.size(); i++) {
+        for (int i = 0; i < personas.size(); i++) {
             hiloPersona.add(new Thread(new HiloPersona(personas.get(i))));
-            
+
         }
         for (int i = 0; i < personas.size(); i++) {
             hiloPersona.get(i).start();
-            
+
         }
     }
-
-
-
- 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -78,26 +76,26 @@ public class PanelMovimiento extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelSimulacionGeneral1, javax.swing.GroupLayout.PREFERRED_SIZE, 1012, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(jpanelInformacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jpanelHospital1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jpanelInformacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelSimulacionGeneral1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpanelInformacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jpanelHospital1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jpanelHospital1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 

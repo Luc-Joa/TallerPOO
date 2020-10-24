@@ -5,7 +5,6 @@
  */
 package tallerpoo.ventanas;
 
-import TallerPoo.Persona;
 import TallerPoo.TallerPOO;
 import TallerPoo.TipoCuidado;
 import java.util.List;
@@ -18,21 +17,22 @@ public class jpanelInformacion extends javax.swing.JPanel implements Runnable {
     TipoCuidado tcstb = new TipoCuidado(true, false, false, false);
     List<FiguraPersona> persona;
 
-    public jpanelInformacion() {
-    }
-
     /**
      * Creates new form jpanelInformacion
      */
-    public jpanelInformacion(List<FiguraPersona> p) {
+    public jpanelInformacion() {
         initComponents();
-        persona=p;
         Thread inf = new Thread(this);
 
         inf.start();
     }
-    public int contagiados(){
-       int c=0;
+
+    public void setPersona(List<FiguraPersona> persona) {
+        this.persona = persona;
+    }
+
+    public int contagiados() {
+        int c = 0;
         for (FiguraPersona fp : persona) {
             if (fp.getContagio()) {
                 c++;
@@ -40,6 +40,7 @@ public class jpanelInformacion extends javax.swing.JPanel implements Runnable {
         }
         return c;
     }
+
     public void Cuidados() {
         System.out.println(TallerPOO.getPersona().size());
         for (int i = 0; i < TallerPOO.getPersona().size(); i++) {

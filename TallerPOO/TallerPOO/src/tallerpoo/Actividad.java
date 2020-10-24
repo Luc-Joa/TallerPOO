@@ -6,10 +6,13 @@
 package TallerPoo;
 
 import java.awt.Color;
+import java.awt.Rectangle;
 
 public class Actividad {
 
     final int horaPaseo, horaEscuela, horaTrabajo;
+
+    private Rectangle rec;
 
     /**
      * Constructor por defecto de Actividad
@@ -29,20 +32,16 @@ public class Actividad {
      */
     public void Contagio(Persona a, Persona b) {
         if (a.getContagio() && !b.getContagio()) {
-            if (Math.random() < 0.1) {
-                if ((Math.random() * 100) < interactuar(a, b)) {
-                    b.setColor(Color.red);
-                    b.setContagio(Boolean.TRUE);
-                }
+            if ((Math.random() * 100) < interactuar(a, b)) {
+                b.setColor(Color.red);
+                b.setContagio(Boolean.TRUE);
             }
 
         }
         if (!a.getContagio() && b.getContagio()) {
-            if (Math.random() < 0.1) {
-                if ((Math.random() * 100) < interactuar(b, a)) {
-                    a.setColor(Color.red);
-                    a.setContagio(Boolean.TRUE);
-                }
+            if ((Math.random() * 100) < interactuar(b, a)) {
+                a.setColor(Color.red);
+                a.setContagio(Boolean.TRUE);
             }
         }
     }

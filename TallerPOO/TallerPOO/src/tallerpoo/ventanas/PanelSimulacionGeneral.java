@@ -39,11 +39,15 @@ public class PanelSimulacionGeneral extends javax.swing.JPanel {
         }
         for (int i = 0; i < p.size(); i++) {
             for (int j = 0; j < p.size(); j++) {
-                if (collision(p.get(i), p.get(j)) && j != i) {
-                    if (!p.get(i).getContagio() && p.get(j).getContagio()) {
+                if (collision(p.get(i), p.get(j)) && j != i && !p.get(i).casaRec() && !p.get(i).hospitalRec()) {
+                    if (!p.get(i).getContagio() && p.get(j).getContagio() && p.get(i).personaRepetida(p.get(j).getID())) {
                         p.get(i).actividad(p.get(j));
-                    } else if (p.get(i).getContagio() && !p.get(j).getContagio()) {
+                        p.get(i).registroPersona(p.get(j).getID());
+                        p.get(j).registroPersona(p.get(i).getID());
+                    } else if (p.get(i).getContagio() && !p.get(j).getContagio() && p.get(i).personaRepetida(p.get(j).getID())) {
                         p.get(j).actividad(p.get(i));
+                        p.get(i).registroPersona(p.get(j).getID());
+                        p.get(j).registroPersona(p.get(i).getID());
                     }
                 }
             }
